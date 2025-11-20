@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Icons</title>
+</head>
+<body>
+    <h1>Generatore Icone PWA</h1>
+    <canvas id="canvas192" width="192" height="192"></canvas>
+    <canvas id="canvas512" width="512" height="512"></canvas>
+    <br><br>
+    <button onclick="downloadIcons()">Scarica Icone</button>
+
+    <script>
+        // Funzione per disegnare l'icona
+        function drawIcon(canvas) {
+            const ctx = canvas.getContext('2d');
+            const size = canvas.width;
+
+            // Gradiente di sfondo
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+
+            // Sfondo con bordi arrotondati
+            ctx.fillStyle = gradient;
+            const radius = size * 0.15;
+            ctx.beginPath();
+            ctx.moveTo(radius, 0);
+            ctx.lineTo(size - radius, 0);
+            ctx.quadraticCurveTo(size, 0, size, radius);
+            ctx.lineTo(size, size - radius);
+            ctx.quadraticCurveTo(size, size, size - radius, size);
+            ctx.lineTo(radius, size);
+            ctx.quadraticCurveTo(0, size, 0, size - radius);
+            ctx.lineTo(0, radius);
+            ctx.quadraticCurveTo(0, 0, radius, 0);
+            ctx.closePath();
+            ctx.fill();
+
+            // Testo "Q"
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.4}px Arial, sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Q', size / 2, size * 0.42);
+
+            // Testo "VIT"
+            ctx.font = `bold ${size * 0.15}px Arial, sans-serif`;
+            ctx.globalAlpha = 0.9;
+            ctx.fillText('VIT', size / 2, size * 0.72);
+        }
+
+        // Disegna le icone
+        drawIcon(document.getElementById('canvas192'));
+        drawIcon(document.getElementById('canvas512'));
+
+        // Funzione per scaricare
+        function downloadIcons() {
+            // Icona 192x192
+            const canvas192 = document.getElementById('canvas192');
+            const link192 = document.createElement('a');
+            link192.download = 'icon-192.png';
+            link192.href = canvas192.toDataURL('image/png');
+            link192.click();
+
+            // Icona 512x512
+            setTimeout(() => {
+                const canvas512 = document.getElementById('canvas512');
+                const link512 = document.createElement('a');
+                link512.download = 'icon-512.png';
+                link512.href = canvas512.toDataURL('image/png');
+                link512.click();
+            }, 500);
+
+            alert('Icone scaricate! Sposta i file icon-192.png e icon-512.png nella cartella quiz-app-mobile/');
+        }
+    </script>
+</body>
+</html>
