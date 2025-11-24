@@ -1363,8 +1363,8 @@ body.dark-mode .stat-badge {
 
 .btn-filter.active {
     border-color: var(--primary);
-    background: var(--primary);
-    color: white;
+    background: var(--primary) !important;
+    color: white !important;
 }
 
 .btn-filter i {
@@ -1377,6 +1377,10 @@ body.dark-mode .btn-filter {
 
 body.dark-mode .btn-filter:hover {
     background: rgba(13, 110, 253, 0.2);
+}
+
+body.dark-mode .btn-filter.active {
+    color: white !important;
 }
 
 .palette-legend {
@@ -1518,6 +1522,20 @@ body.dark-mode .palette-cell.unanswered {
     color: #e5e7eb;
 }
 
+/* Flagged cells - use darker text for better visibility */
+.palette-cell.flagged {
+    background: #fff3cd !important; /* Light yellow background */
+    color: #000 !important; /* Black text */
+    border: 2px solid var(--warning) !important;
+}
+
+body.dark-mode .palette-cell.flagged {
+    background: #6c5709 !important; /* Dark yellow background */
+    color: #fff !important; /* White text */
+    border-color: var(--warning) !important;
+}
+
+/* Flagged badge */
 .palette-cell.flagged::after {
     content: '\F288'; /* bi-flag-fill */
     font-family: 'bootstrap-icons';
