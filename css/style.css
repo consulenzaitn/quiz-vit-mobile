@@ -1203,7 +1203,9 @@ body.dark-mode .answer-btn.correct {
     left: 0;
     right: 0;
     height: 65px;
-    background: var(--bg-primary);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-around;
@@ -1214,7 +1216,9 @@ body.dark-mode .answer-btn.correct {
 }
 
 body.dark-mode .bottom-nav {
-    background: #1a1d29;
+    background: rgba(26, 29, 41, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     border-top-color: #2d3748;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
