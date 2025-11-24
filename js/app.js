@@ -351,8 +351,20 @@ function loadEmbeddedData() {
         config = savedConfig;
         console.log(`📱 VIT Cyber: Config caricata: ${Object.keys(config.areas).length} aree`);
     } else {
-        config = window.QUIZ_CONFIG || { areas: {}, version: '1.0' };
-        console.log('📱 VIT Cyber: Config predefinita (nessuna area configurata)');
+        // Primo avvio: usa le aree predefinite se disponibili
+        if (window.DEFAULT_AREAS) {
+            config = {
+                areas: window.DEFAULT_AREAS,
+                version: '1.0',
+                defaultAreasLoaded: true
+            };
+            // Salva subito le aree predefinite in localStorage così l'utente può modificarle
+            SafeStorage.setItem('quizConfig', config);
+            console.log(`📱 VIT Cyber: Aree predefinite caricate: ${Object.keys(config.areas).length} aree`);
+        } else {
+            config = window.QUIZ_CONFIG || { areas: {}, version: '1.0' };
+            console.log('📱 VIT Cyber: Config predefinita (nessuna area configurata)');
+        }
     }
 
     updateDashboard();

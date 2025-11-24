@@ -1,0 +1,212 @@
+{
+  "version": "1.0",
+  "generated": "2025-11-24T22:28:14.748089",
+  "total_areas": 16,
+  "total_subjects": 76,
+  "areas": [
+    {
+      "name": "Diritto Penale",
+      "color": "#dc3545",
+      "icon": "⚖️",
+      "description": "Reati, concussione, corruzione, delitti contro patrimonio e P.A.",
+      "subjects": [
+        "DIRITTO PENALE - PUBBLICO UFFICIALE E INCARICATO DI PUBBLICO SERVIZIO. PECULATO",
+        "DIRITTO PENALE. OMISSIONE O RIFIUTO DI ATTI D’UFFICIO. INDEBITA DESTINAZIONE DI DENARO O COSE MOBILI",
+        "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
+        "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
+        "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE II",
+        "I DELITTI CONTRO IL PATRIMONIO. ESTORSIONE E TRUFFA",
+        "I DELITTI CONTRO IL PATRIMONIO. FURTO E RAPINA",
+        "I DELITTI CONTRO IL PATRIMONIO. USURA E APPROPRIAZIONE INDEBITA",
+        "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+        "I REATI PROPRI DELL'APPARTENENTE ALLA POLIZIA DI STATO",
+        "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+        "L'OMICIDIO DOLOSO, COLPOSO, PRETERINTENZIONALE",
+        "LA FALSITA IN ATTI COMMESSA DAL P.U.",
+        "LA NORMATIVA IN TEMA DI ATTI PERSECUTORI (CD. STALKING) - L’AMMONIMENTO DEL QUESTORE. ACCERTAMENTO DEL REATO E CONDIZIONI DI PROCEDIBILITÀ",
+        "LE CAUSE DI ESCLUSIONE DEL REATO: ERRORE ED ABERRATIO",
+        "LE FORME DI MANIFESTAZIONE DEL REATO",
+        "MALTRATTAMENTI CONTRO FAMILIARI E CONVIVENTI",
+        "VIOLENZA O MINACCIA, RESISTENZA E OLTRAGGIO A PUBBLICO UFFICIALE"
+      ]
+    },
+    {
+      "name": "Diritto Amministrativo",
+      "color": "#0dcaf0",
+      "icon": "🏛️",
+      "description": "Principi, provvedimenti, trasparenza e pubblica amministrazione",
+      "subjects": [
+        "IL PROVVEDIMENTO AMMINISTRATIVO E I RIMEDI AMMINISTRATIVI GIUDIZIALI",
+        "INTRODUZIONE AL DIRITTO AMMINISTRATIVO: I PRINCIPI DI LEGALITÀ E TRASPARENZA",
+        "LA RESPONSABILITÀ PATRIMONIALE",
+        "PRINCIPI DI DIRITTO AMMINISTRATIVO: LA DISCREZIONALITÀ AMMINISTRATIVA DELLA P.A."
+      ]
+    },
+    {
+      "name": "Diritto Costituzionale",
+      "color": "#6610f2",
+      "icon": "📜",
+      "description": "Costituzione, principi costituzionali e libertà civili",
+      "subjects": [
+        "I DIRITTI DI LIBERTÀ CIVILE E I LIMITI ALL'ATTIVITÀ DI POLIZIA",
+        "I PRINCIPI COSTITUZIONALI RILEVANTI NELL ATTIVITA DI POLIZIA"
+      ]
+    },
+    {
+      "name": "Procedura Penale",
+      "color": "#fd7e14",
+      "icon": "⚡",
+      "description": "Attività di P.G., acquisizione notizie reato, atti e procedure",
+      "subjects": [
+        "ACQUISIZIONE DELLA NOTIZIA DI REATO",
+        "ATTIVITÀ D'INIZIATIVA E DELEGATA",
+        "DOCUMENTAZIONE DEGLI ATTI DI PG RELAZIONE SERVIZIO ANNOTAZIONE VERBALE",
+        "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
+        "RAPPORTI INFORMATIVI"
+      ]
+    },
+    {
+      "name": "Ordinamento Polizia",
+      "color": "#0d6efd",
+      "icon": "👮",
+      "description": "Accesso, avanzamento, nuovo ordinamento e carriera",
+      "subjects": [
+        "ACCESSO E AVANZAMENTO NEL RUOLO DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA",
+        "CENNI SUL NUOVO ORDINAMENTO DEL PERSONALE DELLA POLIZIA DI STATO - PARTE I",
+        "CENNI SUL NUOVO ORDINAMENTO DEL PERSONALE DELLA POLIZIA DI STATO - PARTE II",
+        "LA RESPONSABILITÀ DISCIPLINARE - TIPOLOGIA DI SANZIONE - LE SANZIONI DISCIPLINARI",
+        "LA REVISIONE DEI RUOLI E DELLE CARRIERE E LE PRINCIPALI NOVITÀ INTRODOTTE NELL'ORDINAMENTO DEL PERSONALE DELLA POLIZIA DI STATO",
+        "LE RELAZIONI SINDACALI - L'ACCORDO NAZIONALE QUADRO",
+        "PS PERSONALE GESTIONE SERVIZI - REGISTRO DIPENDENTI",
+        "PS PERSONALE GESTIONE SERVIZI - SCHEDA PERSONALE",
+        "PS PERSONALE GESTIONE SERVIZI - SERVIZIO SETTIMANALE",
+        "RUOLI E QUALIFICHE DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA ALLA LUCE DEL RIORDINO DELLE CARRIERE DELLA POLIZIA DI STATO"
+      ]
+    },
+    {
+      "name": "Pubblica Sicurezza",
+      "color": "#198754",
+      "icon": "🛡️",
+      "description": "Sistema P.S., controllo territorio, ordine pubblico, DASPO",
+      "subjects": [
+        "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
+        "DASPO E DACUR",
+        "ETICA E DEONTOLOGIA PROFESSIONALE NEI SERVIZI DI ORDINE PUBBLICO",
+        "IL DIRITTO DELLA PUBBLICA SICUREZZA - IL SISTEMA DI PS",
+        "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+        "L'IMPIEGO DEI REPARTI MOBILI NEI SERVIZI DI ORDINE PUBBLICO",
+        "LE MANIFESTAZIONI SPORTIVE",
+        "LE TECNOLOGIE UTILIZZATE NEL CONTROLLO DEL TERRITORIO - PARTE II",
+        "UFFICIO PREVENZIONE GENERALE E SOCCORSO PUBBLICO ARTICOLAZIONI OPERATIVE E COMPETENZE",
+        "USO LEGITTIMO DELLE ARMI"
+      ]
+    },
+    {
+      "name": "Cybercrime e Reati Informatici",
+      "color": "#6f42c1",
+      "icon": "💻",
+      "description": "Crimini informatici, tecniche investigative, hate speech, web",
+      "subjects": [
+        "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
+        "I CRIMINI INFORMATICI. LA POLIZIA POSTALE E DELLE COMUNICAZIONI: PREVENZIONE E REPRESSIONE DEL CRIMINE SUL WEB",
+        "I REATI INFORMATICI - TECNICHE INVESTIGATIVE DI BASE",
+        "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+        "LA POLIZIA E I SOCIAL NETWORK"
+      ]
+    },
+    {
+      "name": "Privacy e Dati Personali",
+      "color": "#20c997",
+      "icon": "🔒",
+      "description": "Riservatezza, banche dati, CED, accesso e protezione dati",
+      "subjects": [
+        "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
+        "DIRITTO ALLA RISERVATEZZA DEI DATI PERSONALI",
+        "LA PROTEZIONE DEI DATI PERSONALI TRATTATI PER FINALITÀ DI POLIZIA"
+      ]
+    },
+    {
+      "name": "Stupefacenti e Sostanze",
+      "color": "#d63384",
+      "icon": "💊",
+      "description": "Legislazione stupefacenti e normativa correlata",
+      "subjects": [
+        "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE I",
+        "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE II"
+      ]
+    },
+    {
+      "name": "Minori e Tutela",
+      "color": "#ffc107",
+      "icon": "👶",
+      "description": "Pornografia minorile, offese ai minori e protezione",
+      "subjects": [
+        "IL CONTRASTO DELLA PORNOGRAFIA MINORILE E LE CONDOTTE CHE OFFENDONO I MINORI",
+        "PROCEDURE DI IDENTIFICAZIONE DEI MINORI STRANIERI NON ACCOMPAGNATI"
+      ]
+    },
+    {
+      "name": "Sicurezza e Armi",
+      "color": "#607d8b",
+      "icon": "🔫",
+      "description": "Norme sicurezza armi e regolamentazione",
+      "subjects": [
+        "ARMI NORME DI SICUREZZA"
+      ]
+    },
+    {
+      "name": "Salute e Sicurezza Lavoro",
+      "color": "#ff9800",
+      "icon": "🏗️",
+      "description": "D.Lgs 81, sicurezza luoghi di lavoro e normativa",
+      "subjects": [
+        "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81"
+      ]
+    },
+    {
+      "name": "Etica e Deontologia",
+      "color": "#9c27b0",
+      "icon": "⭐",
+      "description": "Etica professionale, stress, coping e resilienza",
+      "subjects": [
+        "COME AFFRONTARE LO STRESS: STILI DI COPING E RESILIENZA",
+        "LA VITTIMOLOGIA L'ATTENZIONE ALLA VITTIMA DEL REATO"
+      ]
+    },
+    {
+      "name": "Immigrazione e Stranieri",
+      "color": "#00bcd4",
+      "icon": "🌍",
+      "description": "Ingresso, soggiorno stranieri, permessi, protezione internazionale",
+      "subjects": [
+        "L'INGRESSO E IL SOGGIORNO DELLO STRANIERO E DELL'APOLIDE SUL TERRITORIO NAZIONALE.",
+        "LE MISURE DI CONTRASTO ALL'IMMIGRAZIONE ILLEGALE - PROVVEDIMENTI E PROCEDURE AMMINISTRATIVE",
+        "LE SITUAZIONI DI INESPELLIBILITÀ - DIVIETO DI ESPULSIONE E RESPINGIMENTO",
+        "LE TIPOLOGIE DEI PERMESSI DI SOGGIORNO - PARTE 2",
+        "PROTEZIONE INTERNAZIONALE NORMATIVE E PROCEDURE"
+      ]
+    },
+    {
+      "name": "Violenza di Genere e Tutela Vittime",
+      "color": "#e91e63",
+      "icon": "🛡️",
+      "description": "Violenza di genere, OSCAD, Progetto Scudo, persone scomparse",
+      "subjects": [
+        "LA VIOLENZA DI GENERE - CENNI NORMATIVI E BUONE PRASSI - PARTE 2",
+        "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
+        "OSCAD",
+        "PROGETTO SCUDO"
+      ]
+    },
+    {
+      "name": "Misure di Prevenzione",
+      "color": "#ff5722",
+      "icon": "🚨",
+      "description": "Misure di prevenzione personali e patrimoniali",
+      "subjects": [
+        "LE MISURE DI PREVENZIONE PATRIMONIALI",
+        "LE MISURE DI PREVENZIONE PERSONALI"
+      ]
+    }
+  ]
+}
