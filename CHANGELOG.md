@@ -4,6 +4,58 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.7.2] - 2025-11-24
+
+### 🔧 Fixed - Correzioni ortografiche aggiuntive
+
+#### ✨ Secondo passaggio correzioni
+
+**8 correzioni aggiuntive** trovate e applicate tramite analisi approfondita.
+
+**Apostrofi errati (3 errori):**
+- `Qual'è` → `Qual è` (2 occorrenze - ID 60, 687)
+  - ✅ **Corretto**: "Qual è" senza apostrofo (quale perde la 'e')
+- `affinchè` → `affinché` (1 occorrenza - ID 251)
+- `perchè` → `perché` (1 occorrenza - ID 420)
+
+**Errori ortografici (3 errori):**
+- `indebilta` → `indebita` (ID 129)
+- `schernimneto` → `schernimento` (ID 205)
+- `successive` → `successivi` (2 occorrenze - ID 93, 639)
+  - Concordanza maschile/femminile corretta
+
+**Esempi correzioni:**
+```
+❌ "Qual'è l'articolo del decreto legislativo..."
+✅ "Qual è l'articolo del decreto legislativo..."
+
+❌ "...affinchè la stessa sia messa in condizione..."
+✅ "...affinché la stessa sia messa in condizione..."
+
+❌ "Qual è la condotta dell'indebilta destinazione..."
+✅ "Qual è la condotta dell'indebita destinazione..."
+```
+
+**Processo:**
+- Script Python v2 con analisi pattern aggiuntivi
+- Backup automatico: `data-embedded.js.backup.20251124_193953`
+- Report dettagliato: `fix_report_v2_20251124_193953.txt`
+- Validazione JSON: ✅ OK (760 domande)
+
+**Files modificati:**
+- `js/data-embedded.js`: 8 correzioni ortografiche
+- `fix_questions_errors_v2.py`: script riutilizzabile esteso
+
+**Verifica:**
+- ✅ 0 occorrenze `Qual'è` rimanenti
+- ✅ 0 occorrenze `affinchè` rimanenti
+- ✅ 0 occorrenze `perchè` rimanenti
+- ✅ Tutti errori grammaticali corretti
+
+**Cache version:** v41 → v42
+
+---
+
 ## [v1.7.1] - 2025-11-24
 
 ### 🔧 Fixed - Correzione errori ortografici e formattazione

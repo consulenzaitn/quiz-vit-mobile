@@ -538,7 +538,7 @@ window.QUIZ_DATA = [
   {
     "ID": 60,
     "Materia": "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
-    "Domanda": "Qual'è l’articolo del decreto legislativo 51/2018, che disciplina le modalità procedurali attraverso le quali viene assicurato l’aggiornamento periodico, la proporzionalità, la pertinenza e la non eccedenza dei dati personali trattati, anche attraverso interrogazioni autorizzate del casellario giudiziale e del casellario dei carichi pendenti del ministero della giustizia.",
+    "Domanda": "Qual è l’articolo del decreto legislativo 51/2018, che disciplina le modalità procedurali attraverso le quali viene assicurato l’aggiornamento periodico, la proporzionalità, la pertinenza e la non eccedenza dei dati personali trattati, anche attraverso interrogazioni autorizzate del casellario giudiziale e del casellario dei carichi pendenti del ministero della giustizia.",
     "RispostaCorretta": "Art.47 d.lgs 51/2018",
     "RispostaErrata1": "Art. 7 del d.lgs. N. 51/2018",
     "RispostaErrata2": "Art. 10 del d.lgs n. 51/2018",
@@ -836,7 +836,7 @@ window.QUIZ_DATA = [
     "ID": 93,
     "Materia": "DASPO E DACUR",
     "Domanda": "Il daspo può essere adottato quando?",
-    "RispostaCorretta": "Per atti comunque collegati ad un evento sportivo che possono anche essere cronologicamente antecedenti ovvero successive allo stesso.",
+    "RispostaCorretta": "Per atti comunque collegati ad un evento sportivo che possono anche essere cronologicamente antecedenti ovvero successivi allo stesso.",
     "RispostaErrata1": "Solo a causa di atti compiuti durante lo svolgimento di una manifestazione sportiva",
     "RispostaErrata2": "Mai per atti svolti prima di una manifestazoine sportiva",
     "RispostaErrata3": ""
@@ -1159,7 +1159,7 @@ window.QUIZ_DATA = [
   {
     "ID": 129,
     "Materia": "DIRITTO PENALE. OMISSIONE O RIFIUTO DI ATTI D’UFFICIO. INDEBITA DESTINAZIONE DI DENARO O COSE MOBILI",
-    "Domanda": "Qual è la condotta dell'indebilta destinazione di denaro o cose mobili?",
+    "Domanda": "Qual è la condotta dell'indebita destinazione di denaro o cose mobili?",
     "RispostaCorretta": "Il destinare denaro o altra cose mobile altrui ad un uso diverso da quello normativamente previsto senza margini di discrezionalità",
     "RispostaErrata1": "Appropriazione di fondi pubblici",
     "RispostaErrata2": "Violenza o minaccia",
@@ -1846,7 +1846,7 @@ window.QUIZ_DATA = [
     "Domanda": "Cosa si intende con la tecnica \"trolling\"?",
     "RispostaCorretta": "Tecnica di schernimento che comporta la derisione della vittima attraverso insulti in modo massivo e con account anonimi",
     "RispostaErrata1": "Tecnica di schernimento della vittima attraverso insulti inviati via mail",
-    "RispostaErrata2": "Tecnica di schernimneto della vittima attraverso i social da parte di uno specifico gruppo",
+    "RispostaErrata2": "Tecnica di schernimento della vittima attraverso i social da parte di uno specifico gruppo",
     "RispostaErrata3": ""
   },
   {
@@ -2258,7 +2258,7 @@ window.QUIZ_DATA = [
     "ID": 251,
     "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Quale è il bene giuridico tutelato nei delitti contro l’amministrazione della giustizia?",
-    "RispostaCorretta": "L’interesse all’acquisizione della notitia criminis da parte dell’autorità giudiziaria,affinchè la stessa sia messa in condizione di esercitare correttamente l’azione penale b)l’interesse a che l’imputato non menta nel corso dell’interrogatorio",
+    "RispostaCorretta": "L’interesse all’acquisizione della notitia criminis da parte dell’autorità giudiziaria,affinché la stessa sia messa in condizione di esercitare correttamente l’azione penale b)l’interesse a che l’imputato non menta nel corso dell’interrogatorio",
     "RispostaErrata1": "L’interesse a che l’imputato non menta nel corso dell’interrogatorio",
     "RispostaErrata2": "L’interesse a che la procedura di notificazione venga correttamente eseguita da parte del soggetto incaricato",
     "RispostaErrata3": ""
@@ -3779,7 +3779,7 @@ window.QUIZ_DATA = [
     "ID": 420,
     "Materia": "LA POLIZIA E I SOCIAL NETWORK",
     "Domanda": "Quand'è che siamo nella 2° posizione percettiva e in che modo può essere utile?",
-    "RispostaCorretta": "Siamo nella 2° posizione percettiva quando ci \"mettiamo nei panni dell'altro\" ed è utile perchè ci consente di raccogliere informazioni sul suo punto di vista e provare empatia.",
+    "RispostaCorretta": "Siamo nella 2° posizione percettiva quando ci \"mettiamo nei panni dell'altro\" ed è utile perché ci consente di raccogliere informazioni sul suo punto di vista e provare empatia.",
     "RispostaErrata1": "Siamo nella 2° posizione percettiva quando ci \"mettiamo nei panni dell'altro\" e può essere utile per raggirarlo.",
     "RispostaErrata2": "Siamo nella 2° posizione percettiva quando viviamo la situazione in prima persona e può essere utile soprattutto quando dobbiamo prendere decisioni.",
     "RispostaErrata3": ""
@@ -5752,7 +5752,7 @@ window.QUIZ_DATA = [
     "Domanda": "La fase istruttoria nel procedimento amministrativo",
     "RispostaCorretta": "Consiste nell’insieme di attività poste in essere dall’autorità procedente al fine di acquisire gli elementi necessari per la decisone",
     "RispostaErrata1": "Consiste nell’adozione dell’atto finale",
-    "RispostaErrata2": "È l’insieme delle operazioni successive all’atto finale, necessarie affinché questo divenga efficace",
+    "RispostaErrata2": "È l’insieme delle operazioni successivi all’atto finale, necessarie affinché questo divenga efficace",
     "RispostaErrata3": ""
   },
   {
@@ -6181,7 +6181,7 @@ window.QUIZ_DATA = [
   {
     "ID": 687,
     "Materia": "PROGETTO SCUDO",
-    "Domanda": "Qual'è l'utilità di valorizzare il filtro di ricerca relativo alla persona?",
+    "Domanda": "Qual è l'utilità di valorizzare il filtro di ricerca relativo alla persona?",
     "RispostaCorretta": "Avere contezza di altri episodi avvenuti presso un indirizzo diverso",
     "RispostaErrata1": "Avere contezza del cambiamento dei dati catastali",
     "RispostaErrata2": "Nessuno, perché allarga il campo dei risultati",
