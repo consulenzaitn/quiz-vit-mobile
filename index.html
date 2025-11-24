@@ -187,6 +187,8 @@
                         <div class="col-md-6 mb-3" id="num-questions-container">
                             <label for="num-questions-input" class="form-label">Numero di Domande</label>
                             <input type="number" class="form-control" id="num-questions-input" min="1" placeholder="Es: 10">
+                            <div class="invalid-feedback" id="num-questions-error"></div>
+                            <small class="text-muted" id="num-questions-hint"></small>
                         </div>
                     </div>
 
@@ -216,7 +218,9 @@
                         </div>
                         <div id="timer-duration-container" class="ms-4 mb-3 hidden">
                             <label for="timer-duration-input" class="form-label small">Secondi per domanda</label>
-                            <input type="number" class="form-control form-control-sm" id="timer-duration-input" value="30" min="5" style="max-width: 150px;">
+                            <input type="number" class="form-control form-control-sm" id="timer-duration-input" value="30" min="10" max="300" style="max-width: 150px;">
+                            <div class="invalid-feedback" id="timer-duration-error"></div>
+                            <small class="text-muted d-block">Min: 10s, Max: 300s (5 min)</small>
                         </div>
                     </div>
 

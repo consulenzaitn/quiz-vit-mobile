@@ -360,9 +360,20 @@ function attachEventListeners() {
     });
 
     // Quiz setup
-    document.getElementById('quiz-mode-select').addEventListener('change', updateQuizSetupUI);
+    document.getElementById('quiz-mode-select').addEventListener('change', () => {
+        updateQuizSetupUI();
+        // Clear validation errors when mode changes
+        clearInputError('num-questions-input');
+    });
     document.getElementById('timer-checkbox').addEventListener('change', toggleTimerSettings);
     document.getElementById('start-actual-quiz-btn').addEventListener('click', startQuiz);
+
+    // Real-time validation
+    document.getElementById('num-questions-input').addEventListener('input', validateNumQuestions);
+    document.getElementById('num-questions-input').addEventListener('blur', validateNumQuestions);
+    document.getElementById('timer-duration-input').addEventListener('input', validateTimerDuration);
+    document.getElementById('timer-duration-input').addEventListener('blur', validateTimerDuration);
+    document.getElementById('exclude-seen-checkbox').addEventListener('change', validateNumQuestions);
 
     // Quiz
     document.getElementById('confirm-answer-btn').addEventListener('click', confirmAnswer);
@@ -630,9 +641,143 @@ function toggleTimerSettings() {
 }
 
 // ======================================
+// Input Validation
+// ======================================
+function validateNumQuestions() {
+    const input = document.getElementById('num-questions-input');
+    const value = parseInt(input.value);
+    const mode = document.getElementById('quiz-mode-select').value;
+
+    // Clear previous error
+    clearInputError('num-questions-input');
+
+    // Skip validation for modes that don't use numQuestions input
+    if (mode === 'wrong' || mode === 'wrong-by-area' || mode === 'wrong-by-subject') {
+        return true;
+    }
+
+    // Check if value exists
+    if (!value || value < 1) {
+        showInputError('num-questions-input', 'Inserisci almeno 1 domanda');
+        return false;
+    }
+
+    // Get available questions count
+    const availableQuestions = getAvailableQuestionsCount(mode);
+
+    if (value > availableQuestions) {
+        showInputError('num-questions-input', `Massimo ${availableQuestions} domande disponibili`);
+        return false;
+    }
+
+    return true;
+}
+
+function validateTimerDuration() {
+    const timerEnabled = document.getElementById('timer-checkbox').checked;
+
+    // Skip validation if timer is not enabled
+    if (!timerEnabled) {
+        clearInputError('timer-duration-input');
+        return true;
+    }
+
+    const input = document.getElementById('timer-duration-input');
+    const value = parseInt(input.value);
+
+    // Clear previous error
+    clearInputError('timer-duration-input');
+
+    if (!value || value < 10) {
+        showInputError('timer-duration-input', 'Minimo 10 secondi');
+        return false;
+    }
+
+    if (value > 300) {
+        showInputError('timer-duration-input', 'Massimo 300 secondi (5 minuti)');
+        return false;
+    }
+
+    return true;
+}
+
+function getAvailableQuestionsCount(mode) {
+    const topic = document.getElementById('quiz-topic-select').value;
+    const excludeSeen = document.getElementById('exclude-seen-checkbox').checked;
+
+    let availableQuestions = [];
+
+    if (mode === 'area') {
+        const subjects = config.areas[topic] || [];
+        availableQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
+    } else if (mode === 'subject') {
+        availableQuestions = allQuestions.filter(q => q.Materia === topic);
+    } else if (mode === 'random') {
+        availableQuestions = [...allQuestions];
+    }
+
+    // Apply exclude seen filter
+    if (excludeSeen) {
+        const completed = SafeStorage.getItem('completedQuestions', {});
+
+        if (mode === 'area') {
+            const subjects = config.areas[topic] || [];
+            const completedIds = new Set();
+            subjects.forEach(subject => {
+                const subjectCompleted = completed[subject] || [];
+                subjectCompleted.forEach(id => completedIds.add(id));
+            });
+            availableQuestions = availableQuestions.filter(q => !completedIds.has(q.ID));
+        } else if (mode === 'subject') {
+            const completedIds = completed[topic] || [];
+            availableQuestions = availableQuestions.filter(q => !completedIds.includes(q.ID));
+        }
+    }
+
+    return availableQuestions.length;
+}
+
+function showInputError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const errorDivId = inputId.replace('-input', '-error');
+    const errorDiv = document.getElementById(errorDivId);
+
+    input.classList.add('is-invalid');
+    if (errorDiv) {
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+}
+
+function clearInputError(inputId) {
+    const input = document.getElementById(inputId);
+    const errorDivId = inputId.replace('-input', '-error');
+    const errorDiv = document.getElementById(errorDivId);
+
+    input.classList.remove('is-invalid');
+    if (errorDiv) {
+        errorDiv.textContent = '';
+        errorDiv.style.display = 'none';
+    }
+}
+
+function validateQuizSetup() {
+    const isNumQuestionsValid = validateNumQuestions();
+    const isTimerValid = validateTimerDuration();
+
+    return isNumQuestionsValid && isTimerValid;
+}
+
+// ======================================
 // Quiz Execution
 // ======================================
 function startQuiz() {
+    // Validate inputs before starting quiz
+    if (!validateQuizSetup()) {
+        showToast('Correggi gli errori prima di iniziare il quiz', 'error');
+        return;
+    }
+
     const mode = document.getElementById('quiz-mode-select').value;
     const topic = document.getElementById('quiz-topic-select').value;
     const numQuestions = parseInt(document.getElementById('num-questions-input').value) || 10;

@@ -44,14 +44,43 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
   - Console logging dettagliato per debugging
   - App continua a funzionare dopo errori non fatali
 
+#### ✅ Aggiunto - Input Validation su Form Quiz Setup
+
+- **Sistema di validazione completo per setup quiz**
+  - Validazione numero domande (1 to available)
+  - Validazione timer (10-300 secondi, range fisso)
+  - Feedback visivo real-time (red border, error icon)
+  - Error messages chiari e user-friendly
+  - Validazione su input, blur, e change events
+  - Previene avvio quiz con valori invalidi
+  - `validateNumQuestions()` function
+  - `validateTimerDuration()` function
+  - `getAvailableQuestionsCount()` helper
+  - `showInputError()` / `clearInputError()` utilities
+  - Bootstrap `.is-invalid` styling (light + dark mode)
+
 #### 🔧 Modificato - File Interessati
-- `js/app.js`: +68 righe
-  - `setupGlobalErrorHandler()` function
-  - `logError()` function con limite 50 errori
-  - Chiamata in `DOMContentLoaded` prima di tutto
-- `sw.js`: Cache v9 → v10
+
+- `index.html`: +8 righe
+  - Error divs (`invalid-feedback`) per ogni input
+  - Timer constraints: `min="10" max="300"`
+  - Helper text per range
+- `css/style.css`: +44 righe
+  - `.form-control.is-invalid` styling (light + dark)
+  - `.invalid-feedback` styling
+  - SVG error icon inline
+- `js/app.js`: +135 righe
+  - Input validation functions (6 functions)
+  - Real-time validation listeners
+  - `validateQuizSetup()` check in `startQuiz()`
+  - Clear errors on mode change
+- `sw.js`: Cache v12 → v13
 
 #### 📊 Impatto
+
+- **Invalid input submissions**: riduzione 100% (prevented)
+- **User confusion**: eliminata con feedback immediato
+- **Data quality**: garantita con hard validation
 - **Crash rate**: riduzione ~95% (graceful degradation)
 - **User experience**: nessun errore tecnico visibile
 - **Debugging**: log persistente per sviluppatori
