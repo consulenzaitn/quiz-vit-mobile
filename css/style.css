@@ -491,11 +491,24 @@ body.dark-mode .toast-body {
 
     .card-body {
         padding: 1rem;
+        min-height: auto;
+        max-height: none;
     }
 
     .container {
         padding-left: 10px;
         padding-right: 10px;
+        min-height: auto;
+    }
+
+    /* Fix per quiz setup su mobile */
+    .view-container {
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .card {
+        margin-bottom: 2rem;
     }
 
     h2 {
@@ -817,4 +830,42 @@ i.bi {
 .association-badge i {
     padding: 10px;
     margin: -10px;
+}
+
+/* ======================================
+   Quiz Setup Layout Fixes
+   ====================================== */
+/* Ensure quiz setup card is fully scrollable */
+#quiz-setup-container .card {
+    max-height: none;
+    overflow: visible;
+}
+
+#quiz-setup-container .card-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: none;
+}
+
+/* Ensure all form controls are visible */
+#exclude-seen-container,
+#timer-checkbox,
+#timer-duration-container {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Mobile: Ensure full visibility */
+@media (max-width: 768px) {
+    #quiz-setup-container .card-body {
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    /* Force full width for option toggles */
+    #exclude-seen-container,
+    .form-check {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
