@@ -947,6 +947,54 @@ body.dark-mode .invalid-feedback {
 }
 
 /* ======================================
+   Mobile UX - Swipe Gestures
+   ====================================== */
+/* Smooth transitions for swipe gestures */
+#quiz-container .card {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    touch-action: pan-y; /* Allow vertical scrolling but enable horizontal swipe detection */
+}
+
+/* Prevent text selection during swipe */
+#quiz-container.swiping {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Visual hint for swipe gesture */
+#quiz-container .card::after {
+    content: '← Swipe per avanti';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* Hide hint after first swipe or on results */
+#quiz-container.hint-dismissed .card::after,
+#results-container .card::after {
+    display: none;
+}
+
+body.dark-mode #quiz-container .card::after {
+    color: #6c757d;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    #quiz-container .card {
+        touch-action: pan-y;
+    }
+}
+
+/* ======================================
    Enhanced Visual Feedback & Animations
    ====================================== */
 

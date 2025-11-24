@@ -641,6 +641,189 @@ function toggleTimerSettings() {
 }
 
 // ======================================
+// Mobile UX - Haptic Feedback
+// ======================================
+const HapticFeedback = {
+    // Check if vibration is supported
+    isSupported: () => 'vibrate' in navigator,
+
+    // Light tap (selection)
+    light: () => {
+        if (HapticFeedback.isSupported()) {
+            navigator.vibrate(10);
+        }
+    },
+
+    // Medium tap (confirmation)
+    medium: () => {
+        if (HapticFeedback.isSupported()) {
+            navigator.vibrate(20);
+        }
+    },
+
+    // Success pattern (correct answer)
+    success: () => {
+        if (HapticFeedback.isSupported()) {
+            navigator.vibrate([30, 50, 30]);
+        }
+    },
+
+    // Error pattern (wrong answer)
+    error: () => {
+        if (HapticFeedback.isSupported()) {
+            navigator.vibrate([50, 100, 50]);
+        }
+    },
+
+    // Celebration pattern (quiz complete)
+    celebration: () => {
+        if (HapticFeedback.isSupported()) {
+            navigator.vibrate([50, 50, 50, 50, 100]);
+        }
+    }
+};
+
+// ======================================
+// Mobile UX - Swipe Gestures
+// ======================================
+let swipeState = {
+    startX: 0,
+    startY: 0,
+    currentX: 0,
+    isDragging: false,
+    threshold: 100 // px required to trigger swipe
+};
+
+function setupSwipeGestures() {
+    const quizContainer = document.getElementById('quiz-container');
+
+    if (!quizContainer) return;
+
+    // Touch events
+    quizContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+    quizContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    quizContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+    // Mouse events (for desktop testing)
+    quizContainer.addEventListener('mousedown', handleMouseDown);
+    quizContainer.addEventListener('mousemove', handleMouseMove);
+    quizContainer.addEventListener('mouseup', handleMouseUp);
+    quizContainer.addEventListener('mouseleave', handleMouseUp);
+}
+
+function handleTouchStart(e) {
+    swipeState.startX = e.touches[0].clientX;
+    swipeState.startY = e.touches[0].clientY;
+    swipeState.isDragging = true;
+}
+
+function handleTouchMove(e) {
+    if (!swipeState.isDragging) return;
+
+    swipeState.currentX = e.touches[0].clientX;
+    const deltaX = swipeState.currentX - swipeState.startX;
+    const deltaY = Math.abs(e.touches[0].clientY - swipeState.startY);
+
+    // Only apply horizontal swipe, ignore if vertical movement is significant
+    if (deltaY > 30) {
+        return;
+    }
+
+    // Apply visual feedback during swipe
+    const questionCard = document.querySelector('#quiz-container .card');
+    if (questionCard && Math.abs(deltaX) > 10) {
+        e.preventDefault();
+        const opacity = 1 - Math.abs(deltaX) / 300;
+        questionCard.style.transform = `translateX(${deltaX}px)`;
+        questionCard.style.opacity = Math.max(opacity, 0.3);
+    }
+}
+
+function handleTouchEnd(e) {
+    if (!swipeState.isDragging) return;
+
+    const deltaX = swipeState.currentX - swipeState.startX;
+    const questionCard = document.querySelector('#quiz-container .card');
+
+    // Reset visual feedback
+    if (questionCard) {
+        questionCard.style.transform = '';
+        questionCard.style.opacity = '';
+    }
+
+    swipeState.isDragging = false;
+
+    // Check if swipe threshold is met
+    if (Math.abs(deltaX) < swipeState.threshold) {
+        return;
+    }
+
+    // Swipe left = next question (only if answered)
+    if (deltaX < 0) {
+        const nextBtn = document.getElementById('next-question-btn');
+        if (nextBtn && !nextBtn.disabled && !nextBtn.classList.contains('hidden')) {
+            HapticFeedback.medium();
+            nextBtn.click();
+
+            // Dismiss hint after first successful swipe
+            const quizContainer = document.getElementById('quiz-container');
+            if (quizContainer) {
+                quizContainer.classList.add('hint-dismissed');
+            }
+        }
+    }
+}
+
+// Mouse events for desktop testing
+function handleMouseDown(e) {
+    swipeState.startX = e.clientX;
+    swipeState.startY = e.clientY;
+    swipeState.isDragging = true;
+}
+
+function handleMouseMove(e) {
+    if (!swipeState.isDragging) return;
+
+    swipeState.currentX = e.clientX;
+    const deltaX = swipeState.currentX - swipeState.startX;
+    const deltaY = Math.abs(e.clientY - swipeState.startY);
+
+    if (deltaY > 30) return;
+
+    const questionCard = document.querySelector('#quiz-container .card');
+    if (questionCard && Math.abs(deltaX) > 10) {
+        const opacity = 1 - Math.abs(deltaX) / 300;
+        questionCard.style.transform = `translateX(${deltaX}px)`;
+        questionCard.style.opacity = Math.max(opacity, 0.3);
+    }
+}
+
+function handleMouseUp(e) {
+    if (!swipeState.isDragging) return;
+
+    const deltaX = swipeState.currentX - swipeState.startX;
+    const questionCard = document.querySelector('#quiz-container .card');
+
+    if (questionCard) {
+        questionCard.style.transform = '';
+        questionCard.style.opacity = '';
+    }
+
+    swipeState.isDragging = false;
+
+    if (Math.abs(deltaX) < swipeState.threshold) {
+        return;
+    }
+
+    if (deltaX < 0) {
+        const nextBtn = document.getElementById('next-question-btn');
+        if (nextBtn && !nextBtn.disabled && !nextBtn.classList.contains('hidden')) {
+            nextBtn.click();
+        }
+    }
+}
+
+// ======================================
 // Input Validation
 // ======================================
 function validateNumQuestions() {
@@ -853,6 +1036,9 @@ function startQuiz() {
 
     showQuizView();
     displayQuestion();
+
+    // Setup swipe gestures for mobile navigation
+    setupSwipeGestures();
 }
 
 // Variable to track selected answer before confirmation
@@ -915,6 +1101,9 @@ function displayQuestion() {
 }
 
 function selectAnswer(selectedAnswer, correctAnswer) {
+    // Haptic feedback on selection
+    HapticFeedback.light();
+
     // If confirmation is not required, check answer immediately
     if (!currentQuiz.requireConfirmation) {
         checkAnswer(selectedAnswer, correctAnswer);
@@ -938,6 +1127,9 @@ function selectAnswer(selectedAnswer, correctAnswer) {
 function confirmAnswer() {
     if (!pendingAnswer) return;
 
+    // Haptic feedback on confirmation
+    HapticFeedback.medium();
+
     // Hide confirm button
     document.getElementById('confirm-answer-container').classList.add('hidden');
 
@@ -949,6 +1141,13 @@ function checkAnswer(selectedAnswer, correctAnswer) {
     stopTimer();
 
     const isCorrect = selectedAnswer === correctAnswer;
+
+    // Haptic feedback based on result
+    if (isCorrect) {
+        HapticFeedback.success();
+    } else {
+        HapticFeedback.error();
+    }
 
     // Record answer
     currentQuiz.answers.push({
@@ -996,6 +1195,10 @@ function nextQuestion() {
 
 function finishQuiz() {
     stopTimer();
+
+    // Celebration haptic feedback on quiz completion
+    HapticFeedback.celebration();
+
     saveQuizStats();
     showQuizResults();
 }
