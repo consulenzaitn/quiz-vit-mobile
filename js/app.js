@@ -364,6 +364,8 @@ function attachEventListeners() {
     // Question navigation buttons
     document.getElementById('flag-question-btn').addEventListener('click', toggleFlagQuestion);
     document.getElementById('skip-question-btn').addEventListener('click', skipQuestion);
+    document.getElementById('show-palette-btn').addEventListener('click', showQuestionPalette);
+    document.getElementById('close-palette-btn').addEventListener('click', closeQuestionPalette);
 
     // Quiz setup
     document.getElementById('quiz-mode-select').addEventListener('change', () => {
@@ -1469,6 +1471,66 @@ function showFlaggedReview() {
     } else {
         finishQuiz();
     }
+}
+
+// ======================================
+// Question Palette (Minimap)
+// ======================================
+function showQuestionPalette() {
+    const overlay = document.getElementById('question-palette-overlay');
+    const grid = document.getElementById('palette-grid');
+
+    // Clear existing cells
+    grid.innerHTML = '';
+
+    // Haptic feedback
+    HapticFeedback.light();
+
+    // Create cell for each question
+    currentQuiz.questions.forEach((question, idx) => {
+        const cell = document.createElement('div');
+        cell.className = 'palette-cell';
+        cell.textContent = idx + 1;
+
+        // Add state classes
+        if (idx === currentQuiz.currentIndex) {
+            cell.classList.add('current');
+        } else if (currentQuiz.answers[idx]) {
+            cell.classList.add('answered');
+        } else {
+            cell.classList.add('unanswered');
+        }
+
+        if (currentQuiz.flagged.includes(idx)) {
+            cell.classList.add('flagged');
+        }
+
+        // Click handler to jump to question
+        cell.addEventListener('click', () => {
+            currentQuiz.currentIndex = idx;
+            displayQuestion();
+            closeQuestionPalette();
+            HapticFeedback.medium();
+            showToast(`Vai alla domanda ${idx + 1}`, 'info');
+        });
+
+        grid.appendChild(cell);
+    });
+
+    // Show overlay
+    overlay.classList.remove('hidden');
+
+    // Close on backdrop click
+    const backdrop = overlay.querySelector('.palette-backdrop');
+    backdrop.addEventListener('click', closeQuestionPalette, { once: true });
+}
+
+function closeQuestionPalette() {
+    const overlay = document.getElementById('question-palette-overlay');
+    overlay.classList.add('hidden');
+
+    // Haptic feedback
+    HapticFeedback.light();
 }
 
 function finishQuiz() {

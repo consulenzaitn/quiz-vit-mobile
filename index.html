@@ -25,7 +25,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS with cache busting -->
-    <link rel="stylesheet" href="css/style.css?v=21">
+    <link rel="stylesheet" href="css/style.css?v=22">
 </head>
 <body>
     <!-- Header -->
@@ -245,7 +245,10 @@
                         <h5 class="mb-0">Quiz in Corso</h5>
                         <small id="quiz-progress-text">Domanda 1 di 10</small>
                     </div>
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <button class="btn btn-sm btn-outline-light" id="show-palette-btn" title="Mappa domande">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                        </button>
                         <div id="timer-display" class="hidden">
                             <i class="bi bi-clock"></i> <span id="timer-seconds">30</span>s
                         </div>
@@ -289,6 +292,42 @@
                         <button class="btn btn-primary" id="next-question-btn">
                             <i class="bi bi-arrow-right me-2"></i>Prossima Domanda
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question Palette Overlay -->
+        <div id="question-palette-overlay" class="hidden">
+            <div class="palette-backdrop"></div>
+            <div class="palette-container">
+                <div class="palette-header">
+                    <h5 class="mb-0">Mappa Domande</h5>
+                    <button class="btn btn-sm btn-link text-white" id="close-palette-btn">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+                <div class="palette-body">
+                    <div class="palette-legend mb-3">
+                        <div class="legend-item">
+                            <span class="legend-dot current"></span>
+                            <span>Corrente</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot answered"></span>
+                            <span>Risposta</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot unanswered"></span>
+                            <span>Non risposta</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot flagged"></span>
+                            <span>Segnata</span>
+                        </div>
+                    </div>
+                    <div id="palette-grid" class="palette-grid">
+                        <!-- Question cells will be inserted here -->
                     </div>
                 </div>
             </div>
@@ -621,9 +660,9 @@
         </div>
     </div>
 
-    <script src="js/data-embedded.js?v=21"></script>
+    <script src="js/data-embedded.js?v=22"></script>
     <!-- Custom App JS with cache busting -->
-    <script src="js/app.js?v=21"></script>
+    <script src="js/app.js?v=22"></script>
 
     <!-- Service Worker Registration (PWA) -->
     <script>
