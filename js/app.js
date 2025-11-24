@@ -668,6 +668,58 @@ function updateQuizSetupUI() {
             option.textContent = `${subject} (${wrongCount} sbagliate)`;
             topicSelect.appendChild(option);
         });
+
+    } else if (mode === 'practice') {
+        // Practice Mode: può scegliere area/materia o tutte
+        topicContainer.classList.remove('hidden');
+        numContainer.classList.remove('hidden');
+
+        // Add "Tutte le domande" option
+        const allOption = document.createElement('option');
+        allOption.value = '';
+        allOption.textContent = 'Tutte le domande (casuale)';
+        topicSelect.appendChild(allOption);
+
+        // Add separator
+        const separator1 = document.createElement('option');
+        separator1.disabled = true;
+        separator1.textContent = '─── Per Area ───';
+        topicSelect.appendChild(separator1);
+
+        // Populate areas
+        Object.keys(config.areas || {}).forEach(areaName => {
+            const option = document.createElement('option');
+            option.value = `area:${areaName}`;
+            option.textContent = `📚 ${areaName}`;
+            topicSelect.appendChild(option);
+        });
+
+        // Add separator
+        const separator2 = document.createElement('option');
+        separator2.disabled = true;
+        separator2.textContent = '─── Per Materia ───';
+        topicSelect.appendChild(separator2);
+
+        // Get unique subjects
+        const subjects = [...new Set(allQuestions.map(q => q.Materia))].sort();
+        subjects.forEach(subject => {
+            const option = document.createElement('option');
+            option.value = `subject:${subject}`;
+            option.textContent = `📖 ${subject}`;
+            topicSelect.appendChild(option);
+        });
+
+    } else if (mode === 'exam') {
+        // Exam Mode: 60 domande fisse, 60 minuti
+        topicContainer.classList.add('hidden');
+        numContainer.classList.add('hidden');
+
+        // Force timer settings for exam mode
+        const timerCheckbox = document.getElementById('timer-checkbox');
+        const timerInput = document.getElementById('timer-duration-input');
+        timerCheckbox.checked = true;
+        timerInput.value = 60; // 60 secondi per domanda
+        toggleTimerSettings();
     }
 }
 
@@ -1181,29 +1233,23 @@ function startQuiz() {
         const wrongIds = getWrongQuestionsForSubject(topic);
         selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
     } else if (mode === 'practice') {
-        // Practice Mode: all questions, user can choose area/subject or random
-        if (topic) {
-            if (config.areas[topic]) {
-                const subjects = config.areas[topic] || [];
-                selectedQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
-            } else {
-                selectedQuestions = allQuestions.filter(q => q.Materia === topic);
-            }
-        } else {
+        // Practice Mode: user chooses area/subject or random
+        if (!topic || topic === '') {
+            // Random questions
             selectedQuestions = shuffleArray([...allQuestions]).slice(0, numQuestions);
+        } else if (topic.startsWith('area:')) {
+            // Area selected
+            const areaName = topic.replace('area:', '');
+            const subjects = config.areas[areaName] || [];
+            selectedQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
+        } else if (topic.startsWith('subject:')) {
+            // Subject selected
+            const subjectName = topic.replace('subject:', '');
+            selectedQuestions = allQuestions.filter(q => q.Materia === subjectName);
         }
     } else if (mode === 'exam') {
-        // Exam Mode: simulates real exam, all questions or subset
-        if (topic) {
-            if (config.areas[topic]) {
-                const subjects = config.areas[topic] || [];
-                selectedQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
-            } else {
-                selectedQuestions = allQuestions.filter(q => q.Materia === topic);
-            }
-        } else {
-            selectedQuestions = shuffleArray([...allQuestions]);
-        }
+        // Exam Mode: 60 random questions, 60 minutes total (1 min per question)
+        selectedQuestions = shuffleArray([...allQuestions]).slice(0, 60);
     }
 
     // Escludi domande già viste se richiesto
@@ -1229,9 +1275,14 @@ function startQuiz() {
         return;
     }
 
-    // Limita il numero di domande se richiesto
-    if (mode !== 'wrong' && mode !== 'wrong-by-area' && mode !== 'wrong-by-subject') {
+    // Limita il numero di domande se richiesto (non per wrong modes e exam mode)
+    if (mode !== 'wrong' && mode !== 'wrong-by-area' && mode !== 'wrong-by-subject' && mode !== 'exam') {
         selectedQuestions = shuffleArray(selectedQuestions).slice(0, numQuestions);
+    }
+
+    // Exam mode: assicura esattamente 60 domande
+    if (mode === 'exam' && selectedQuestions.length > 60) {
+        selectedQuestions = shuffleArray(selectedQuestions).slice(0, 60);
     }
 
     // Initialize quiz with mode-specific settings
