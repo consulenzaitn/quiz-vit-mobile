@@ -2212,7 +2212,13 @@ function getWrongQuestionsForArea(areaName) {
 // Theme Management (Dark Mode)
 // ======================================
 function loadThemePreference() {
-    const savedTheme = SafeStorage.getItem('theme') || 'light';
+    // Use raw localStorage for theme (simple string, no need for JSON parsing)
+    let savedTheme = 'light';
+    try {
+        savedTheme = localStorage.getItem('theme') || 'light';
+    } catch (e) {
+        console.error('Error reading theme from localStorage:', e);
+    }
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         updateThemeIcon(true);
