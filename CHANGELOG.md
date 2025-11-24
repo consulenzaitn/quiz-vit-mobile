@@ -4,6 +4,55 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.3] - 2025-11-24
+
+### 🐛 Fixed - Exam Mode Validation Bug
+
+#### ✅ Risolto errore validazione timer in Exam Mode
+
+**Problema:**
+
+- Selezionando Exam Mode, appariva l'errore "Correggi gli errori prima di iniziare il quiz"
+- L'app impediva di avviare la modalità Esame
+
+**Causa:**
+
+- Exam Mode imposta timer fisso a **3600 secondi** (60 minuti totali)
+- La funzione `validateTimerDuration()` aveva limite massimo di **300 secondi**
+- Validazione falliva per Exam Mode (3600 > 300)
+
+**Soluzione:**
+
+- Aggiunto check in `validateTimerDuration()` per **saltare validazione** in Exam Mode
+- Exam Mode ora bypassa i controlli di validazione del timer (come per altre modalità speciali)
+- Timer fisso 60 minuti rimane invariato e funzionante
+
+**Modifiche tecniche:**
+
+```javascript
+function validateTimerDuration() {
+    const mode = document.getElementById('quiz-mode-select').value;
+
+    // Skip validation for exam mode (has fixed 3600 seconds timer)
+    if (mode === 'exam') {
+        clearInputError('timer-duration-input');
+        return true;
+    }
+    // ... resto validazione
+}
+```
+
+**Impatto:**
+
+- ✅ Exam Mode ora funziona correttamente
+- ✅ Timer 60 minuti totali confermato
+- ✅ 60 domande random confermate
+- ✅ Nessun impatto su altre modalità
+
+**Cache version:** v36 → v37
+
+---
+
 ## [v1.6.2] - 2025-11-24
 
 ### 🎓 Migliorato - Practice Mode Retry Logic

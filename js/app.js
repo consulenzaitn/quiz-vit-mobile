@@ -1128,7 +1128,14 @@ function validateNumQuestions() {
 }
 
 function validateTimerDuration() {
+    const mode = document.getElementById('quiz-mode-select').value;
     const timerEnabled = document.getElementById('timer-checkbox').checked;
+
+    // Skip validation for exam mode (has fixed 3600 seconds timer)
+    if (mode === 'exam') {
+        clearInputError('timer-duration-input');
+        return true;
+    }
 
     // Skip validation if timer is not enabled
     if (!timerEnabled) {
