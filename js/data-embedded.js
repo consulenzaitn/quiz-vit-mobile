@@ -19,7 +19,7 @@ window.QUIZ_DATA = [
     "Domanda": "L'allievo agente che si rende responsabile di mancanze punibili con la sanzione disciplinare della deplorazione incorre nella:",
     "RispostaCorretta": "Espulsione dal corso.",
     "RispostaErrata1": "Sospensione dal corso di formazione.",
-    "RispostaErrata2": "Sospensione dal servzio",
+    "RispostaErrata2": "Sospensione dal servizio",
     "RispostaErrata3": ""
   },
   {
@@ -43,16 +43,16 @@ window.QUIZ_DATA = [
   {
     "ID": 5,
     "Materia": "ACCESSO E AVANZAMENTO NEL RUOLO DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA",
-    "Domanda": "La promozione ad assistenete capo con l'entrata in vigore del riordino si ottiene dopo una permanza nella qualifica di assistente di:",
+    "Domanda": "La promozione ad assistente capo con l'entrata in vigore del riordino si ottiene dopo una permanenza nella qualifica di assistente di:",
     "RispostaCorretta": "Quattro anni.",
     "RispostaErrata1": "Cinque anni.",
-    "RispostaErrata2": "Sette anni .",
+    "RispostaErrata2": "Sette anni.",
     "RispostaErrata3": ""
   },
   {
     "ID": 6,
     "Materia": "ACCESSO E AVANZAMENTO NEL RUOLO DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA",
-    "Domanda": "L'acceso alla qualifica di vice sovrintendente con l'entrata in vigore del riordino avviene nel limite del 70% dei posti, a regime, mediante:",
+    "Domanda": "L'accesso alla qualifica di vice sovrintendente con l'entrata in vigore del riordino avviene nel limite del 70% dei posti, a regime, mediante:",
     "RispostaCorretta": "Scrutinio per merito comparativo a domanda",
     "RispostaErrata1": "Concorso pubblico",
     "RispostaErrata2": "Concorso interno",
@@ -376,7 +376,7 @@ window.QUIZ_DATA = [
   {
     "ID": 42,
     "Materia": "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
-    "Domanda": "Quali sono le caratteristiche basilari dell'attività di controllo del territorio ?",
+    "Domanda": "Quali sono le caratteristiche basilari dell'attività di controllo del territorio?",
     "RispostaCorretta": "Raccolta informazioni, prossimità con l’utente, conoscenza del territorio, sue dinamiche e potenziali fonti di turbativa dell'ordine e della sicurezza pubblica",
     "RispostaErrata1": "Pattugliamento automontato",
     "RispostaErrata2": "Il servizio 113",
@@ -385,7 +385,7 @@ window.QUIZ_DATA = [
   {
     "ID": 43,
     "Materia": "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
-    "Domanda": "Quanti sono i reparti prevenzione crimine dislocati sul territorio nazionale ?",
+    "Domanda": "Quanti sono i reparti prevenzione crimine dislocati sul territorio nazionale?",
     "RispostaCorretta": "21 uffici",
     "RispostaErrata1": "25 uffici",
     "RispostaErrata2": "15 uffici",
@@ -394,7 +394,7 @@ window.QUIZ_DATA = [
   {
     "ID": 44,
     "Materia": "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
-    "Domanda": "Da chi dipendono i reparti prevenzione crimine ?",
+    "Domanda": "Da chi dipendono i reparti prevenzione crimine?",
     "RispostaCorretta": "Dal servizio controllo del territorio della direzione centrale anticrimine",
     "RispostaErrata1": "Dalle questure delle provincie in cui hanno sede",
     "RispostaErrata2": "Dal servizio centrale operativo della direzione centrale anticrimine",
@@ -439,7 +439,7 @@ window.QUIZ_DATA = [
   {
     "ID": 49,
     "Materia": "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
-    "Domanda": "In quali contesti operativi sono chiamati ad operare i reparti prevenzione crimine ?",
+    "Domanda": "In quali contesti operativi sono chiamati ad operare i reparti prevenzione crimine?",
     "RispostaCorretta": "In mirati servizi di prevenzione e controllo del territorio e in rilevanti operazioni di polizia giudiziaria",
     "RispostaErrata1": "Esclusivamente in quelli indicati da uffici investigativi",
     "RispostaErrata2": "In alcuni scenari di prevenzione e controllo del territorio",
@@ -996,7 +996,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 111,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "La concussione è un reato",
     "RispostaCorretta": "Contro la p.a.",
     "RispostaErrata1": "Contro il patrimonio",
@@ -1005,7 +1005,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 112,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "La concussione si realizza:",
     "RispostaCorretta": "Mediante abuso della qualità o dei poteri del pubblico ufficiale",
     "RispostaErrata1": "Con artifizi o inganni",
@@ -1014,7 +1014,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 113,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Il privato, nel caso di concussione:",
     "RispostaCorretta": "È soggetto passivo del reato insieme alla p.a.",
     "RispostaErrata1": "È concorrente, ma subisce l’inflizione di una pena inferiore",
@@ -1023,7 +1023,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 114,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Nella concussione il rapporto tra funzionario e soggetto passivo è retto da:",
     "RispostaCorretta": "Preminenza del pubblico ufficiale",
     "RispostaErrata1": "Sottile e velata pressione",
@@ -1032,7 +1032,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 115,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "La prestazione del pubblico ufficiale o dell'incaricato di pubblico servizio nella corruzione propria consiste",
     "RispostaCorretta": "Nell'adozione di un atto contrario ai doveri di ufficio ovvero nell'omissione o ritardo di un atto del proprio ufficio",
     "RispostaErrata1": "Nell'esercizio dei poteri o delle funzioni",
@@ -1041,7 +1041,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 116,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Nell’induzione indebita il privato:",
     "RispostaCorretta": "È punito, ma con pena inferiore rispetto all’agente pubblico.",
     "RispostaErrata1": "Non è punito",
@@ -1050,7 +1050,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 117,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Nella corruzione sono punibili:",
     "RispostaCorretta": "Sia il privato che il pubblico ufficiale o incaricato di pubblico servizio",
     "RispostaErrata1": "Solo pubblico ufficiale o incaricato di pubblico servizio",
@@ -1059,7 +1059,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 118,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "La concussione è",
     "RispostaCorretta": "Un reato monosoggettivo a concorso eventuale",
     "RispostaErrata1": "Un reato a concorso necessario",
@@ -1068,7 +1068,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 119,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Nel delitto di corruzione il tentativo",
     "RispostaCorretta": "Non è ammissibile perché opera l'art. 322 c.p. Sull'istigazione alla corruzione",
     "RispostaErrata1": "È ammissibile e si applica l'art. 56 c.p. Secondo le regole generali",
@@ -1077,7 +1077,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 120,
-    "Materia": "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE",
+    "Materia": "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE",
     "Domanda": "Nella corruzione impropria la prestazione del pubblico ufficiale consiste",
     "RispostaCorretta": "Nell'esercizio del potere o delle funzioni",
     "RispostaErrata1": "In un atto illegittimo",
@@ -1177,7 +1177,7 @@ window.QUIZ_DATA = [
   {
     "ID": 131,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
-    "Domanda": "La nozione della corruzione di tipo amministrativo :",
+    "Domanda": "La nozione della corruzione di tipo amministrativo:",
     "RispostaCorretta": "E’ diversa da quella penale in quanto più ampia.",
     "RispostaErrata1": "Coincide con quella di tipo penale.",
     "RispostaErrata2": "E’ diversa da quella penale in quanto più restrittiva.",
@@ -1241,7 +1241,7 @@ window.QUIZ_DATA = [
     "ID": 138,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
     "Domanda": "La mappatura dei processi interni all'amministrazione costituisce un adempimento:",
-    "RispostaCorretta": "Che precede l’analisi dei rischi “corruttivi” .",
+    "RispostaCorretta": "Che precede l’analisi dei rischi “corruttivi”.",
     "RispostaErrata1": "Che segue l’analisi dei rischi “corruttivi”.",
     "RispostaErrata2": "Che segue la ponderazione dei rischi “corruttivi”.",
     "RispostaErrata3": ""
@@ -1249,7 +1249,7 @@ window.QUIZ_DATA = [
   {
     "ID": 139,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
-    "Domanda": "Quali tra le seguenti non rientra tra le quattro aree a rischio dicorruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione :",
+    "Domanda": "Quali tra le seguenti non rientra tra le quattro aree a rischio dicorruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione:",
     "RispostaCorretta": "Gestione degli archivi.",
     "RispostaErrata1": "Acquisizione e progressione del personale.",
     "RispostaErrata2": "Affidamento di lavori, servizi e forniture.",
@@ -1825,7 +1825,7 @@ window.QUIZ_DATA = [
   {
     "ID": 203,
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
-    "Domanda": "Nel crimine d'odio quale è la ragione specifica di appartenenza ?",
+    "Domanda": "Nel crimine d'odio quale è la ragione specifica di appartenenza?",
     "RispostaCorretta": "La categoria assunta come target offender",
     "RispostaErrata1": "La categoria assunata come target defender",
     "RispostaErrata2": "La gategoria di genere del sex offender",
@@ -2239,7 +2239,7 @@ window.QUIZ_DATA = [
   {
     "ID": 249,
     "Materia": "I DELITTI CONTRO IL PATRIMONIO. USURA E APPROPRIAZIONE INDEBITA",
-    "Domanda": "Per il delitto di appropriazione indebita , è consentito il fermo ai sensi dell'art. 384, c.p.p.?",
+    "Domanda": "Per il delitto di appropriazione indebita, è consentito il fermo ai sensi dell'art. 384, c.p.p.?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
     "RispostaErrata2": "Dipende dal valore dell'oggetto materiale",
@@ -2256,7 +2256,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 251,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Quale è il bene giuridico tutelato nei delitti contro l’amministrazione della giustizia?",
     "RispostaCorretta": "L’interesse all’acquisizione della notitia criminis da parte dell’autorità giudiziaria,affinchè la stessa sia messa in condizione di esercitare correttamente l’azione penale b)l’interesse a che l’imputato non menta nel corso dell’interrogatorio",
     "RispostaErrata1": "L’interesse a che l’imputato non menta nel corso dell’interrogatorio",
@@ -2265,7 +2265,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 252,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Quali possono essere i soggetti attivi dei delitti contro l’amministrazione della giustizia?",
     "RispostaCorretta": "Qualunque soggetto,trattandosi di reati comuni",
     "RispostaErrata1": "Essendo reati propri,soltanto determinati soggetti che per le funzioni svolte sono posti in particolare relazione con l’interesse tutelato,ovvero pubblico ufficiale ed incaricato di pubblico servizio",
@@ -2274,7 +2274,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 253,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Il dolo rappresenta il normale criterio dell'imputazione soggettiva. Componenti proprie dell'elemento psicologico del dolo sono rappresentazione e volontà, in ordine alle quali è corretto affermare che…",
     "RispostaCorretta": "La sufficienza dello stato di dubbio, ai fini dell'esistenza del dolo, è da escludere laddove la norma esiga la piena conoscenza di uno o più elementi del fatto di reato",
     "RispostaErrata1": "Il dolo non è previsto dal nostro ordinamento giuridico",
@@ -2283,7 +2283,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 254,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Il libro ii del c.p. è diviso in 14 titoli, in cui vari delitti sono raggruppati a seconda dell'oggetto giuridico, cioè del bene o interesse tutelato dalla norma incriminatrice e leso o messo in pericolo dai comportamenti vietati. Quale titolo è dedicato ai delitti contro l'amministrazione della giustizia?",
     "RispostaCorretta": "Titolo iii",
     "RispostaErrata1": "Titolo ii",
@@ -2292,7 +2292,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 255,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Quando si configura il delitto di omessa denuncia di reato da parte del cittadino?",
     "RispostaCorretta": "Nel caso di delitto contro la personalità dello stato, per il quale la legge stabilisce l'ergastolo",
     "RispostaErrata1": "Mai",
@@ -2301,7 +2301,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 256,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "La nozione di pubblico ufficiale da quale articolo è fornita?",
     "RispostaCorretta": "Art. 357 c.p.",
     "RispostaErrata1": "Art. 359 c.p.",
@@ -2310,7 +2310,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 257,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Il dolo è specifico quando...",
     "RispostaCorretta": "Oltre alla previsione e volontà di tutti gli elementi che compongono il reato, è necessario che l'agente si sia prefisso anche un fine ulteriore",
     "RispostaErrata1": "E’ sufficiente una previsione generica degli elementi costitutivi del fatto di reato",
@@ -2319,7 +2319,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 258,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "Il dolo è generico…",
     "RispostaCorretta": "Quando ai fini della punibilità, è sufficiente che l'agente abbia previsto e voluto tutti gli elementi che compongono il reato",
     "RispostaErrata1": "Quando oltre alla previsione e volontà di tutti gli elementi che compongono il reato, è necessario che l'agente si sia prefisso anche un fine ulteriore",
@@ -2328,7 +2328,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 259,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "I reati speciali o propri:",
     "RispostaCorretta": "Sono quei reati per il quale la legge richiede una speciale qualifica del soggetto attivo. Essi a loro volta si distinguono in reati propri esclusivi e reati propri non esclusivi",
     "RispostaErrata1": "Sono quei reati per i quali la legge non richiede nessuna speciale qualifica del soggetto attivo",
@@ -2337,7 +2337,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 260,
-    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
+    "Materia": "I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.",
     "Domanda": "L’art. 361 c.p. Contempla un aggravante di carattere soggettivo?",
     "RispostaCorretta": "Sì, al secondo comma, prevedendo che se il colpevole è un ufficiale o un agente di polizia giudiziaria che ha avuto notizia di un reato del quale doveva fare rapporto, la pena è della reclusione fino ad un anno",
     "RispostaErrata1": "L’art. 361 c.p. Non contempla nessuna aggravante di carattere soggettivo",
@@ -2464,7 +2464,7 @@ window.QUIZ_DATA = [
   {
     "ID": 274,
     "Materia": "I REATI INFORMATICI - TECNICHE INVESTIGATIVE DI BASE",
-    "Domanda": "Quale artico del cp.. Ha esteso la perquisizione locale anche ai sistemi informatici e etelematici ?",
+    "Domanda": "Quale artico del c.p. Ha esteso la perquisizione locale anche ai sistemi informatici e telematici?",
     "RispostaCorretta": "Art 247 del c.p.p. Comma 1 bis",
     "RispostaErrata1": "Art 247 del c.p.p comma quater",
     "RispostaErrata2": "Art 247 c.p.p bis",
@@ -2509,7 +2509,7 @@ window.QUIZ_DATA = [
   {
     "ID": 279,
     "Materia": "I REATI INFORMATICI - TECNICHE INVESTIGATIVE DI BASE",
-    "Domanda": "La perquisizione live necessita di software o hardware ?",
+    "Domanda": "La perquisizione live necessita di software o hardware?",
     "RispostaCorretta": "No serve solo documentare tutta l'attività",
     "RispostaErrata1": "Si sono necessari per validare la perquisizione",
     "RispostaErrata2": "Si sono obbligatori",
@@ -2644,7 +2644,7 @@ window.QUIZ_DATA = [
   {
     "ID": 294,
     "Materia": "I PRINCIPI COSTITUZIONALI RILEVANTI NELL ATTIVITA DI POLIZIA",
-    "Domanda": "La libertà sindacale :",
+    "Domanda": "La libertà sindacale:",
     "RispostaCorretta": "È un'espressione della libertà di associazione",
     "RispostaErrata1": "È un'espressione della libertà di pensiero",
     "RispostaErrata2": "Non rientra nelle libertà costituzionali",
@@ -2662,7 +2662,7 @@ window.QUIZ_DATA = [
   {
     "ID": 296,
     "Materia": "I PRINCIPI COSTITUZIONALI RILEVANTI NELL ATTIVITA DI POLIZIA",
-    "Domanda": "Lo statuto dei lavoratori (l.300/1970) :",
+    "Domanda": "Lo statuto dei lavoratori (l.300/1970):",
     "RispostaCorretta": "Ha potenziato le libertà sindacali (ad esempio diritto di fruire di permessi di lavoro per partecipare ad attività sindacali)",
     "RispostaErrata1": "Non ha esteso le libertà sindacali",
     "RispostaErrata2": "Non prevede sanzioni per condotte antisindacali del datore di lavoro",
@@ -2671,7 +2671,7 @@ window.QUIZ_DATA = [
   {
     "ID": 297,
     "Materia": "I PRINCIPI COSTITUZIONALI RILEVANTI NELL ATTIVITA DI POLIZIA",
-    "Domanda": "L'art. 82 della l.121/81 :",
+    "Domanda": "L'art. 82 della l.121/81:",
     "RispostaCorretta": "Garantisce che gli appartenenti alla polizia di stato hanno il diritto di associarsi in sindacati,vietandone però l'iscrizione a sindacati diversi da quelli del personale di polizia*",
     "RispostaErrata1": "Autorizza gli appartenenti alla polizia di stato a riunirsi sindacalmente in luogo pubblico",
     "RispostaErrata2": "Estende agli appartenenti alla polizia di stato il diritto di iscriversi a qualunque sindacato",
@@ -2689,7 +2689,7 @@ window.QUIZ_DATA = [
   {
     "ID": 299,
     "Materia": "I PRINCIPI COSTITUZIONALI RILEVANTI NELL ATTIVITA DI POLIZIA",
-    "Domanda": "L'art.84 della l.121/81 :",
+    "Domanda": "L'art.84 della l.121/81:",
     "RispostaCorretta": "Sancisce il divieto assoluto dell'esercizio del diritto di sciopero per gli appartenenti alla polizia di statio",
     "RispostaErrata1": "Autorizza gli appartenenti alla polizia di stato a scioperare nei limiti dell'esigenza di tutela dell'ordine e della sicurezza pubblica",
     "RispostaErrata2": "Garantisce tutela normativa agli appartenenti alle forze dell'ordine che scioperano",
@@ -2762,7 +2762,7 @@ window.QUIZ_DATA = [
     "ID": 307,
     "Materia": "IL CONTRASTO DELLA PORNOGRAFIA MINORILE E LE CONDOTTE CHE OFFENDONO I MINORI",
     "Domanda": "Cosa è il digital forensic",
-    "RispostaCorretta": "È l'attività di identificazione, raccolta, conservazione,validazioone , analisi delle evidenze o prove digitale",
+    "RispostaCorretta": "È l'attività di identificazione, raccolta, conservazione,validazioone, analisi delle evidenze o prove digitale",
     "RispostaErrata1": "È l'attività di sola analisi dei dati rilevati",
     "RispostaErrata2": "È l'attività di raccolta dati su internet ed interpretazioni digitali",
     "RispostaErrata3": ""
@@ -2796,7 +2796,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 311,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Quale sono i fenomeni criminosi del cybercrime?",
     "RispostaCorretta": "Ransoware-attacchi ddos-accessi abusivi- campagne di phishing- campagne apt",
     "RispostaErrata1": "Campagne apt- accessi con login-attacchi ddop",
@@ -2805,7 +2805,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 312,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Quale è il reparto spacialistico della polizia di stato che si occupa della prevenzione e contrasto della criminalità informatica",
     "RispostaCorretta": "Servizio polizia postale e per la sicurezza cibernetica",
     "RispostaErrata1": "Servizio polizia postale e comunicazioni",
@@ -2814,7 +2814,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 313,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa si intendeper infrastrutture critiche?",
     "RispostaCorretta": "Realtà strategiche, pubbliche e private, erogatrici di servizi essenziali del paese il cui danneggiamento è idoneo a produrre danni sistemici quando non, addirittura, la paralisi dell’intero sistema-paese.",
     "RispostaErrata1": "Realtà private che possono causare danni allo stato",
@@ -2823,7 +2823,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 314,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Quale è l'organismo istituito presso la presidenza del consiglio con funzioni di supporto al comitato interministeriale per la sicurezza della repubblica",
     "RispostaCorretta": "Nucleo operativo per la sicurezza cibernetica",
     "RispostaErrata1": "Nucleo operativo sistemi centrali",
@@ -2832,7 +2832,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 315,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa è il c.n.a.i.p.c.?",
     "RispostaCorretta": "Centro nazionale anticrimine informatico per la protezione delle infrastrutture critiche",
     "RispostaErrata1": "Centro nazionale assistenza informatica protezione centrale",
@@ -2841,7 +2841,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 316,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa è stato istituito a livello regionale presso i centri operativi per la sicurezza cibernetica?",
     "RispostaCorretta": "Nuclei operativi sicurezza cibernetica (nosc),",
     "RispostaErrata1": "Nuclei sicurezza operativi centrali (nsoc)",
@@ -2850,7 +2850,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 317,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa è un attacco ddos?",
     "RispostaCorretta": "Si risolvono in tentativi di rendere non disponibile agli utenti legittimi un sito web o un'applicazione web, sovraccaricando il sito con un volume enorme di traffico, causandone l'interruzione o il funzionamento estremamente lento.",
     "RispostaErrata1": "Si risolvono in tentativi di rendere non disponibile agli utenti legittimi un computer o un hardware, causandone l'interruzione o il funzionamento estremamente lento.",
@@ -2859,7 +2859,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 318,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa è un ramsoware?",
     "RispostaCorretta": "È un attacco che blocca l'accesso al sistema o cripta i dati custoditi all'interno dello stesso",
     "RispostaErrata1": "È un attacco alla rete di connessione",
@@ -2868,7 +2868,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 319,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Quale piattaforma illecita ospitata nel darkweb avvengono transazioni o scambi illeciti??",
     "RispostaCorretta": "Black market",
     "RispostaErrata1": "Dark market",
@@ -2877,7 +2877,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 320,
-    "Materia": "IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
+    "Materia": "IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE",
     "Domanda": "Cosa è la rete htc",
     "RispostaCorretta": "È una rete di punti di contatto internazionale attivabile in emergenza 24 ore al giorno per 7 giorni su 7",
     "RispostaErrata1": "È una rete di contatto internazionale che si attiva solo su richiesta dell'a.g.",
@@ -3156,7 +3156,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 351,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "L'illecito penale è:",
     "RispostaCorretta": "Un fatto umano contrario all'ordinamento giuridico",
     "RispostaErrata1": "Un fatto naturale contrario all'ordinamento giuridico",
@@ -3165,7 +3165,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 352,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "Il principio di legalità in diritto penale prevede che:",
     "RispostaCorretta": "La norma deve prevedere sia la sanzione che il precetto",
     "RispostaErrata1": "La norma deve prevedere solo il precetto",
@@ -3174,7 +3174,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 353,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "Per il principio di tassavità in diritto penale:",
     "RispostaCorretta": "La norma deve essere redatta in maniera chiara e non deve dare adito a dubbi",
     "RispostaErrata1": "La norma può essere redatta anche non in maniera chiara purché comprensibile",
@@ -3183,7 +3183,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 354,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "Il principio di tipicità in diritto penale richiede che:",
     "RispostaCorretta": "La fattispecie concreta coincida perfettamente con la fattispecie legalizzata",
     "RispostaErrata1": "La norma non sia retroattiva",
@@ -3192,7 +3192,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 355,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "Per il principio di offensività in diritto penale:",
     "RispostaCorretta": "L'azione umana deve realizzare una lesione del bene giuridico tutelato o quanto meno metterlo in pericolo",
     "RispostaErrata1": "L'azione umana può essere punita pur se rimane a livello intenzionale, senza realizzare un danno o un pericolo",
@@ -3201,7 +3201,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 356,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "L'ammenda è:",
     "RispostaCorretta": "Una sanzione penale pecuniaria",
     "RispostaErrata1": "Un ammonimento",
@@ -3210,8 +3210,8 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 357,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
-    "Domanda": "Il reato si distingue in :",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Domanda": "Il reato si distingue in:",
     "RispostaCorretta": "Delitti e contravvenzioni",
     "RispostaErrata1": "Delitti, contravvenzioni ed illeciti amministrativi",
     "RispostaErrata2": "Delitti, illeciti amministrativi e multe",
@@ -3219,7 +3219,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 358,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "L'illecito civile ha come conseguenza sanzionatoria:",
     "RispostaCorretta": "Il pagamento di una somma di denaro di tipo risarcitorio/riparatorio",
     "RispostaErrata1": "Il pagamento di una multa",
@@ -3228,7 +3228,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 359,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "L'illecito disciplinare è:",
     "RispostaCorretta": "Un illecito amministrativo",
     "RispostaErrata1": "Un illecito civile",
@@ -3237,7 +3237,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 360,
-    "Materia": "L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
+    "Materia": "L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO",
     "Domanda": "L'oblazione estingue:",
     "RispostaCorretta": "La contravvenzione",
     "RispostaErrata1": "L'illecito amministrativo",
@@ -3786,7 +3786,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 421,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Da chi dipende funzionalmente la polizia giudiziaria?",
     "RispostaCorretta": "Dal p.m.",
     "RispostaErrata1": "Dal questore",
@@ -3795,7 +3795,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 422,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "La polizia giudiziaria deve:",
     "RispostaCorretta": "Prendere notizia dei reati, ricercarne gli autori, compiere gli atti necessari ad assicurare le fonti di prova",
     "RispostaErrata1": "Solo prendere notizia dei reati",
@@ -3804,7 +3804,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 423,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "L'agente di p.g. Che non riferisce dolosamente una notizia di reato è punito:",
     "RispostaCorretta": "Con una sanzione penale",
     "RispostaErrata1": "Con il trasferimento ad un servizio che non preveda lo svolgimento di attività di p.g.",
@@ -3813,7 +3813,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 424,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Che cosa sono i servizi di polizia giudiziaria?",
     "RispostaCorretta": "Sono uffici ed unità ai quali è affidato il compito di svolgere, in via prioritaria e continuativa, le funzioni di polizia giudiziaria",
     "RispostaErrata1": "Sono uffici presenti presso le procure",
@@ -3822,7 +3822,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 425,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Gli ufficiali della guardia di finanza:",
     "RispostaCorretta": "Sono tutti ufficiali di p.g.",
     "RispostaErrata1": "Sono tutti agenti di p.g.",
@@ -3831,7 +3831,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 426,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Un vice sovrintendente è:",
     "RispostaCorretta": "Un ufficiale di p.g.",
     "RispostaErrata1": "Un agente di p.g.",
@@ -3840,7 +3840,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 427,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Un vigile del fuoco è:",
     "RispostaCorretta": "Un agente di p.g. A competenza limitata",
     "RispostaErrata1": "Un agente di p.g. A competenza generale",
@@ -3849,7 +3849,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 428,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Una sezione di p.g. Può essere costituita presso:",
     "RispostaCorretta": "La procura della repubblica presso il tribunale",
     "RispostaErrata1": "La procura generale della repubblica presso la corte d’appello",
@@ -3858,7 +3858,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 429,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "La censura è una sanzione disciplinare che può essere inflitta:",
     "RispostaCorretta": "Sia agli ufficiali che agli agenti di p.g.",
     "RispostaErrata1": "Solo agli ufficiali di p.g.",
@@ -3867,7 +3867,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 430,
-    "Materia": "LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI",
+    "Materia": "LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI",
     "Domanda": "Il sindaco è un ufficiale di p.g.:",
     "RispostaCorretta": "Solo se nel suo comune non c’è un ufficio di polizia, carabinieri o guardia di finanza",
     "RispostaErrata1": "Sempre",
@@ -4300,7 +4300,7 @@ window.QUIZ_DATA = [
   {
     "ID": 478,
     "Materia": "LA VIOLENZA DI GENERE - CENNI NORMATIVI E BUONE PRASSI - PARTE 2",
-    "Domanda": "Quale legge ha introdotto il reato di diffusione illecita di immagini o video sessualmente espliciti (art. 612-ter c.p.) ?",
+    "Domanda": "Quale legge ha introdotto il reato di diffusione illecita di immagini o video sessualmente espliciti (art. 612-ter c.p.)?",
     "RispostaCorretta": "La legge 19 luglio 2019, n.69",
     "RispostaErrata1": "Il decreto legislativo 15 dicembre 2015, n.212",
     "RispostaErrata2": "La legge 15 ottobre 2013, n.119",
@@ -4879,7 +4879,7 @@ window.QUIZ_DATA = [
     "Domanda": "Come si impiegano i droni nei servizi di polizia?",
     "RispostaCorretta": "Secondo le regole di impiego emanate dall’amministrazione.",
     "RispostaErrata1": "E’ sufficiente avere un titolo civile di abilitazione alla guida.",
-    "RispostaErrata2": "A richiesta del dipendente .",
+    "RispostaErrata2": "A richiesta del dipendente.",
     "RispostaErrata3": ""
   },
   {
@@ -4894,7 +4894,7 @@ window.QUIZ_DATA = [
   {
     "ID": 544,
     "Materia": "LE TECNOLOGIE UTILIZZATE NEL CONTROLLO DEL TERRITORIO - PARTE II",
-    "Domanda": "Cosa è il sistema mercurio extended ?",
+    "Domanda": "Cosa è il sistema mercurio extended?",
     "RispostaCorretta": "Un sistema che eleva gli standard di sicurezza del personale operante",
     "RispostaErrata1": "Un sistema per la gestione del personale",
     "RispostaErrata2": "Un sistema per elevare le contravvenzioni alle auto in sosta vietata",
@@ -5407,7 +5407,7 @@ window.QUIZ_DATA = [
   {
     "ID": 601,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Scomparso, disperso e irreperibile sono figure equivalenti ?",
+    "Domanda": "Scomparso, disperso e irreperibile sono figure equivalenti?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
     "RispostaErrata2": "Solo scomparso e disperso",
@@ -5416,7 +5416,7 @@ window.QUIZ_DATA = [
   {
     "ID": 602,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Il commissario di governo è nominato dal ministro dell’interno ?",
+    "Domanda": "Il commissario di governo è nominato dal ministro dell’interno?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
     "RispostaErrata2": "Dipende dal ruolo di provenienza del commissario designato",
@@ -5425,7 +5425,7 @@ window.QUIZ_DATA = [
   {
     "ID": 603,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "La materia delle persone scomparse è disciplinata da una sola legge ?",
+    "Domanda": "La materia delle persone scomparse è disciplinata da una sola legge?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
     "RispostaErrata2": "Dipende dal luogo di scomparsa?",
@@ -5434,7 +5434,7 @@ window.QUIZ_DATA = [
   {
     "ID": 604,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Chi attiva i piani provinciali di ricerca ?",
+    "Domanda": "Chi attiva i piani provinciali di ricerca?",
     "RispostaCorretta": "Il prefetto",
     "RispostaErrata1": "Il questore",
     "RispostaErrata2": "Il magistrato competente sul caso",
@@ -5443,7 +5443,7 @@ window.QUIZ_DATA = [
   {
     "ID": 605,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Quante sono, mediamente, le denunce di scomparsa per anno in italia ?",
+    "Domanda": "Quante sono, mediamente, le denunce di scomparsa per anno in italia?",
     "RispostaCorretta": "Più di 10000",
     "RispostaErrata1": "Meno di 10000",
     "RispostaErrata2": "Fra 1000 e 5000",
@@ -5452,7 +5452,7 @@ window.QUIZ_DATA = [
   {
     "ID": 606,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Chi può denunciare la notizia di una scomparsa ?",
+    "Domanda": "Chi può denunciare la notizia di una scomparsa?",
     "RispostaCorretta": "Chiunque",
     "RispostaErrata1": "Un familiare",
     "RispostaErrata2": "Familiari e parenti",
@@ -5461,7 +5461,7 @@ window.QUIZ_DATA = [
   {
     "ID": 607,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "La denuncia di scomparsa va inserita al c.e.d. ?",
+    "Domanda": "La denuncia di scomparsa va inserita al c.e.d.?",
     "RispostaCorretta": "Si",
     "RispostaErrata1": "Dipende dal caso",
     "RispostaErrata2": "Si, se disposto dalla magistratura",
@@ -5470,7 +5470,7 @@ window.QUIZ_DATA = [
   {
     "ID": 608,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Da chi vanno compilate le schede ri.sc. ?",
+    "Domanda": "Da chi vanno compilate le schede ri.sc.?",
     "RispostaCorretta": "Da polizia scientifica, racis, ris, medici legali",
     "RispostaErrata1": "Dipende dal caso",
     "RispostaErrata2": "Da chi riceve la denuncia",
@@ -5488,7 +5488,7 @@ window.QUIZ_DATA = [
   {
     "ID": 610,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Le associazioni possono concorrere alle ricerche delle persone scomparse ?",
+    "Domanda": "Le associazioni possono concorrere alle ricerche delle persone scomparse?",
     "RispostaCorretta": "Si",
     "RispostaErrata1": "No",
     "RispostaErrata2": "Solo se autorizzati dal prefetto",
@@ -6001,7 +6001,7 @@ window.QUIZ_DATA = [
   {
     "ID": 667,
     "Materia": "PS PERSONALE GESTIONE SERVIZI - SCHEDA PERSONALE",
-    "Domanda": "È possibile inserire un assenza avente un particolare stato ( ad esempio conseguenza di un trauma in servizio ) ? se si come?",
+    "Domanda": "È possibile inserire un assenza avente un particolare stato ( ad esempio conseguenza di un trauma in servizio )? se si come?",
     "RispostaCorretta": "Seguendo la procedura prevista dall'interfaccia ed applicando il flag che interessa ossia 'trauma in servizio - conta presenzà oppure 'riconosciuta causa di serviziò",
     "RispostaErrata1": "Seguendo la procedura prevista dall'interfaccia e specificando lo stato dell'assenza nella casella 'commentì",
     "RispostaErrata2": "Non è previsto dall'applicativo la definizione dello stato dell'assenza. Andrebbe a generare problemi connessi alla privacy.",
@@ -6010,7 +6010,7 @@ window.QUIZ_DATA = [
   {
     "ID": 668,
     "Materia": "PS PERSONALE GESTIONE SERVIZI - SCHEDA PERSONALE",
-    "Domanda": "È possibile inserire dati pregressi relativi a periodi di servizio svolti presso altri uffici ?",
+    "Domanda": "È possibile inserire dati pregressi relativi a periodi di servizio svolti presso altri uffici?",
     "RispostaCorretta": "Si, operando sul flag 'pregressì il tasto 'nuova assenzà cambierà dicitura in 'nuovo pregressò permettendo di inserire un nuovo dato con le stesse modalità di un nuovo inserimento di un dato attuale",
     "RispostaErrata1": "No, perché comunque non sarebbero utili per la contabilità.",
     "RispostaErrata2": "Assolutamente no. L'inserimento è a carico dell'ufficio ove ha svolto servizio precedentemente.",
@@ -6029,9 +6029,9 @@ window.QUIZ_DATA = [
     "ID": 670,
     "Materia": "PS PERSONALE GESTIONE SERVIZI - SCHEDA PERSONALE",
     "Domanda": "Quali sono e come sono distinguibili a livello visivo i vari stati contabili?",
-    "RispostaCorretta": "Pagato - flag colore verde con scritta che indica mese ed anno di liquidazione; archiviato - flag colore verde con scritta 'metti in pagamentò ; sospeso - flag colore azzurro con scritta 'metti in pagamentò; a compensativo - flag colore giallo con scritta 'metti in pagamentò; da gestire - flag colore rosso con scritta sospendi | archivia | a compensativo",
-    "RispostaErrata1": "Archiviato - flag colore verde con scritta che indica mese ed anno di liquidazione; pagato - flag colore verde con scritta 'metti in pagamentò ; sospeso - flag colore rosso con scritta 'metti in pagamentò; a compensativo - flag colore azzurro con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo",
-    "RispostaErrata2": "Pagato - flag colore rosso con scritta che indica mese ed anno di liquidazione; archiviato - flag colore giallo con scritta 'metti in pagamentò ; sospeso - flag colore verde con scritta 'metti in pagamentò; a compensativo - flag colore blu con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo",
+    "RispostaCorretta": "Pagato - flag colore verde con scritta che indica mese ed anno di liquidazione; archiviato - flag colore verde con scritta 'metti in pagamentò; sospeso - flag colore azzurro con scritta 'metti in pagamentò; a compensativo - flag colore giallo con scritta 'metti in pagamentò; da gestire - flag colore rosso con scritta sospendi | archivia | a compensativo",
+    "RispostaErrata1": "Archiviato - flag colore verde con scritta che indica mese ed anno di liquidazione; pagato - flag colore verde con scritta 'metti in pagamentò; sospeso - flag colore rosso con scritta 'metti in pagamentò; a compensativo - flag colore azzurro con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo",
+    "RispostaErrata2": "Pagato - flag colore rosso con scritta che indica mese ed anno di liquidazione; archiviato - flag colore giallo con scritta 'metti in pagamentò; sospeso - flag colore verde con scritta 'metti in pagamentò; a compensativo - flag colore blu con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo",
     "RispostaErrata3": ""
   },
   {
@@ -6442,7 +6442,7 @@ window.QUIZ_DATA = [
   {
     "ID": 716,
     "Materia": "RUOLI E QUALIFICHE DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA ALLA LUCE DEL RIORDINO DELLE CARRIERE DELLA POLIZIA DI STATO",
-    "Domanda": "In quante qualifiche è articolato il ruolo degli ispettori ?",
+    "Domanda": "In quante qualifiche è articolato il ruolo degli ispettori?",
     "RispostaCorretta": "5",
     "RispostaErrata1": "4",
     "RispostaErrata2": "6",
@@ -6451,7 +6451,7 @@ window.QUIZ_DATA = [
   {
     "ID": 717,
     "Materia": "RUOLI E QUALIFICHE DEL PERSONALE CHE ESPLETA FUNZIONI DI POLIZIA ALLA LUCE DEL RIORDINO DELLE CARRIERE DELLA POLIZIA DI STATO",
-    "Domanda": "In quante qualifiche è articolato il ruolo degli agenti e assistenti ?",
+    "Domanda": "In quante qualifiche è articolato il ruolo degli agenti e assistenti?",
     "RispostaCorretta": "4",
     "RispostaErrata1": "5",
     "RispostaErrata2": "3",
@@ -6613,7 +6613,7 @@ window.QUIZ_DATA = [
   {
     "ID": 735,
     "Materia": "UFFICIO PREVENZIONE GENERALE E SOCCORSO PUBBLICO ARTICOLAZIONI OPERATIVE E COMPETENZE",
-    "Domanda": "Qual è la competenza territoriale degli upgsp ?",
+    "Domanda": "Qual è la competenza territoriale degli upgsp?",
     "RispostaCorretta": "Provinciale",
     "RispostaErrata1": "Centro città",
     "RispostaErrata2": "Ambito città metropolitana",
@@ -6649,7 +6649,7 @@ window.QUIZ_DATA = [
   {
     "ID": 739,
     "Materia": "UFFICIO PREVENZIONE GENERALE E SOCCORSO PUBBLICO ARTICOLAZIONI OPERATIVE E COMPETENZE",
-    "Domanda": "Come si effettua la vigilanza dinamica ?",
+    "Domanda": "Come si effettua la vigilanza dinamica?",
     "RispostaCorretta": "Mediante frequenti passaggi e soste",
     "RispostaErrata1": "Ad alta velocità",
     "RispostaErrata2": "Comunicandolo puntualmente alla sala operativa",
@@ -6845,10 +6845,3 @@ window.QUIZ_DATA = [
     "RispostaErrata3": ""
   }
 ];
-
-// Configurazione iniziale vuota (le aree saranno create dall'utente)
-window.QUIZ_CONFIG = {
-  areas: {}
-};
-
-console.log('📱 VIT Cyber - Dati caricati:', window.QUIZ_DATA.length, 'domande');

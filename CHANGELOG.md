@@ -4,6 +4,62 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.7.1] - 2025-11-24
+
+### 🔧 Fixed - Correzione errori ortografici e formattazione
+
+#### ✨ Cleanup completo testi domande e risposte
+
+**92 correzioni applicate automaticamente** su 760 domande tramite script Python.
+
+**Correzioni spacing (89 errori):**
+- ✅ Rimossi spazi prima del punto (`.`)
+- ✅ Rimossi spazi prima del punto interrogativo (`?`)
+- ✅ Rimossi spazi prima del punto esclamativo (`!`)
+- ✅ Rimossi spazi prima della virgola (`,`)
+- ✅ Rimossi spazi prima dei due punti (`:`)
+- ✅ Rimossi spazi doppi consecutivi
+- ✅ Normalizzati spazi iniziali e finali
+
+**Correzioni typos (3 errori):**
+- `servzio` → `servizio` (ID 2)
+- `assistenete` → `assistente` (ID 5)
+- `permanza` → `permanenza` (ID 5)
+- `acceso` → `accesso` (ID 6)
+
+**Esempi correzioni:**
+```
+❌ "Quali sono i reparti prevenzione crimine ?"
+✅ "Quali sono i reparti prevenzione crimine?"
+
+❌ "DIRITTO PENALE : CONCUSSIONE E CORRUZIONE"
+✅ "DIRITTO PENALE: CONCUSSIONE E CORRUZIONE"
+
+❌ "Sette anni ."
+✅ "Sette anni."
+```
+
+**Processo:**
+1. Script Python automatico con backup (`fix_questions_errors.py`)
+2. Backup originale salvato: `data-embedded.js.backup.TIMESTAMP`
+3. Report dettagliato generato: `fix_report_TIMESTAMP.txt`
+4. Validazione JSON post-correzione: ✅ OK
+
+**Files modificati:**
+- `js/data-embedded.js`: 92 correzioni su domande/risposte
+- Script: `fix_questions_errors.py` (tool per future correzioni)
+
+**Impatto:**
+- ✅ Testi professionali e puliti
+- ✅ Zero errori spacing in punteggiatura
+- ✅ Typos comuni corretti
+- ✅ Tutte le 760 domande verificate
+- ✅ Nessuna modifica ai contenuti (solo pulizia)
+
+**Cache version:** v40 → v41
+
+---
+
 ## [v1.7.0] - 2025-11-24
 
 ### ✨ Feature - Advanced Analytics & Intelligent Suggestions
