@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz VIT Mobile - Applicazione Quiz Interattiva</title>
-    <meta name="description" content="App Quiz VIT - 760 domande per la preparazione esami. Funziona offline!">
+    <title>VIT Cyber - Quiz Cybersecurity</title>
+    <meta name="description" content="VIT Cyber - 760 domande di cybersecurity per la tua preparazione. Funziona offline!">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -13,7 +13,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Quiz VIT">
+    <meta name="apple-mobile-web-app-title" content="VIT Cyber">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <!-- Theme Color -->
@@ -25,14 +25,14 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS with cache busting -->
-    <link rel="stylesheet" href="css/style.css?v=26">
+    <link rel="stylesheet" href="css/style.css?v=27">
 </head>
 <body>
     <!-- Header -->
     <nav class="navbar navbar-dark bg-primary shadow-sm">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">
-                <i class="bi bi-mortarboard-fill"></i> Quiz VIT Mobile
+                <i class="bi bi-shield-lock-fill"></i> VIT Cyber
             </span>
             <div class="d-flex align-items-center gap-2">
                 <span class="badge bg-light text-dark d-none d-md-inline" id="question-count-badge">0 Domande</span>
@@ -536,7 +536,8 @@
     <div class="position-fixed bottom-0 end-0 p-3 toast-container-custom">
         <div id="notification-toast" class="toast" role="alert">
             <div class="toast-header">
-                <strong class="me-auto">Quiz VIT Mobile</strong>
+                <i class="bi bi-shield-lock-fill text-primary me-2"></i>
+                <strong class="me-auto">VIT Cyber</strong>
                 <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body" id="toast-message">
@@ -607,14 +608,14 @@
             <!-- Slide 1: Welcome -->
             <div class="onboarding-slide active" data-slide="0">
                 <div class="onboarding-icon">
-                    <i class="bi bi-check-circle-fill text-success"></i>
+                    <i class="bi bi-shield-lock-fill text-primary"></i>
                 </div>
-                <h2>Benvenuto in Quiz VIT!</h2>
-                <p>La tua app mobile per studiare ovunque, anche offline.</p>
+                <h2>Benvenuto in VIT Cyber!</h2>
+                <p>La tua app per la preparazione in cybersecurity, ovunque tu sia.</p>
                 <ul class="text-start mt-3">
-                    <li>✅ 760 domande sempre disponibili</li>
-                    <li>✅ Funziona completamente offline</li>
-                    <li>✅ Traccia i tuoi progressi</li>
+                    <li>🔒 760 domande di cybersecurity</li>
+                    <li>📱 Funziona completamente offline</li>
+                    <li>📊 Traccia i tuoi progressi</li>
                 </ul>
             </div>
 
@@ -686,9 +687,9 @@
         </div>
     </div>
 
-    <script src="js/data-embedded.js?v=26"></script>
+    <script src="js/data-embedded.js?v=27"></script>
     <!-- Custom App JS with cache busting -->
-    <script src="js/app.js?v=26"></script>
+    <script src="js/app.js?v=27"></script>
 
     <!-- Service Worker Registration handled in app.js -->
 </body>

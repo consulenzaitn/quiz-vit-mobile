@@ -1,7 +1,7 @@
 {
-  "name": "Quiz VIT Mobile",
-  "short_name": "Quiz VIT",
-  "description": "App Quiz VIT - 760 domande per la preparazione esami",
+  "name": "VIT Cyber - Quiz Cybersecurity",
+  "short_name": "VIT Cyber",
+  "description": "VIT Cyber - 760 domande di cybersecurity per la tua preparazione",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#667eea",
@@ -21,6 +21,6 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "productivity"],
+  "categories": ["education", "productivity", "security"],
   "lang": "it-IT"
 }
