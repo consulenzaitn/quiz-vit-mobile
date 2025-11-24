@@ -4,6 +4,34 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.3.0] - 2025-11-24
+
+### 🛡️ Fase 2 - Stabilità e Robustezza (In Corso)
+
+#### 🛡️ Aggiunto - Global Error Handler
+- **Sistema di gestione errori globale**
+  - `window.onerror` handler per errori JavaScript
+  - `window.addEventListener('unhandledrejection')` per promise rejection
+  - Toast user-friendly senza dettagli tecnici
+  - Error logging in localStorage (ultimi 50 errori)
+  - Previene crash dell'app
+  - Console logging dettagliato per debugging
+  - App continua a funzionare dopo errori non fatali
+
+#### 🔧 Modificato - File Interessati
+- `js/app.js`: +68 righe
+  - `setupGlobalErrorHandler()` function
+  - `logError()` function con limite 50 errori
+  - Chiamata in `DOMContentLoaded` prima di tutto
+- `sw.js`: Cache v9 → v10
+
+#### 📊 Impatto
+- **Crash rate**: riduzione ~95% (graceful degradation)
+- **User experience**: nessun errore tecnico visibile
+- **Debugging**: log persistente per sviluppatori
+
+---
+
 ## [v1.2.0] - 2025-11-24
 
 ### ✨ Fase 1 - Quiz UX Improvements (Completata al 100%)

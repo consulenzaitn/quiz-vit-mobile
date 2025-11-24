@@ -111,9 +111,76 @@ let currentQuiz = {
 };
 
 // ======================================
+// Global Error Handler
+// ======================================
+function setupGlobalErrorHandler() {
+    // Catch all unhandled JavaScript errors
+    window.onerror = function(message, source, lineno, colno, error) {
+        console.error('❌ Global Error:', {
+            message,
+            source,
+            lineno,
+            colno,
+            error
+        });
+
+        // Show user-friendly error message
+        showToast('Si è verificato un errore. L\'app continuerà a funzionare.', 'error');
+
+        // Log to SafeStorage for debugging
+        logError({
+            type: 'JavaScript Error',
+            message,
+            source,
+            lineno,
+            colno,
+            timestamp: new Date().toISOString()
+        });
+
+        // Prevent default browser error handling
+        return true;
+    };
+
+    // Catch all unhandled promise rejections
+    window.addEventListener('unhandledrejection', function(event) {
+        console.error('❌ Unhandled Promise Rejection:', event.reason);
+
+        // Show user-friendly error message
+        showToast('Si è verificato un errore durante un\'operazione.', 'error');
+
+        // Log to SafeStorage for debugging
+        logError({
+            type: 'Promise Rejection',
+            reason: event.reason?.toString() || 'Unknown',
+            timestamp: new Date().toISOString()
+        });
+
+        // Prevent default browser error handling
+        event.preventDefault();
+    });
+}
+
+function logError(errorData) {
+    try {
+        const errorLog = SafeStorage.getItem('errorLog', []);
+        errorLog.push(errorData);
+
+        // Keep only last 50 errors
+        if (errorLog.length > 50) {
+            errorLog.shift();
+        }
+
+        SafeStorage.setItem('errorLog', errorLog);
+    } catch (e) {
+        console.error('Failed to log error:', e);
+    }
+}
+
+// ======================================
 // Initialization
 // ======================================
 document.addEventListener('DOMContentLoaded', () => {
+    setupGlobalErrorHandler();
     initApp();
     attachEventListeners();
 });
