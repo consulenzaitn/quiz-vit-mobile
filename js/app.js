@@ -1352,8 +1352,9 @@ function startQuiz() {
         isExamMode: isExamMode, // Exam Mode: no feedback until end
         showFeedback: !isExamMode, // Show feedback immediately unless Exam Mode
         isGlobalTimer: isExamMode, // Exam mode uses global timer (not per question)
-        allowRetry: isPracticeMode, // Practice mode: allow immediate retry
-        saveToHistory: !isPracticeMode // Practice mode: don't save to history
+        allowRetry: isPracticeMode, // Practice mode: allow immediate retry (max 2 attempts)
+        saveToHistory: !isPracticeMode, // Practice mode: don't save to history
+        retryCount: 0 // Practice mode: track retry attempts per question
     };
 
     showQuizView();
@@ -1539,18 +1540,24 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         if (isCorrect) {
             messageEl.className = 'alert alert-success';
             messageEl.innerHTML = '<i class="bi bi-check-circle me-2"></i><strong>Corretto!</strong>';
+            // Reset retry count on correct answer
+            if (currentQuiz.isPracticeMode) {
+                currentQuiz.retryCount = 0;
+            }
         } else {
             messageEl.className = 'alert alert-danger';
 
-            // Practice Mode: add retry button
-            if (currentQuiz.allowRetry) {
+            // Practice Mode: retry logic (max 2 attempts = 1 retry)
+            if (currentQuiz.allowRetry && currentQuiz.retryCount === 0) {
+                // First wrong attempt: show retry button WITHOUT showing correct answer
                 messageEl.innerHTML = `
-                    <div><i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong></div>
+                    <div><i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> Riprova a pensarci...</div>
                     <button class="btn btn-warning btn-sm mt-2" onclick="retryQuestion()">
-                        <i class="bi bi-arrow-counterclockwise me-1"></i>Riprova
+                        <i class="bi bi-arrow-counterclockwise me-1"></i>Riprova (1 tentativo rimasto)
                     </button>
                 `;
             } else {
+                // Second wrong attempt OR non-practice mode: show correct answer
                 messageEl.innerHTML = `<i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong>`;
             }
         }
@@ -1572,6 +1579,9 @@ function retryQuestion() {
     // Practice Mode: retry the same question
     HapticFeedback.medium();
 
+    // Increment retry count
+    currentQuiz.retryCount++;
+
     // Remove last answer from array (the wrong one)
     currentQuiz.answers.pop();
 
@@ -1580,6 +1590,11 @@ function retryQuestion() {
 }
 
 function nextQuestion() {
+    // Reset retry count for next question (Practice Mode)
+    if (currentQuiz.isPracticeMode) {
+        currentQuiz.retryCount = 0;
+    }
+
     // Mark current question as skipped if not answered
     if (!currentQuiz.answers[currentQuiz.currentIndex]) {
         if (!currentQuiz.skipped.includes(currentQuiz.currentIndex)) {

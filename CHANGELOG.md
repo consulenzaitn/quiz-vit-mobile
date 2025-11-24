@@ -4,6 +4,52 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.2] - 2025-11-24
+
+### 🎓 Migliorato - Practice Mode Retry Logic
+
+#### ✨ Retry Intelligente (2 tentativi massimi)
+
+**Problema precedente:**
+- Mostrare la risposta corretta E permettere retry era controproducente
+- L'utente vedeva subito la soluzione senza dover ragionare
+
+**Nuova logica educativa:**
+
+**1° tentativo sbagliato:**
+```
+❌ Sbagliato! Riprova a pensarci...
+[Pulsante "Riprova (1 tentativo rimasto)"]
+```
+- **NON mostra la risposta corretta**
+- Stimola il ragionamento critico
+- Dai una seconda possibilità di pensarci
+
+**2° tentativo sbagliato:**
+```
+❌ Sbagliato! La risposta corretta è: [Risposta]
+[Pulsante "Avanti"]
+```
+- Mostra finalmente la risposta corretta
+- Fase di apprendimento passivo
+
+**Modifiche tecniche:**
+
+- `currentQuiz.retryCount`: contatore tentativi per domanda corrente
+- `checkAnswer()`: logica condizionale basata su retryCount
+- `retryQuestion()`: incrementa retryCount prima di riprovare
+- `nextQuestion()`: reset retryCount = 0 per domanda successiva
+- Corretto answer feedback: mostra/nascondi risposta in base a tentativi
+
+**Pedagogia:**
+- **Tentativo attivo** (1°): ragiona senza aiuto
+- **Apprendimento passivo** (2°): impara vedendo la soluzione
+- Bilanciamento perfetto tra challenge e educazione
+
+**Cache version:** v35 → v36
+
+---
+
 ## [v1.6.1] - 2025-11-24
 
 ### ✨ Miglioramenti - Practice Mode & UX
