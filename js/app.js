@@ -228,10 +228,12 @@ function setupServiceWorker() {
 
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            // New service worker available
-                            console.log('✨ New Service Worker installed, showing update notification');
+                            // New service worker available - auto-update
+                            console.log('✨ New Service Worker installed, updating automatically...');
                             updateAvailableRegistration = registration;
-                            showUpdateNotification();
+
+                            // Auto-update: skip waiting immediately
+                            newWorker.postMessage({ type: 'SKIP_WAITING' });
                         }
                     });
                 });
