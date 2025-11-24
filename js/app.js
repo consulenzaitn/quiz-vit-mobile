@@ -267,8 +267,8 @@ function setupKeyboardShortcuts() {
         const isQuizActive = quizView && !quizView.classList.contains('hidden');
 
         if (isQuizActive) {
-            // Number keys 1-4 to select answers
-            if (/^[1-4]$/.test(e.key)) {
+            // Number keys 1-3 to select answers (all questions have exactly 3 answers)
+            if (/^[1-3]$/.test(e.key)) {
                 const answerButtons = document.querySelectorAll('.answer-btn:not([disabled])');
                 const index = parseInt(e.key) - 1;
                 if (answerButtons[index]) {
