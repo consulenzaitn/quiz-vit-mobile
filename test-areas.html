@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Aree Predefinite</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 { color: #667eea; }
+        .area {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+        .area-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .subject-count {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .subjects {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Aree Predefinite - VIT Cyber</h1>
+    <div id="status">Caricamento...</div>
+    <div id="areas-container"></div>
+
+    <script src="js/default-areas.js"></script>
+    <script>
+        const status = document.getElementById('status');
+        const container = document.getElementById('areas-container');
+
+        if (window.DEFAULT_AREAS) {
+            const areas = window.DEFAULT_AREAS;
+            const areaCount = Object.keys(areas).length;
+            const totalSubjects = Object.values(areas).reduce((sum, subjects) => sum + subjects.length, 0);
+
+            status.innerHTML = `
+                ✅ <strong>Aree caricate con successo!</strong><br>
+                📊 ${areaCount} aree totali<br>
+                📚 ${totalSubjects} materie totali
+            `;
+
+            Object.entries(areas).forEach(([areaName, subjects]) => {
+                const areaDiv = document.createElement('div');
+                areaDiv.className = 'area';
+                areaDiv.innerHTML = `
+                    <div class="area-name">${areaName}</div>
+                    <div class="subject-count">${subjects.length} materie</div>
+                    <details class="subjects">
+                        <summary>Mostra materie</summary>
+                        <ul>
+                            ${subjects.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </details>
+                `;
+                container.appendChild(areaDiv);
+            });
+        } else {
+            status.innerHTML = '❌ <strong>Errore:</strong> window.DEFAULT_AREAS non trovato!';
+            status.style.color = 'red';
+        }
+    </script>
+</body>
+</html>
