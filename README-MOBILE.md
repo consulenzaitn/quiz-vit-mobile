@@ -19,22 +19,14 @@ Versione Progressive Web App dell'applicazione Quiz VIT ottimizzata per disposit
 1. **Trasferisci** lo ZIP sul tuo iPhone (via AirDrop, email, iCloud Drive, etc.)
 2. **Estrai** il file ZIP usando l'app File di iOS
 
-### Passo 2: Generare le icone (IMPORTANTE!)
-Prima di installare l'app, devi generare le icone:
-
-1. **Apri** il file `generate-icons.html` con Safari
-2. **Clicca** sul pulsante "Scarica Icone"
-3. Le icone verranno scaricate automaticamente (3 file PNG)
-4. **Sposta** i file `icon-192.png`, `icon-512.png` e `apple-touch-icon.png` nella stessa cartella di `index.html`
-
-### Passo 3: Installazione come PWA
+### Passo 2: Installazione come PWA
 1. **Apri** il file `index.html` con **Safari** (importante: usa Safari!)
 2. **Tocca** il pulsante "Condividi" (icona con freccia verso l'alto) in basso
 3. **Scorri** e seleziona **"Aggiungi a Home"**
 4. **Conferma** il nome "Quiz VIT" e tocca "Aggiungi"
 5. L'icona apparirà sulla tua Home Screen! 🎉
 
-### Passo 4: Usa l'app
+### Passo 3: Usa l'app
 - **Tocca** l'icona sulla Home Screen
 - L'app si aprirà **a schermo intero** senza le barre del browser
 - Funziona completamente **offline** dopo il primo caricamento!
@@ -150,9 +142,10 @@ Se non vuoi installare l'app:
 ## ❓ Risoluzione problemi
 
 ### Le icone non appaiono nell'app installata
-1. Assicurati di aver generato le icone con `generate-icons.html`
-2. Verifica che i 3 file PNG siano nella cartella principale
-3. Disinstalla e reinstalla l'app
+
+1. Le icone sono già incluse nell'app (icon-192.png, icon-512.png, apple-touch-icon.png)
+2. Se non vedi il logo, disinstalla e reinstalla l'app
+3. Verifica che i file PNG siano nella cartella principale
 
 ### Le configurazioni scompaiono
 Se cancelli i dati del browser o la cache, le configurazioni delle aree andranno perse. Le domande rimarranno sempre disponibili perché sono embedded nel codice.
