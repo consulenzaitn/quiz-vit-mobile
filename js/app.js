@@ -1180,6 +1180,30 @@ function startQuiz() {
     } else if (mode === 'wrong-by-subject') {
         const wrongIds = getWrongQuestionsForSubject(topic);
         selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
+    } else if (mode === 'practice') {
+        // Practice Mode: all questions, user can choose area/subject or random
+        if (topic) {
+            if (config.areas[topic]) {
+                const subjects = config.areas[topic] || [];
+                selectedQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
+            } else {
+                selectedQuestions = allQuestions.filter(q => q.Materia === topic);
+            }
+        } else {
+            selectedQuestions = shuffleArray([...allQuestions]).slice(0, numQuestions);
+        }
+    } else if (mode === 'exam') {
+        // Exam Mode: simulates real exam, all questions or subset
+        if (topic) {
+            if (config.areas[topic]) {
+                const subjects = config.areas[topic] || [];
+                selectedQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
+            } else {
+                selectedQuestions = allQuestions.filter(q => q.Materia === topic);
+            }
+        } else {
+            selectedQuestions = shuffleArray([...allQuestions]);
+        }
     }
 
     // Escludi domande già viste se richiesto
@@ -1210,7 +1234,10 @@ function startQuiz() {
         selectedQuestions = shuffleArray(selectedQuestions).slice(0, numQuestions);
     }
 
-    // Initialize quiz
+    // Initialize quiz with mode-specific settings
+    const isPracticeMode = mode === 'practice';
+    const isExamMode = mode === 'exam';
+
     currentQuiz = {
         questions: shuffleArray(selectedQuestions),
         currentIndex: 0,
@@ -1225,7 +1252,10 @@ function startQuiz() {
         mode: mode,
         target: topic,
         isPaused: false, // Pause state
-        pausedTimeLeft: null // Store remaining time when paused
+        pausedTimeLeft: null, // Store remaining time when paused
+        isPracticeMode: isPracticeMode, // Practice Mode: no scoring, immediate retry
+        isExamMode: isExamMode, // Exam Mode: no feedback until end
+        showFeedback: !isExamMode // Show feedback immediately unless Exam Mode
     };
 
     showQuizView();
@@ -1363,11 +1393,16 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 
     const isCorrect = selectedAnswer === correctAnswer;
 
-    // Haptic feedback based on result
-    if (isCorrect) {
-        HapticFeedback.success();
+    // Haptic feedback based on result (unless Exam Mode)
+    if (!currentQuiz.isExamMode) {
+        if (isCorrect) {
+            HapticFeedback.success();
+        } else {
+            HapticFeedback.error();
+        }
     } else {
-        HapticFeedback.error();
+        // Exam Mode: neutral feedback only
+        HapticFeedback.medium();
     }
 
     // Record answer
@@ -1378,30 +1413,41 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         isCorrect: isCorrect
     });
 
-    // Visual feedback
-    const buttons = document.querySelectorAll('.answer-btn');
-    buttons.forEach(btn => {
-        btn.disabled = true;
-        if (btn.textContent === correctAnswer) {
-            btn.classList.add('correct');
-        } else if (btn.textContent === selectedAnswer && !isCorrect) {
-            btn.classList.add('wrong');
+    // Visual feedback (only if showFeedback is true)
+    if (currentQuiz.showFeedback) {
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === correctAnswer) {
+                btn.classList.add('correct');
+            } else if (btn.textContent === selectedAnswer && !isCorrect) {
+                btn.classList.add('wrong');
+            }
+        });
+
+        // Show feedback message
+        const feedbackEl = document.getElementById('answer-feedback');
+        const messageEl = document.getElementById('feedback-message');
+
+        if (isCorrect) {
+            messageEl.className = 'alert alert-success';
+            messageEl.innerHTML = '<i class="bi bi-check-circle me-2"></i><strong>Corretto!</strong>';
+        } else {
+            messageEl.className = 'alert alert-danger';
+            messageEl.innerHTML = `<i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong>`;
         }
-    });
 
-    // Show feedback message
-    const feedbackEl = document.getElementById('answer-feedback');
-    const messageEl = document.getElementById('feedback-message');
-
-    if (isCorrect) {
-        messageEl.className = 'alert alert-success';
-        messageEl.innerHTML = '<i class="bi bi-check-circle me-2"></i><strong>Corretto!</strong>';
+        feedbackEl.classList.remove('hidden');
     } else {
-        messageEl.className = 'alert alert-danger';
-        messageEl.innerHTML = `<i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong>`;
-    }
+        // Exam Mode: just mark as answered and move on
+        const buttons = document.querySelectorAll('.answer-btn');
+        buttons.forEach(btn => btn.disabled = true);
 
-    feedbackEl.classList.remove('hidden');
+        // Auto-advance to next question after 500ms
+        setTimeout(() => {
+            nextQuestion();
+        }, 500);
+    }
 }
 
 function nextQuestion() {
@@ -1666,15 +1712,18 @@ function startTimer() {
     timerDisplay.classList.remove('hidden');
 
     let timeLeft = currentQuiz.timerDuration;
+    const totalTime = currentQuiz.timerDuration;
     timerSeconds.textContent = timeLeft;
+
+    // Apply initial color based on starting time
+    updateTimerColor(timeLeft, totalTime);
 
     currentQuiz.timer = setInterval(() => {
         timeLeft--;
         timerSeconds.textContent = timeLeft;
 
-        if (timeLeft <= 5) {
-            timerDisplay.classList.add('warning');
-        }
+        // Update timer color based on percentage remaining
+        updateTimerColor(timeLeft, totalTime);
 
         if (timeLeft <= 0) {
             stopTimer();
@@ -1683,6 +1732,26 @@ function startTimer() {
             checkAnswer('', question.RispostaCorretta);
         }
     }, 1000);
+}
+
+// Helper function to update timer color based on time percentage
+function updateTimerColor(timeLeft, totalTime) {
+    const timerDisplay = document.getElementById('timer-display');
+    const percentage = (timeLeft / totalTime) * 100;
+
+    // Remove all timer classes
+    timerDisplay.classList.remove('timer-safe', 'timer-warning', 'timer-danger', 'warning');
+
+    if (percentage > 50) {
+        // Green: > 50% time remaining
+        timerDisplay.classList.add('timer-safe');
+    } else if (percentage > 20) {
+        // Yellow: 20-50% time remaining
+        timerDisplay.classList.add('timer-warning');
+    } else {
+        // Red: < 20% time remaining
+        timerDisplay.classList.add('timer-danger');
+    }
 }
 
 function stopTimer() {

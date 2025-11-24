@@ -25,7 +25,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS with cache busting -->
-    <link rel="stylesheet" href="css/style.css?v=31">
+    <link rel="stylesheet" href="css/style.css?v=32">
 </head>
 <body>
     <!-- Header -->
@@ -171,12 +171,20 @@
                         <div class="col-md-6 mb-3">
                             <label for="quiz-mode-select" class="form-label">Modalità Quiz</label>
                             <select class="form-select" id="quiz-mode-select">
-                                <option value="area">Per Area</option>
-                                <option value="subject">Per Materia</option>
-                                <option value="random">Numero Fisso (Casuale)</option>
-                                <option value="wrong">Solo Domande Sbagliate (Tutte)</option>
-                                <option value="wrong-by-area">Domande Sbagliate per Area</option>
-                                <option value="wrong-by-subject">Domande Sbagliate per Materia</option>
+                                <optgroup label="📚 Modalità Standard">
+                                    <option value="area">Per Area</option>
+                                    <option value="subject">Per Materia</option>
+                                    <option value="random">Numero Fisso (Casuale)</option>
+                                </optgroup>
+                                <optgroup label="🔄 Ripasso Errori">
+                                    <option value="wrong">Solo Domande Sbagliate (Tutte)</option>
+                                    <option value="wrong-by-area">Domande Sbagliate per Area</option>
+                                    <option value="wrong-by-subject">Domande Sbagliate per Materia</option>
+                                </optgroup>
+                                <optgroup label="🎯 Modalità Speciali">
+                                    <option value="practice">🎓 Practice Mode (allenamento libero)</option>
+                                    <option value="exam">📝 Exam Mode (simulazione esame)</option>
+                                </optgroup>
                             </select>
                         </div>
 
@@ -687,9 +695,9 @@
         </div>
     </div>
 
-    <script src="js/data-embedded.js?v=31"></script>
+    <script src="js/data-embedded.js?v=32"></script>
     <!-- Custom App JS with cache busting -->
-    <script src="js/app.js?v=31"></script>
+    <script src="js/app.js?v=32"></script>
 
     <!-- Service Worker Registration handled in app.js -->
 </body>
