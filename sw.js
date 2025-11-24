@@ -1,13 +1,13 @@
 // Service Worker per Quiz VIT Mobile
 // Permette il funzionamento offline completo
 
-const CACHE_NAME = 'quiz-vit-v23';
+const CACHE_NAME = 'quiz-vit-v24';
 const urlsToCache = [
   './',
   './index.html',
-  './css/style.css?v=22',
-  './js/app.js?v=22',
-  './js/data-embedded.js?v=22',
+  './css/style.css?v=24',
+  './js/app.js?v=24',
+  './js/data-embedded.js?v=24',
   './manifest.json',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',

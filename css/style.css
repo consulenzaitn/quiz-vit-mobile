@@ -1734,3 +1734,142 @@ body.dark-mode .onboarding-dots .dot {
         font-size: 3rem;
     }
 }
+
+/* ======================================
+   Pause Overlay
+   ====================================== */
+#pause-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#pause-overlay.hidden {
+    display: none;
+}
+
+.pause-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.pause-container {
+    position: relative;
+    z-index: 1;
+    animation: fadeInScale 0.3s ease-out;
+}
+
+.pause-content {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    min-width: 320px;
+    max-width: 90vw;
+}
+
+.pause-icon {
+    font-size: 5rem;
+    color: var(--warning);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.pause-content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.pause-content p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.pause-content .btn {
+    min-width: 180px;
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+}
+
+/* Pause Button Styling */
+#pause-quiz-btn {
+    min-width: 38px;
+    min-height: 38px;
+    transition: all 0.2s ease;
+}
+
+#pause-quiz-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+#pause-quiz-btn.hidden {
+    display: none;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .pause-content {
+    background: #1a1d29;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .pause-backdrop {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+    .pause-content {
+        padding: 2rem 1.5rem;
+        min-width: 280px;
+    }
+
+    .pause-icon {
+        font-size: 4rem;
+    }
+
+    .pause-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .pause-content .btn {
+        min-width: 150px;
+        font-size: 1rem;
+    }
+}

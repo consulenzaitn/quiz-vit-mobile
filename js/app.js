@@ -267,6 +267,18 @@ function setupKeyboardShortcuts() {
         const isQuizActive = quizView && !quizView.classList.contains('hidden');
 
         if (isQuizActive) {
+            // Space to pause/resume quiz
+            if (e.key === ' ' || e.code === 'Space') {
+                e.preventDefault();
+                togglePauseQuiz();
+                return;
+            }
+
+            // Don't allow other shortcuts while paused
+            if (currentQuiz && currentQuiz.isPaused) {
+                return;
+            }
+
             // Number keys 1-3 to select answers (all questions have exactly 3 answers)
             if (/^[1-3]$/.test(e.key)) {
                 const answerButtons = document.querySelectorAll('.answer-btn:not([disabled])');
@@ -366,6 +378,13 @@ function attachEventListeners() {
     document.getElementById('skip-question-btn').addEventListener('click', skipQuestion);
     document.getElementById('show-palette-btn').addEventListener('click', showQuestionPalette);
     document.getElementById('close-palette-btn').addEventListener('click', closeQuestionPalette);
+
+    // Pause/Resume buttons
+    document.getElementById('pause-quiz-btn').addEventListener('click', togglePauseQuiz);
+    document.getElementById('resume-quiz-btn').addEventListener('click', resumeQuiz);
+
+    // Close pause overlay on backdrop click
+    document.querySelector('.pause-backdrop')?.addEventListener('click', resumeQuiz);
 
     // Quiz setup
     document.getElementById('quiz-mode-select').addEventListener('change', () => {
@@ -1193,7 +1212,9 @@ function startQuiz() {
         timerEnabled: timerEnabled,
         requireConfirmation: requireConfirmation,
         mode: mode,
-        target: topic
+        target: topic,
+        isPaused: false, // Pause state
+        pausedTimeLeft: null // Store remaining time when paused
     };
 
     showQuizView();
@@ -1271,6 +1292,14 @@ function displayQuestion() {
         skipBtn.style.display = 'none';
     } else {
         skipBtn.style.display = '';
+    }
+
+    // Show/hide pause button based on timer
+    const pauseBtn = document.getElementById('pause-quiz-btn');
+    if (currentQuiz.timerEnabled) {
+        pauseBtn.classList.remove('hidden');
+    } else {
+        pauseBtn.classList.add('hidden');
     }
 
     // Start timer if enabled
@@ -1595,6 +1624,85 @@ function stopTimer() {
     }
     const timerDisplay = document.getElementById('timer-display');
     timerDisplay.classList.remove('warning');
+}
+
+// Pause and Resume Quiz
+function pauseQuiz() {
+    if (!currentQuiz || currentQuiz.isPaused) return;
+
+    currentQuiz.isPaused = true;
+    HapticFeedback.medium();
+
+    // Store current timer state if timer is active
+    if (currentQuiz.timerEnabled && currentQuiz.timer) {
+        const timerSeconds = document.getElementById('timer-seconds');
+        currentQuiz.pausedTimeLeft = parseInt(timerSeconds.textContent);
+        stopTimer();
+    }
+
+    // Show pause overlay
+    document.getElementById('pause-overlay').classList.remove('hidden');
+
+    // Update pause button icon
+    const pauseBtn = document.getElementById('pause-quiz-btn');
+    pauseBtn.querySelector('i').className = 'bi bi-play-fill';
+    pauseBtn.title = 'Riprendi (Spazio)';
+
+    showToast('Quiz in pausa', 'warning');
+}
+
+function resumeQuiz() {
+    if (!currentQuiz || !currentQuiz.isPaused) return;
+
+    currentQuiz.isPaused = false;
+    HapticFeedback.medium();
+
+    // Hide pause overlay
+    document.getElementById('pause-overlay').classList.add('hidden');
+
+    // Restart timer if it was active
+    if (currentQuiz.timerEnabled && currentQuiz.pausedTimeLeft !== null) {
+        const timerDisplay = document.getElementById('timer-display');
+        const timerSeconds = document.getElementById('timer-seconds');
+
+        timerDisplay.classList.remove('hidden');
+
+        let timeLeft = currentQuiz.pausedTimeLeft;
+        timerSeconds.textContent = timeLeft;
+
+        currentQuiz.timer = setInterval(() => {
+            timeLeft--;
+            timerSeconds.textContent = timeLeft;
+
+            if (timeLeft <= 5) {
+                timerDisplay.classList.add('warning');
+            }
+
+            if (timeLeft <= 0) {
+                stopTimer();
+                // Auto-submit wrong answer
+                const question = currentQuiz.questions[currentQuiz.currentIndex];
+                checkAnswer('', question.RispostaCorretta);
+            }
+        }, 1000);
+
+        currentQuiz.pausedTimeLeft = null;
+    }
+
+    // Update pause button icon
+    const pauseBtn = document.getElementById('pause-quiz-btn');
+    pauseBtn.querySelector('i').className = 'bi bi-pause-fill';
+    pauseBtn.title = 'Pausa (Spazio)';
+
+    showToast('Quiz ripreso', 'success');
+}
+
+function togglePauseQuiz() {
+    if (currentQuiz.isPaused) {
+        resumeQuiz();
+    } else {
+        pauseQuiz();
+    }
 }
 
 // ======================================
