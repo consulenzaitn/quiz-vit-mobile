@@ -2321,6 +2321,15 @@ function displayStatistics() {
     } else {
         subjectContainer.innerHTML = '<p class="text-muted">Nessuna statistica disponibile</p>';
     }
+
+    // Advanced Analytics: Weak Points (v1.7.0)
+    displayWeakPoints();
+
+    // Advanced Analytics: Intelligent Suggestions (v1.7.0)
+    displayIntelligentSuggestions();
+
+    // Advanced Analytics: 7-Day Trend (v1.7.0)
+    display7DayTrend();
 }
 
 function clearStats() {
@@ -2841,6 +2850,389 @@ function getWrongQuestionsForSubject(subjectName) {
 function getWrongQuestionsForArea(areaName) {
     const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
     return wrongByArea[areaName] || [];
+}
+
+// ======================================
+// Advanced Analytics Functions (v1.7.0)
+// ======================================
+
+/**
+ * Analizza i punti deboli dell'utente (performance < 70%)
+ * Ritorna aree e materie con bassa performance
+ */
+function analyzeWeakPoints() {
+    const stats = SafeStorage.getItem('quizStats', {});
+    const weakPoints = {
+        areas: [],
+        subjects: []
+    };
+
+    // Analizza performance per area
+    if (stats.byArea) {
+        for (const [areaName, areaStats] of Object.entries(stats.byArea)) {
+            if (areaStats.total > 0) {
+                const accuracy = (areaStats.correct / areaStats.total) * 100;
+                if (accuracy < 70) {
+                    weakPoints.areas.push({
+                        name: areaName,
+                        accuracy: Math.round(accuracy),
+                        correct: areaStats.correct,
+                        total: areaStats.total,
+                        wrong: areaStats.total - areaStats.correct
+                    });
+                }
+            }
+        }
+    }
+
+    // Analizza performance per materia
+    if (stats.bySubject) {
+        for (const [subjectName, subjectStats] of Object.entries(stats.bySubject)) {
+            if (subjectStats.total > 0) {
+                const accuracy = (subjectStats.correct / subjectStats.total) * 100;
+                if (accuracy < 70) {
+                    weakPoints.subjects.push({
+                        name: subjectName,
+                        accuracy: Math.round(accuracy),
+                        correct: subjectStats.correct,
+                        total: subjectStats.total,
+                        wrong: subjectStats.total - subjectStats.correct
+                    });
+                }
+            }
+        }
+    }
+
+    // Ordina per accuratezza crescente (peggiori prima)
+    weakPoints.areas.sort((a, b) => a.accuracy - b.accuracy);
+    weakPoints.subjects.sort((a, b) => a.accuracy - b.accuracy);
+
+    return weakPoints;
+}
+
+/**
+ * Genera suggerimenti intelligenti per quiz personalizzati
+ * Basati su weak points e domande sbagliate
+ */
+function getIntelligentSuggestions() {
+    const suggestions = [];
+    const weakPoints = analyzeWeakPoints();
+    const wrongQuestions = SafeStorage.getItem('wrongQuestions', []);
+    const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
+    const wrongBySubject = SafeStorage.getItem('wrongQuestionsBySubject', {});
+
+    // Suggerimento 1: Riprova domande sbagliate globali
+    if (wrongQuestions.length > 0) {
+        suggestions.push({
+            type: 'wrong',
+            title: 'Riprova domande sbagliate',
+            description: `Hai ${wrongQuestions.length} domande da rivedere`,
+            action: 'wrong',
+            count: wrongQuestions.length,
+            icon: 'arrow-repeat',
+            priority: 1
+        });
+    }
+
+    // Suggerimento 2: Focus su area debole
+    if (weakPoints.areas.length > 0) {
+        const weakestArea = weakPoints.areas[0];
+        const wrongCount = wrongByArea[weakestArea.name]?.length || 0;
+
+        suggestions.push({
+            type: 'area',
+            title: `Migliora: ${weakestArea.name}`,
+            description: `Accuratezza ${weakestArea.accuracy}% - ${wrongCount} domande sbagliate`,
+            action: 'wrong-by-area',
+            area: weakestArea.name,
+            count: wrongCount,
+            icon: 'bullseye',
+            priority: 2
+        });
+    }
+
+    // Suggerimento 3: Focus su materia debole
+    if (weakPoints.subjects.length > 0) {
+        const weakestSubject = weakPoints.subjects[0];
+        const wrongCount = wrongBySubject[weakestSubject.name]?.length || 0;
+
+        if (wrongCount > 0) {
+            suggestions.push({
+                type: 'subject',
+                title: `Ripassa: ${weakestSubject.name}`,
+                description: `Accuratezza ${weakestSubject.accuracy}% - ${wrongCount} errori`,
+                action: 'wrong-by-subject',
+                subject: weakestSubject.name,
+                count: wrongCount,
+                icon: 'book',
+                priority: 3
+            });
+        }
+    }
+
+    // Suggerimento 4: Practice Mode per consolidare
+    const stats = SafeStorage.getItem('quizStats', {});
+    const totalAnswered = stats.totalAnswered || 0;
+    if (totalAnswered > 50 && weakPoints.areas.length === 0 && weakPoints.subjects.length === 0) {
+        suggestions.push({
+            type: 'practice',
+            title: 'Ottimo lavoro! Continua a praticare',
+            description: 'Prova la Practice Mode per consolidare le tue conoscenze',
+            action: 'practice',
+            icon: 'star',
+            priority: 4
+        });
+    }
+
+    // Suggerimento 5: Modalità Esame se performance è buona
+    if (totalAnswered > 100 && weakPoints.areas.length === 0) {
+        suggestions.push({
+            type: 'exam',
+            title: 'Pronto per un esame?',
+            description: 'Mettiti alla prova con 60 domande in 60 minuti',
+            action: 'exam',
+            icon: 'award',
+            priority: 5
+        });
+    }
+
+    // Ordina per priorità
+    suggestions.sort((a, b) => a.priority - b.priority);
+
+    return suggestions.slice(0, 3); // Massimo 3 suggerimenti
+}
+
+/**
+ * Calcola dati per grafici di trend
+ * Ritorna ultimi 7 giorni di statistiche
+ */
+function calculateTrendData() {
+    const quizHistory = SafeStorage.getItem('quizHistory', []);
+    const last7Days = [];
+    const today = new Date();
+
+    // Prepara array ultimi 7 giorni
+    for (let i = 6; i >= 0; i--) {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+
+        last7Days.push({
+            date: dateStr,
+            label: i === 0 ? 'Oggi' : (i === 1 ? 'Ieri' : date.toLocaleDateString('it-IT', { weekday: 'short' })),
+            quizzes: 0,
+            questions: 0,
+            correct: 0,
+            accuracy: 0
+        });
+    }
+
+    // Aggrega dati da history
+    quizHistory.forEach(quiz => {
+        const quizDate = new Date(quiz.date).toISOString().split('T')[0];
+        const dayData = last7Days.find(d => d.date === quizDate);
+
+        if (dayData) {
+            dayData.quizzes++;
+            dayData.questions += quiz.total;
+            dayData.correct += quiz.correct;
+        }
+    });
+
+    // Calcola accuratezza
+    last7Days.forEach(day => {
+        if (day.questions > 0) {
+            day.accuracy = Math.round((day.correct / day.questions) * 100);
+        }
+    });
+
+    return last7Days;
+}
+
+/**
+ * Renderizza la sezione Weak Points nella pagina Stats
+ */
+function displayWeakPoints() {
+    const weakPoints = analyzeWeakPoints();
+    const container = document.getElementById('weak-points-container');
+
+    if (weakPoints.areas.length === 0 && weakPoints.subjects.length === 0) {
+        container.innerHTML = '<p class="text-muted"><i class="bi bi-check-circle-fill text-success me-2"></i>Nessun punto debole rilevato. Ottimo lavoro!</p>';
+        return;
+    }
+
+    let html = '';
+
+    // Aree deboli
+    if (weakPoints.areas.length > 0) {
+        html += '<div class="mb-3"><h6 class="text-warning"><i class="bi bi-collection me-2"></i>Aree da Migliorare</h6>';
+        weakPoints.areas.forEach(area => {
+            html += `
+                <div class="alert alert-warning mb-2" role="alert">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${area.name}</strong>
+                            <div class="small">Accuratezza: ${area.accuracy}% (${area.correct}/${area.total})</div>
+                        </div>
+                        <button class="btn btn-sm btn-warning" onclick="retryWrongQuestionsByArea('${area.name.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Ripassa
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+    }
+
+    // Materie deboli
+    if (weakPoints.subjects.length > 0) {
+        html += '<div class="mb-3"><h6 class="text-warning"><i class="bi bi-book me-2"></i>Materie da Ripassare</h6>';
+        weakPoints.subjects.slice(0, 5).forEach(subject => {
+            html += `
+                <div class="alert alert-warning mb-2" role="alert">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>${subject.name}</strong>
+                            <div class="small">Accuratezza: ${subject.accuracy}% (${subject.correct}/${subject.total})</div>
+                        </div>
+                        <button class="btn btn-sm btn-warning" onclick="retryWrongQuestionsBySubject('${subject.name.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-arrow-clockwise me-1"></i>Ripassa
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+        if (weakPoints.subjects.length > 5) {
+            html += `<p class="text-muted small">... e altre ${weakPoints.subjects.length - 5} materie</p>`;
+        }
+        html += '</div>';
+    }
+
+    container.innerHTML = html;
+}
+
+/**
+ * Renderizza suggerimenti intelligenti nella pagina Stats
+ */
+function displayIntelligentSuggestions() {
+    const suggestions = getIntelligentSuggestions();
+    const container = document.getElementById('suggestions-container');
+
+    if (suggestions.length === 0) {
+        container.innerHTML = '<p class="text-muted">Completa alcuni quiz per ricevere suggerimenti personalizzati</p>';
+        return;
+    }
+
+    let html = '<div class="row">';
+
+    suggestions.forEach(suggestion => {
+        const colorClass = suggestion.priority === 1 ? 'primary' :
+                          suggestion.priority === 2 ? 'warning' :
+                          suggestion.priority === 3 ? 'info' : 'success';
+
+        html += `
+            <div class="col-md-4 mb-3">
+                <div class="card border-${colorClass} h-100">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="bi bi-${suggestion.icon} text-${colorClass} me-2"></i>
+                            ${suggestion.title}
+                        </h6>
+                        <p class="card-text small">${suggestion.description}</p>
+                        ${suggestion.action ? `
+                            <button class="btn btn-sm btn-${colorClass}" onclick="applySuggestion('${suggestion.action}', '${suggestion.area || ''}', '${suggestion.subject || ''}')">
+                                <i class="bi bi-play-fill me-1"></i>Inizia
+                            </button>
+                        ` : ''}
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+/**
+ * Renderizza grafico trend ultimi 7 giorni
+ */
+function display7DayTrend() {
+    const trendData = calculateTrendData();
+    const container = document.getElementById('trend-container');
+
+    const hasData = trendData.some(day => day.questions > 0);
+
+    if (!hasData) {
+        container.innerHTML = '<p class="text-muted">Completa alcuni quiz per vedere l\'andamento</p>';
+        return;
+    }
+
+    // Trova il valore massimo per scalare le barre
+    const maxQuestions = Math.max(...trendData.map(d => d.questions), 1);
+    const maxAccuracy = 100;
+
+    let html = '<div class="trend-chart">';
+
+    // Grafico a barre CSS
+    html += '<div class="row text-center mb-2">';
+    trendData.forEach(day => {
+        const questionHeight = (day.questions / maxQuestions) * 100;
+        const accuracyHeight = day.accuracy;
+
+        html += `
+            <div class="col trend-day">
+                <div class="trend-bar-container" style="height: 120px;">
+                    <div class="d-flex flex-column justify-content-end h-100">
+                        ${day.questions > 0 ? `
+                            <div class="trend-bar bg-primary"
+                                 style="height: ${questionHeight}%; min-height: 10px;"
+                                 title="${day.questions} domande">
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+                <div class="small text-muted mt-1">${day.label}</div>
+                ${day.questions > 0 ? `
+                    <div class="badge bg-${day.accuracy >= 70 ? 'success' : 'warning'} mt-1">
+                        ${day.accuracy}%
+                    </div>
+                ` : '<div class="text-muted">-</div>'}
+            </div>
+        `;
+    });
+    html += '</div>';
+
+    // Legenda
+    html += `
+        <div class="text-center text-muted small mt-3">
+            <i class="bi bi-bar-chart-fill text-primary me-1"></i>
+            Domande risposte per giorno
+        </div>
+    `;
+
+    html += '</div>';
+    container.innerHTML = html;
+}
+
+/**
+ * Applica un suggerimento (cambia modalità e avvia quiz)
+ */
+function applySuggestion(action, area, subject) {
+    const modeSelect = document.getElementById('quiz-mode-select');
+    modeSelect.value = action;
+
+    showQuizSetup();
+
+    // Imposta topic se necessario
+    if (area || subject) {
+        setTimeout(() => {
+            const topicSelect = document.getElementById('quiz-topic-select');
+            if (topicSelect) {
+                topicSelect.value = area || subject;
+            }
+        }, 100);
+    }
 }
 
 // ======================================

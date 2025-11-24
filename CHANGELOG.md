@@ -4,6 +4,97 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.7.0] - 2025-11-24
+
+### ✨ Feature - Advanced Analytics & Intelligent Suggestions
+
+#### 🎯 Phase 5 del ROADMAP: Statistiche Avanzate
+
+Implementazione completa di analytics avanzate per migliorare l'esperienza di studio e fornire insights personalizzati.
+
+**Nuove funzionalità:**
+
+1. **📊 Weak Points Analysis**
+   - Identifica automaticamente aree con performance < 70%
+   - Mostra materie da ripassare con accuratezza dettagliata
+   - Bottoni quick-action per ripassare domande sbagliate
+   - Visualizzazione prioritizzata (peggiori performance prima)
+
+2. **💡 Intelligent Suggestions**
+   - Sistema di suggerimenti personalizzati basato su performance
+   - Raccomandazioni contestuali (riprova sbagliate, ripassa aree deboli, practice mode, exam mode)
+   - Massimo 3 suggerimenti prioritizzati per evitare overload
+   - Quick-start: bottoni per avviare direttamente quiz suggeriti
+
+3. **📈 7-Day Performance Trend**
+   - Grafico ultimi 7 giorni di attività
+   - Visualizzazione domande risposte per giorno
+   - Badge accuratezza giornaliera con color coding
+   - Grafici pure CSS (no external libraries, 100% offline)
+
+**Funzioni analytics aggiunte:**
+
+```javascript
+// Core analytics functions
+analyzeWeakPoints()           // Trova aree/materie < 70%
+getIntelligentSuggestions()   // Genera suggerimenti personalizzati
+calculateTrendData()          // Calcola trend ultimi 7 giorni
+
+// Display functions
+displayWeakPoints()           // Renderizza weak points
+displayIntelligentSuggestions() // Renderizza suggerimenti
+display7DayTrend()            // Renderizza grafico trend
+applySuggestion()             // Applica suggerimento
+```
+
+**UI Components:**
+
+- **Weak Points Section**: Alert cards con informazioni aree/materie deboli
+- **Suggestions Section**: Card grid responsive con suggerimenti intelligenti
+- **Trend Chart**: Grafico a barre CSS puro con badges accuratezza
+- **Quick Actions**: Bottoni integrati per azioni immediate
+
+**Logica suggerimenti:**
+
+1. **Priority 1**: Riprova domande sbagliate globali
+2. **Priority 2**: Focus su area più debole
+3. **Priority 3**: Focus su materia più debole
+4. **Priority 4**: Practice Mode se performance buona (>50 quiz)
+5. **Priority 5**: Exam Mode se performance ottima (>100 quiz, no weak points)
+
+**Design patterns:**
+
+- CSS-only charts (no Chart.js) per mantenere offline-first
+- Pure CSS animations e hover effects
+- Dark mode support completo
+- Mobile responsive design
+- Bootstrap 5 color system integration
+
+**Performance:**
+
+- In-memory caching con SafeStorage
+- Calcoli ottimizzati con single-pass aggregation
+- Lazy rendering solo quando Stats page è visibile
+- Minimal DOM manipulation
+
+**Files modificati:**
+
+- `js/app.js`: +236 righe (funzioni analytics + display)
+- `index.html`: +24 righe (3 nuove sezioni)
+- `css/style.css`: +83 righe (styling charts e cards)
+
+**Impatto utente:**
+
+- ✅ Insights personalizzati su punti deboli
+- ✅ Raccomandazioni intelligenti per studio mirato
+- ✅ Visualizzazione trend per motivazione
+- ✅ Quick actions per azioni immediate
+- ✅ Zero learning curve (tutto automatico)
+
+**Cache version:** v39 → v40
+
+---
+
 ## [v1.6.5] - 2025-11-24
 
 ### 🐛 Fixed - Timer value reset tra modalità

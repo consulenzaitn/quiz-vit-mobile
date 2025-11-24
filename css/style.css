@@ -2055,3 +2055,86 @@ body.dark-mode .pause-backdrop {
         font-size: 1rem;
     }
 }
+
+/* ======================================
+   Advanced Analytics Styles (v1.7.0)
+   ====================================== */
+
+/* Trend Chart */
+.trend-chart {
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+}
+
+.trend-day {
+    padding: 0 5px;
+}
+
+.trend-bar-container {
+    background: var(--stats-item-bg);
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.trend-bar {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.trend-bar:hover {
+    opacity: 0.8;
+    transform: scaleY(1.05);
+}
+
+/* Weak Points Section */
+#weak-points-section .alert {
+    border-left: 4px solid;
+}
+
+#weak-points-section .alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-left-color: #ffc107;
+}
+
+body.dark-mode #weak-points-section .alert-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: var(--text-primary);
+}
+
+/* Suggestions Cards */
+#suggestions-section .card {
+    transition: all 0.3s ease;
+}
+
+#suggestions-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-hover);
+}
+
+#suggestions-section .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+#suggestions-section .card-text {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Responsive adjustments for charts */
+@media (max-width: 768px) {
+    .trend-bar-container {
+        height: 80px !important;
+    }
+
+    .trend-day {
+        font-size: 0.75rem;
+    }
+
+    #suggestions-section .col-md-4 {
+        margin-bottom: 1rem;
+    }
+}

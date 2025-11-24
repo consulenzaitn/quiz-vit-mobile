@@ -25,7 +25,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS with cache busting -->
-    <link rel="stylesheet" href="css/style.css?v=39">
+    <link rel="stylesheet" href="css/style.css?v=40">
 </head>
 <body>
     <!-- Header -->
@@ -33,7 +33,7 @@
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">
                 <i class="bi bi-shield-lock-fill"></i> VIT Cyber
-                <small class="text-white-50 ms-2" style="font-size: 0.6em;" id="app-version">v1.6.5</small>
+                <small class="text-white-50 ms-2" style="font-size: 0.6em;" id="app-version">v1.7.0</small>
             </span>
             <div class="d-flex align-items-center gap-2">
                 <span class="badge bg-light text-dark d-none d-md-inline" id="question-count-badge">0 Domande</span>
@@ -453,6 +453,30 @@
                         <div id="stats-subject-breakdown"></div>
                     </div>
 
+                    <!-- Advanced Analytics: Weak Points (v1.7.0) -->
+                    <div id="weak-points-section" class="mb-4">
+                        <h5><i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>Punti Deboli</h5>
+                        <div id="weak-points-container">
+                            <p class="text-muted">Nessun punto debole rilevato. Ottimo lavoro!</p>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Analytics: Intelligent Suggestions (v1.7.0) -->
+                    <div id="suggestions-section" class="mb-4">
+                        <h5><i class="bi bi-lightbulb-fill text-primary me-2"></i>Suggerimenti</h5>
+                        <div id="suggestions-container">
+                            <p class="text-muted">Completa alcuni quiz per ricevere suggerimenti personalizzati</p>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Analytics: 7-Day Trend (v1.7.0) -->
+                    <div id="trend-section" class="mb-4">
+                        <h5><i class="bi bi-graph-up-arrow text-success me-2"></i>Andamento Ultimi 7 Giorni</h5>
+                        <div id="trend-container">
+                            <p class="text-muted">Completa alcuni quiz per vedere l'andamento</p>
+                        </div>
+                    </div>
+
                     <div class="d-flex gap-2">
                         <button class="btn btn-danger" id="clear-stats-btn">
                             <i class="bi bi-trash me-2"></i>Cancella Tutte le Statistiche
@@ -699,9 +723,9 @@
         </div>
     </div>
 
-    <script src="js/data-embedded.js?v=39"></script>
+    <script src="js/data-embedded.js?v=40"></script>
     <!-- Custom App JS with cache busting -->
-    <script src="js/app.js?v=39"></script>
+    <script src="js/app.js?v=40"></script>
 
     <!-- Service Worker Registration handled in app.js -->
 </body>
