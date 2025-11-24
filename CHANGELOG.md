@@ -4,6 +4,41 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.2.0] - 2025-11-24
+
+### ✨ Fase 1 - Quiz UX Improvements
+
+#### 🎯 Aggiunto - Answer Confirmation
+- **Conferma risposta prima di procedere**
+  - Pulsante "Conferma Risposta" dopo selezione
+  - Visual feedback con stato "selected" (blu highlight)
+  - Previene invii accidentali su mobile
+  - Supporto keyboard: Enter per confermare
+  - Dark mode support per stato selected
+  - Timer auto-submit bypass conferma (comportamento corretto)
+
+#### 🔧 Modificato - File Interessati
+- `index.html`: +6 righe
+  - Confirm answer button HTML
+  - Help text per shortcut
+- `css/style.css`: +14 righe
+  - `.answer-btn.selected` state (light + dark)
+  - Blue highlight con shadow
+- `js/app.js`: +48 righe
+  - `pendingAnswer` variable tracking
+  - `selectAnswer()` function
+  - `confirmAnswer()` function
+  - Updated `displayQuestion()` flow
+  - Enhanced keyboard shortcuts (Enter context-aware)
+- `sw.js`: Cache v7 → v8
+
+#### 📊 Impatto Previsto
+- **Accidental submissions**: riduzione ~80-90%
+- **User confidence**: aumentata con visual feedback chiaro
+- **Quiz flow**: più controllato e intuitivo
+
+---
+
 ## [v1.1.0] - 2025-11-24
 
 ### ✨ Fase 1 - Quick Wins Completata
