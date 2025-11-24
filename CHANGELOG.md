@@ -4,6 +4,62 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.4] - 2025-11-24
+
+### 🐛 Fixed - Validation bug completamente risolto
+
+#### ✅ Fix completo validazione Exam Mode e Practice Mode
+
+**Problema:**
+
+- Exam Mode e Practice Mode mostravano ancora "Correggi gli errori prima di iniziare il quiz"
+- La fix precedente (v1.6.3) risolveva solo il timer, non il numero domande
+
+**Causa root:**
+
+- `validateNumQuestions()` validava **sempre** il campo numero domande
+- In Exam Mode, il container `numContainer` è **nascosto** (60 domande fisse)
+- Il campo input poteva contenere un valore invalido o vuoto
+- La validazione falliva anche se l'input era nascosto/inutilizzato
+
+**Soluzione completa:**
+
+1. **Skip validation per Exam Mode**: aggiunto `mode === 'exam'` alla lista modalità escluse
+2. **Check container nascosto**: se `numContainer.classList.contains('hidden')`, salta validazione
+3. **Ordine check ottimizzato**: verifica mode e visibility PRIMA di leggere il valore input
+
+**Modifiche tecniche:**
+
+```javascript
+function validateNumQuestions() {
+    const mode = document.getElementById('quiz-mode-select').value;
+    const numContainer = document.getElementById('num-questions-container');
+
+    // Skip validation for exam mode (fixed 60 questions)
+    if (mode === 'exam') {
+        return true;
+    }
+
+    // Skip validation if input container is hidden
+    if (numContainer && numContainer.classList.contains('hidden')) {
+        return true;
+    }
+
+    // ... resto validazione solo se necessaria
+}
+```
+
+**Impatto:**
+
+- ✅ Exam Mode funziona al 100%
+- ✅ Practice Mode funziona al 100%
+- ✅ Nessun falso positivo per input nascosti
+- ✅ Validazione robusta e context-aware
+
+**Cache version:** v37 → v38
+
+---
+
 ## [v1.6.3] - 2025-11-24
 
 ### 🐛 Fixed - Exam Mode Validation Bug

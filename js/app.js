@@ -1099,16 +1099,23 @@ function goToOnboardingSlide(slideIndex) {
 // ======================================
 function validateNumQuestions() {
     const input = document.getElementById('num-questions-input');
-    const value = parseInt(input.value);
     const mode = document.getElementById('quiz-mode-select').value;
+    const numContainer = document.getElementById('num-questions-container');
 
     // Clear previous error
     clearInputError('num-questions-input');
 
     // Skip validation for modes that don't use numQuestions input
-    if (mode === 'wrong' || mode === 'wrong-by-area' || mode === 'wrong-by-subject') {
+    if (mode === 'wrong' || mode === 'wrong-by-area' || mode === 'wrong-by-subject' || mode === 'exam') {
         return true;
     }
+
+    // Skip validation if input container is hidden
+    if (numContainer && numContainer.classList.contains('hidden')) {
+        return true;
+    }
+
+    const value = parseInt(input.value);
 
     // Check if value exists
     if (!value || value < 1) {
