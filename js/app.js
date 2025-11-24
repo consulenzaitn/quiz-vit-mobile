@@ -2,6 +2,102 @@
 // Quiz VIT - Application Logic
 // ======================================
 
+// ======================================
+// Safe Storage Manager
+// ======================================
+const SafeStorage = {
+    // In-memory cache per performance
+    cache: new Map(),
+
+    getItem(key, defaultValue = null) {
+        // Check cache first
+        if (this.cache.has(key)) {
+            return this.cache.get(key);
+        }
+
+        try {
+            const item = localStorage.getItem(key);
+            if (item === null) {
+                return defaultValue;
+            }
+
+            const parsed = JSON.parse(item);
+            this.cache.set(key, parsed);
+            return parsed;
+        } catch (e) {
+            console.error(`❌ Error reading ${key} from localStorage:`, e);
+            return defaultValue;
+        }
+    },
+
+    setItem(key, value) {
+        try {
+            const stringified = JSON.stringify(value);
+            localStorage.setItem(key, stringified);
+            this.cache.set(key, value);
+            return true;
+        } catch (e) {
+            console.error(`❌ Error writing ${key} to localStorage:`, e);
+
+            if (e.name === 'QuotaExceededError') {
+                showToast('Spazio di archiviazione esaurito. Elimina alcuni dati dalle statistiche.');
+            } else {
+                showToast('Errore nel salvare i dati. Riprova.');
+            }
+            return false;
+        }
+    },
+
+    removeItem(key) {
+        try {
+            localStorage.removeItem(key);
+            this.cache.delete(key);
+            return true;
+        } catch (e) {
+            console.error(`❌ Error removing ${key} from localStorage:`, e);
+            return false;
+        }
+    },
+
+    clearCache() {
+        this.cache.clear();
+    },
+
+    invalidateKey(key) {
+        this.cache.delete(key);
+    }
+};
+
+// ======================================
+// Loading Manager
+// ======================================
+const LoadingManager = {
+    overlay: null,
+    message: null,
+
+    init() {
+        this.overlay = document.getElementById('loading-overlay');
+        this.message = document.getElementById('loading-message');
+    },
+
+    show(message = 'Caricamento...') {
+        if (!this.overlay) this.init();
+        if (this.message) {
+            this.message.textContent = message;
+        }
+        if (this.overlay) {
+            this.overlay.classList.remove('hidden');
+        }
+    },
+
+    hide() {
+        if (!this.overlay) this.init();
+        if (this.overlay) {
+            this.overlay.classList.add('hidden');
+        }
+    }
+};
+
 // Global State
 let allQuestions = [];
 let config = { areas: {}, version: '1.0' };
@@ -26,6 +122,54 @@ function initApp() {
     loadEmbeddedData();
     loadThemePreference();
     updateDashboard();
+    setupKeyboardShortcuts();
+}
+
+// ======================================
+// Keyboard Shortcuts
+// ======================================
+function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', (e) => {
+        // Don't capture when typing in inputs
+        if (e.target.matches('input, textarea, select')) {
+            return;
+        }
+
+        // Check if we're in quiz view
+        const quizView = document.getElementById('quiz-view');
+        const isQuizActive = quizView && !quizView.classList.contains('hidden');
+
+        if (isQuizActive) {
+            // Number keys 1-4 to select answers
+            if (/^[1-4]$/.test(e.key)) {
+                const answerButtons = document.querySelectorAll('.answer-btn:not([disabled])');
+                const index = parseInt(e.key) - 1;
+                if (answerButtons[index]) {
+                    e.preventDefault();
+                    answerButtons[index].click();
+                }
+            }
+
+            // N or Enter for next question (if answer given)
+            if ((e.key === 'n' || e.key === 'N' || e.key === 'Enter') && !e.shiftKey) {
+                const nextBtn = document.getElementById('next-question-btn');
+                if (nextBtn && !nextBtn.disabled && !nextBtn.classList.contains('hidden')) {
+                    e.preventDefault();
+                    nextBtn.click();
+                }
+            }
+        }
+
+        // Global shortcuts
+        // Escape to close modals or go back
+        if (e.key === 'Escape') {
+            // Check if there's a visible back button
+            const backButtons = document.querySelectorAll('[id*="back-"]:not(.hidden)');
+            if (backButtons.length > 0) {
+                backButtons[0].click();
+            }
+        }
+    });
 }
 
 // ======================================
@@ -41,16 +185,11 @@ function loadEmbeddedData() {
         allQuestions = [];
     }
 
-    // Carica config da localStorage o usa quello embedded
-    const savedConfig = localStorage.getItem('quizConfig');
+    // Carica config da localStorage usando SafeStorage
+    const savedConfig = SafeStorage.getItem('quizConfig');
     if (savedConfig) {
-        try {
-            config = JSON.parse(savedConfig);
-            console.log(`📱 Mobile: Loaded config from localStorage: ${Object.keys(config.areas).length} areas`);
-        } catch (e) {
-            console.log('Error loading config from localStorage, using embedded default');
-            config = window.QUIZ_CONFIG || { areas: {}, version: '1.0' };
-        }
+        config = savedConfig;
+        console.log(`📱 Mobile: Loaded config from localStorage: ${Object.keys(config.areas).length} areas`);
     } else {
         config = window.QUIZ_CONFIG || { areas: {}, version: '1.0' };
         console.log('📱 Mobile: Using embedded default config (no areas configured yet)');
@@ -176,7 +315,7 @@ function showHistory() {
 
 function displayHistory() {
     const historyContainer = document.getElementById('history-list');
-    const history = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+    const history = SafeStorage.getItem('quizHistory', []);
 
     if (history.length === 0) {
         historyContainer.innerHTML = '<p class="text-muted">Nessun quiz completato</p>';
@@ -374,7 +513,7 @@ function startQuiz() {
     } else if (mode === 'random') {
         selectedQuestions = shuffleArray([...allQuestions]).slice(0, numQuestions);
     } else if (mode === 'wrong') {
-        const wrongIds = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+        const wrongIds = SafeStorage.getItem('wrongQuestions', []);
         selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
     } else if (mode === 'wrong-by-area') {
         const wrongIds = getWrongQuestionsForArea(topic);
@@ -386,7 +525,7 @@ function startQuiz() {
 
     // Escludi domande già viste se richiesto
     if (excludeSeen && mode !== 'wrong' && mode !== 'wrong-by-area' && mode !== 'wrong-by-subject') {
-        const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+        const completed = SafeStorage.getItem('completedQuestions', {});
 
         if (mode === 'area') {
             const subjects = config.areas[topic] || [];
@@ -645,7 +784,7 @@ function displayResults() {
 // Statistics Management
 // ======================================
 function saveQuizStats() {
-    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    const stats = SafeStorage.getItem('quizStats', {});
 
     if (!stats.totalQuizzes) {
         stats.totalQuizzes = 0;
@@ -658,13 +797,13 @@ function saveQuizStats() {
     stats.totalQuizzes++;
 
     // Tracciamento domande completate per materia
-    const completedQuestions = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completedQuestions = SafeStorage.getItem('completedQuestions', {});
 
     // Tracciamento domande sbagliate per materia
-    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    const wrongBySubject = SafeStorage.getItem('wrongQuestionsBySubject', {});
 
     // Tracciamento domande sbagliate per area
-    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
 
     // Calcolo statistiche per area (trova l'area della materia)
     const getAreaForSubject = (subject) => {
@@ -740,23 +879,23 @@ function saveQuizStats() {
         }
     });
 
-    // Salva tutto in localStorage
-    localStorage.setItem('quizStats', JSON.stringify(stats));
-    localStorage.setItem('completedQuestions', JSON.stringify(completedQuestions));
-    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
-    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
+    // Salva tutto usando SafeStorage
+    SafeStorage.setItem('quizStats', stats);
+    SafeStorage.setItem('completedQuestions', completedQuestions);
+    SafeStorage.setItem('wrongQuestionsBySubject', wrongBySubject);
+    SafeStorage.setItem('wrongQuestionsByArea', wrongByArea);
 
     // Mantieni compatibilità con vecchio sistema
     const wrongIds = currentQuiz.answers
         .filter(a => !a.isCorrect)
         .map(a => a.question.ID);
 
-    const existingWrong = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const existingWrong = SafeStorage.getItem('wrongQuestions', []);
     const uniqueWrong = [...new Set([...existingWrong, ...wrongIds])];
-    localStorage.setItem('wrongQuestions', JSON.stringify(uniqueWrong));
+    SafeStorage.setItem('wrongQuestions', uniqueWrong);
 
     // Salva cronologia quiz
-    const history = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+    const history = SafeStorage.getItem('quizHistory', []);
     const correctCount = currentQuiz.answers.filter(a => a.isCorrect).length;
     const totalCount = currentQuiz.answers.length;
     const score = Math.round((correctCount / totalCount) * 100);
@@ -775,11 +914,11 @@ function saveQuizStats() {
         history.splice(50);
     }
 
-    localStorage.setItem('quizHistory', JSON.stringify(history));
+    SafeStorage.setItem('quizHistory', history);
 }
 
 function displayStatistics() {
-    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    const stats = SafeStorage.getItem('quizStats', {});
 
     document.getElementById('stats-total-quizzes').textContent = stats.totalQuizzes || 0;
     document.getElementById('stats-correct-answers').textContent = stats.totalCorrect || 0;
@@ -862,8 +1001,8 @@ function displayStatistics() {
 
 function clearStats() {
     if (confirm('Sei sicuro di voler cancellare tutte le statistiche?')) {
-        localStorage.removeItem('quizStats');
-        localStorage.removeItem('wrongQuestions');
+        SafeStorage.removeItem('quizStats');
+        SafeStorage.removeItem('wrongQuestions');
         showToast('Statistiche cancellate con successo!');
         displayStatistics();
         updateDashboard();
@@ -971,7 +1110,7 @@ function addArea() {
     document.getElementById('new-area-input').value = '';
 
     // Save config to localStorage (for mobile persistence)
-    localStorage.setItem('quizConfig', JSON.stringify(config));
+    SafeStorage.setItem('quizConfig', config);
 
     updateAreaSelect();
     displayCurrentAssociations();
@@ -1040,7 +1179,7 @@ function saveAreaSubjects() {
     config.areas[areaName] = selectedSubjects;
 
     // Save config to localStorage (for mobile persistence)
-    localStorage.setItem('quizConfig', JSON.stringify(config));
+    SafeStorage.setItem('quizConfig', config);
 
     displayCurrentAssociations();
     showToast(`Associazione salvata per "${areaName}"!`);
@@ -1094,7 +1233,7 @@ function removeSubjectFromArea(areaName, subjectName) {
     }
 
     // Salva in localStorage
-    localStorage.setItem('quizConfig', JSON.stringify(config));
+    SafeStorage.setItem('quizConfig', config);
 
     // Aggiorna UI
     displayCurrentAssociations();
@@ -1117,7 +1256,7 @@ function deleteArea(areaName) {
     delete config.areas[areaName];
 
     // Salva in localStorage
-    localStorage.setItem('quizConfig', JSON.stringify(config));
+    SafeStorage.setItem('quizConfig', config);
 
     // Aggiorna UI
     updateAreaSelect();
@@ -1139,10 +1278,10 @@ function updateDashboard() {
     document.getElementById('total-questions-stat').textContent = allQuestions.length;
     document.getElementById('total-areas-stat').textContent = Object.keys(config.areas || {}).length;
 
-    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    const stats = SafeStorage.getItem('quizStats', {});
     document.getElementById('quiz-completed-stat').textContent = stats.totalQuizzes || 0;
 
-    const wrongIds = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const wrongIds = SafeStorage.getItem('wrongQuestions', []);
     document.getElementById('wrong-questions-stat').textContent = wrongIds.length;
 
     // Update area progress section
@@ -1242,26 +1381,26 @@ function resetProgressForArea(areaName) {
     const subjects = config.areas[areaName] || [];
 
     // Rimuovi domande completate per tutte le materie dell'area
-    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completed = SafeStorage.getItem('completedQuestions', {});
     subjects.forEach(subject => {
         delete completed[subject];
     });
-    localStorage.setItem('completedQuestions', JSON.stringify(completed));
+    SafeStorage.setItem('completedQuestions', completed);
 
     // Rimuovi domande sbagliate per area
-    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
     delete wrongByArea[areaName];
-    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
+    SafeStorage.setItem('wrongQuestionsByArea', wrongByArea);
 
     // Rimuovi domande sbagliate per materie dell'area
-    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    const wrongBySubject = SafeStorage.getItem('wrongQuestionsBySubject', {});
     subjects.forEach(subject => {
         delete wrongBySubject[subject];
     });
-    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
+    SafeStorage.setItem('wrongQuestionsBySubject', wrongBySubject);
 
     // Azzera statistiche per area
-    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    const stats = SafeStorage.getItem('quizStats', {});
     if (stats.byArea) {
         delete stats.byArea[areaName];
     }
@@ -1271,15 +1410,15 @@ function resetProgressForArea(areaName) {
             delete stats.bySubject[subject];
         });
     }
-    localStorage.setItem('quizStats', JSON.stringify(stats));
+    SafeStorage.setItem('quizStats', stats);
 
     // Rimuovi domande sbagliate globali che appartengono all'area
-    const wrongQuestions = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const wrongQuestions = SafeStorage.getItem('wrongQuestions', []);
     const areaQuestionIds = allQuestions
         .filter(q => subjects.includes(q.Materia))
         .map(q => q.ID);
     const filteredWrong = wrongQuestions.filter(id => !areaQuestionIds.includes(id));
-    localStorage.setItem('wrongQuestions', JSON.stringify(filteredWrong));
+    SafeStorage.setItem('wrongQuestions', filteredWrong);
 
     showToast(`Progresso per "${areaName}" resettato!`);
     updateDashboard();
@@ -1292,32 +1431,32 @@ function resetProgressForSubject(subjectName) {
     }
 
     // Rimuovi domande completate per la materia
-    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completed = SafeStorage.getItem('completedQuestions', {});
     delete completed[subjectName];
-    localStorage.setItem('completedQuestions', JSON.stringify(completed));
+    SafeStorage.setItem('completedQuestions', completed);
 
     // Rimuovi domande sbagliate per materia
-    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    const wrongBySubject = SafeStorage.getItem('wrongQuestionsBySubject', {});
     delete wrongBySubject[subjectName];
-    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
+    SafeStorage.setItem('wrongQuestionsBySubject', wrongBySubject);
 
     // Azzera statistiche per materia
-    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    const stats = SafeStorage.getItem('quizStats', {});
     if (stats.bySubject) {
         delete stats.bySubject[subjectName];
     }
-    localStorage.setItem('quizStats', JSON.stringify(stats));
+    SafeStorage.setItem('quizStats', stats);
 
     // Rimuovi domande sbagliate globali che appartengono alla materia
-    const wrongQuestions = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const wrongQuestions = SafeStorage.getItem('wrongQuestions', []);
     const subjectQuestionIds = allQuestions
         .filter(q => q.Materia === subjectName)
         .map(q => q.ID);
     const filteredWrong = wrongQuestions.filter(id => !subjectQuestionIds.includes(id));
-    localStorage.setItem('wrongQuestions', JSON.stringify(filteredWrong));
+    SafeStorage.setItem('wrongQuestions', filteredWrong);
 
     // Aggiorna anche wrongByArea se questa materia era in un'area
-    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
     for (const [areaName, subjects] of Object.entries(config.areas || {})) {
         if (subjects.includes(subjectName)) {
             if (wrongByArea[areaName]) {
@@ -1325,7 +1464,7 @@ function resetProgressForSubject(subjectName) {
             }
         }
     }
-    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
+    SafeStorage.setItem('wrongQuestionsByArea', wrongByArea);
 
     showToast(`Progresso per "${subjectName}" resettato!`);
     updateDashboard();
@@ -1336,7 +1475,7 @@ function resetProgressForSubject(subjectName) {
 // Progress Tracking Helper Functions
 // ======================================
 function getProgressForSubject(subjectName) {
-    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completed = SafeStorage.getItem('completedQuestions', {});
     const completedIds = completed[subjectName] || [];
     const totalQuestions = allQuestions.filter(q => q.Materia === subjectName).length;
     const percentage = totalQuestions > 0 ? Math.round((completedIds.length / totalQuestions) * 100) : 0;
@@ -1350,7 +1489,7 @@ function getProgressForSubject(subjectName) {
 
 function getProgressForArea(areaName) {
     const subjects = config.areas[areaName] || [];
-    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completed = SafeStorage.getItem('completedQuestions', {});
 
     let totalCompleted = 0;
     let totalQuestions = 0;
@@ -1371,12 +1510,12 @@ function getProgressForArea(areaName) {
 }
 
 function getWrongQuestionsForSubject(subjectName) {
-    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    const wrongBySubject = SafeStorage.getItem('wrongQuestionsBySubject', {});
     return wrongBySubject[subjectName] || [];
 }
 
 function getWrongQuestionsForArea(areaName) {
-    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    const wrongByArea = SafeStorage.getItem('wrongQuestionsByArea', {});
     return wrongByArea[areaName] || [];
 }
 
@@ -1384,7 +1523,7 @@ function getWrongQuestionsForArea(areaName) {
 // Theme Management (Dark Mode)
 // ======================================
 function loadThemePreference() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = SafeStorage.getItem('theme') || 'light';
     if (savedTheme === 'dark') {
         document.body.classList.add('dark-mode');
         updateThemeIcon(true);
@@ -1393,7 +1532,12 @@ function loadThemePreference() {
 
 function toggleTheme() {
     const isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    // Use raw localStorage per theme (simple string, no need for SafeStorage)
+    try {
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    } catch (e) {
+        console.error('Error saving theme preference:', e);
+    }
     updateThemeIcon(isDark);
 }
 
