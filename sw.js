@@ -1,7 +1,7 @@
 // Service Worker per Quiz VIT Mobile
 // Permette il funzionamento offline completo
 
-const CACHE_NAME = 'quiz-vit-v1';
+const CACHE_NAME = 'quiz-vit-v2';
 const urlsToCache = [
   './',
   './index.html',
