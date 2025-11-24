@@ -590,6 +590,13 @@ function displayQuestion() {
     // Reset pending answer
     pendingAnswer = null;
 
+    // Reset animations by removing and re-adding animation class
+    const questionContainer = document.getElementById('question-container');
+    questionContainer.style.animation = 'none';
+    setTimeout(() => {
+        questionContainer.style.animation = '';
+    }, 10);
+
     // Update progress
     document.getElementById('quiz-progress-text').textContent = `Domanda ${currentNum} di ${totalQuestions}`;
     const progress = (currentNum / totalQuestions) * 100;

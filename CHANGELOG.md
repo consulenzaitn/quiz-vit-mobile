@@ -6,7 +6,7 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ## [v1.2.0] - 2025-11-24
 
-### ✨ Fase 1 - Quiz UX Improvements
+### ✨ Fase 1 - Quiz UX Improvements (Completata al 100%)
 
 #### 🎯 Aggiunto - Answer Confirmation
 - **Conferma risposta prima di procedere**
@@ -17,25 +17,42 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
   - Dark mode support per stato selected
   - Timer auto-submit bypass conferma (comportamento corretto)
 
+#### 🎨 Aggiunto - Visual Feedback & Animations
+- **Animazioni complete per quiz experience**
+  - Bounce-in animation per risposta selezionata
+  - Pulse + glow effect per risposta corretta
+  - Shake animation per risposta sbagliata
+  - Slide-in per feedback message
+  - Fade-in per ogni nuova domanda
+  - Progress bar smooth transition
+  - Score bounce-in animation sui risultati
+  - Timer pulse quando < 5 secondi
+  - Button press feedback (scale down)
+  - Card hover lift effect
+  - Rispetto per `prefers-reduced-motion`
+
 #### 🔧 Modificato - File Interessati
 - `index.html`: +6 righe
   - Confirm answer button HTML
   - Help text per shortcut
-- `css/style.css`: +14 righe
+- `css/style.css`: +214 righe
   - `.answer-btn.selected` state (light + dark)
-  - Blue highlight con shadow
-- `js/app.js`: +48 righe
+  - 7 keyframe animations (pulse, shake, slideIn, bounceIn, etc.)
+  - Enhanced transitions per tutti gli elementi interattivi
+  - Accessibility: prefers-reduced-motion support
+- `js/app.js`: +56 righe
   - `pendingAnswer` variable tracking
   - `selectAnswer()` function
   - `confirmAnswer()` function
-  - Updated `displayQuestion()` flow
+  - Animation reset logic in `displayQuestion()`
   - Enhanced keyboard shortcuts (Enter context-aware)
-- `sw.js`: Cache v7 → v8
+- `sw.js`: Cache v7 → v9
 
 #### 📊 Impatto Previsto
 - **Accidental submissions**: riduzione ~80-90%
 - **User confidence**: aumentata con visual feedback chiaro
-- **Quiz flow**: più controllato e intuitivo
+- **Quiz flow**: più controllato, fluido e piacevole
+- **Engagement**: aumentato con micro-interactions animate
 
 ---
 

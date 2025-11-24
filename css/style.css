@@ -884,3 +884,203 @@ i.bi {
         margin-bottom: 1rem;
     }
 }
+
+/* ======================================
+   Enhanced Visual Feedback & Animations
+   ====================================== */
+
+/* Keyframe Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes correctPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(15, 81, 50, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(15, 81, 50, 0);
+    }
+}
+
+@keyframes wrongShake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Enhanced Answer Button Animations */
+.answer-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.answer-btn:hover:not(:disabled) {
+    transform: translateX(5px) scale(1.02);
+}
+
+.answer-btn.selected {
+    animation: bounceIn 0.4s ease-out;
+}
+
+.answer-btn.correct {
+    animation: correctPulse 1s ease-out, pulse 0.6s ease-out;
+}
+
+body.dark-mode .answer-btn.correct {
+    animation: correctPulse 1s ease-out, pulse 0.6s ease-out;
+}
+
+.answer-btn.wrong {
+    animation: wrongShake 0.5s ease-out;
+}
+
+/* Confirm Button Animation */
+#confirm-answer-container {
+    animation: slideInRight 0.3s ease-out;
+}
+
+#confirm-answer-btn {
+    transition: all 0.3s ease;
+}
+
+#confirm-answer-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(25, 135, 84, 0.4);
+}
+
+#confirm-answer-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Feedback Message Animation */
+#answer-feedback {
+    animation: slideInRight 0.4s ease-out;
+}
+
+#feedback-message {
+    animation: bounceIn 0.5s ease-out;
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    transition: width 0.6s ease-out;
+}
+
+/* Question Container Fade In */
+#question-container {
+    animation: fadeInSlideUp 0.5s ease-out;
+}
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Hover Enhancement */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-hover);
+}
+
+/* Button Press Feedback */
+.btn:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* Score Animation on Results */
+#final-score {
+    animation: bounceIn 0.8s ease-out;
+}
+
+#final-percentage {
+    animation: slideInRight 0.6s ease-out 0.2s backwards;
+}
+
+/* Toast/Alert Slide In */
+.alert {
+    animation: slideInRight 0.3s ease-out;
+}
+
+/* Spinner Smooth Rotation */
+.spinner-border {
+    animation: spinner-border 0.75s linear infinite;
+}
+
+/* Timer Warning Pulse */
+#timer-display.warning {
+    animation: pulse 0.5s ease-in-out infinite;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Reduce motion for users with preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
