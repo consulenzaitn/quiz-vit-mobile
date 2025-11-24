@@ -192,6 +192,8 @@ function initApp() {
     loadThemePreference();
     updateDashboard();
     setupKeyboardShortcuts();
+    setupBottomNavigation();
+    checkOnboardingStatus();
 }
 
 // ======================================
@@ -415,6 +417,7 @@ function showMainMenu() {
     hideAllViews();
     document.getElementById('main-menu').classList.remove('hidden');
     updateDashboard();
+    updateBottomNavActive('main-menu');
 }
 
 function showQuizSetup() {
@@ -444,6 +447,7 @@ function showStats() {
     hideAllViews();
     document.getElementById('stats-container').classList.remove('hidden');
     displayStatistics();
+    updateBottomNavActive('stats-container');
 }
 
 function showManageAreas() {
@@ -455,12 +459,14 @@ function showManageAreas() {
     hideAllViews();
     document.getElementById('manage-areas-container').classList.remove('hidden');
     populateAreasManagement();
+    updateBottomNavActive('manage-areas-container');
 }
 
 function showHistory() {
     hideAllViews();
     document.getElementById('history-container').classList.remove('hidden');
     displayHistory();
+    updateBottomNavActive('history-container');
 }
 
 function displayHistory() {
@@ -820,6 +826,154 @@ function handleMouseUp(e) {
         if (nextBtn && !nextBtn.disabled && !nextBtn.classList.contains('hidden')) {
             nextBtn.click();
         }
+    }
+}
+
+// ======================================
+// Bottom Navigation
+// ======================================
+function setupBottomNavigation() {
+    const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetView = item.dataset.view;
+
+            // Update active state
+            navItems.forEach(nav => nav.classList.remove('active'));
+            item.classList.add('active');
+
+            // Haptic feedback
+            HapticFeedback.light();
+
+            // Navigate to view
+            if (targetView === 'main-menu') {
+                showMainMenu();
+            } else if (targetView === 'stats-container') {
+                showStats();
+            } else if (targetView === 'history-container') {
+                showHistory();
+            } else if (targetView === 'manage-areas-container') {
+                showManageAreas();
+            }
+        });
+    });
+}
+
+function updateBottomNavActive(viewId) {
+    const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+    navItems.forEach(item => {
+        if (item.dataset.view === viewId) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+}
+
+// ======================================
+// Onboarding Tutorial
+// ======================================
+let onboardingState = {
+    currentSlide: 0,
+    totalSlides: 4
+};
+
+function checkOnboardingStatus() {
+    const hasSeenOnboarding = SafeStorage.getItem('hasSeenOnboarding', false);
+
+    if (!hasSeenOnboarding) {
+        // Show onboarding after a short delay
+        setTimeout(() => {
+            showOnboarding();
+        }, 500);
+    }
+}
+
+function showOnboarding() {
+    const overlay = document.getElementById('onboarding-overlay');
+    overlay.classList.remove('hidden');
+
+    // Setup listeners
+    document.getElementById('onboarding-skip').addEventListener('click', closeOnboarding);
+    document.getElementById('onboarding-prev').addEventListener('click', prevOnboardingSlide);
+    document.getElementById('onboarding-next').addEventListener('click', nextOnboardingSlide);
+    document.getElementById('onboarding-start').addEventListener('click', closeOnboarding);
+
+    // Dot navigation
+    document.querySelectorAll('.onboarding-dots .dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            const slideIndex = parseInt(dot.dataset.slide);
+            goToOnboardingSlide(slideIndex);
+        });
+    });
+}
+
+function closeOnboarding() {
+    const overlay = document.getElementById('onboarding-overlay');
+    const dontShowAgain = document.getElementById('onboarding-dont-show').checked;
+
+    overlay.classList.add('hidden');
+
+    if (dontShowAgain) {
+        SafeStorage.setItem('hasSeenOnboarding', true);
+    }
+
+    HapticFeedback.medium();
+}
+
+function nextOnboardingSlide() {
+    if (onboardingState.currentSlide < onboardingState.totalSlides - 1) {
+        onboardingState.currentSlide++;
+        goToOnboardingSlide(onboardingState.currentSlide);
+        HapticFeedback.light();
+    }
+}
+
+function prevOnboardingSlide() {
+    if (onboardingState.currentSlide > 0) {
+        onboardingState.currentSlide--;
+        goToOnboardingSlide(onboardingState.currentSlide);
+        HapticFeedback.light();
+    }
+}
+
+function goToOnboardingSlide(slideIndex) {
+    onboardingState.currentSlide = slideIndex;
+
+    // Update slides
+    const slides = document.querySelectorAll('.onboarding-slide');
+    slides.forEach((slide, index) => {
+        if (index === slideIndex) {
+            slide.classList.add('active');
+        } else {
+            slide.classList.remove('active');
+        }
+    });
+
+    // Update dots
+    const dots = document.querySelectorAll('.onboarding-dots .dot');
+    dots.forEach((dot, index) => {
+        if (index === slideIndex) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+
+    // Update buttons
+    const prevBtn = document.getElementById('onboarding-prev');
+    const nextBtn = document.getElementById('onboarding-next');
+    const startBtn = document.getElementById('onboarding-start');
+
+    prevBtn.disabled = slideIndex === 0;
+
+    if (slideIndex === onboardingState.totalSlides - 1) {
+        nextBtn.classList.add('hidden');
+        startBtn.classList.remove('hidden');
+    } else {
+        nextBtn.classList.remove('hidden');
+        startBtn.classList.add('hidden');
     }
 }
 
