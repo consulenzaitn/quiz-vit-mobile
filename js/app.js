@@ -182,6 +182,7 @@ function logError(errorData) {
 // ======================================
 document.addEventListener('DOMContentLoaded', () => {
     setupGlobalErrorHandler();
+    setupServiceWorker();
     initApp();
     attachEventListeners();
 });
@@ -191,6 +192,62 @@ function initApp() {
     loadThemePreference();
     updateDashboard();
     setupKeyboardShortcuts();
+}
+
+// ======================================
+// Service Worker Registration & Update Handling
+// ======================================
+let updateAvailableRegistration = null;
+
+function setupServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js')
+            .then(registration => {
+                console.log('✅ Service Worker registered:', registration);
+
+                // Check for updates every 60 seconds
+                setInterval(() => {
+                    registration.update();
+                }, 60000);
+
+                // Listen for updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    console.log('🔄 Service Worker update found!');
+
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // New service worker available
+                            console.log('✨ New Service Worker installed, showing update notification');
+                            updateAvailableRegistration = registration;
+                            showUpdateNotification();
+                        }
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('❌ Service Worker registration failed:', error);
+            });
+
+        // Handle controller change (when new SW takes over)
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            console.log('🔄 Controller changed, reloading page...');
+            window.location.reload();
+        });
+    }
+}
+
+function showUpdateNotification() {
+    const updateToast = document.getElementById('update-toast');
+    const toast = new bootstrap.Toast(updateToast);
+    toast.show();
+}
+
+function updateApp() {
+    if (updateAvailableRegistration && updateAvailableRegistration.waiting) {
+        // Tell the service worker to skip waiting
+        updateAvailableRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+    }
 }
 
 // ======================================
@@ -280,6 +337,9 @@ function loadEmbeddedData() {
 // Event Listeners
 // ======================================
 function attachEventListeners() {
+    // Update app button
+    document.getElementById('update-app-btn').addEventListener('click', updateApp);
+
     // Navigation
     document.getElementById('start-quiz-btn').addEventListener('click', showQuizSetup);
     document.getElementById('stats-btn').addEventListener('click', showStats);

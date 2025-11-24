@@ -16,6 +16,16 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
   - Se attivato, richiede il pulsante "Conferma Risposta"
   - Salvato in `currentQuiz.requireConfirmation`
 
+#### 🔔 Aggiunto - Service Worker Update Notification
+- **Sistema di notifica aggiornamenti automatico**
+  - Registrazione Service Worker all'avvio
+  - Check aggiornamenti ogni 60 secondi
+  - Toast notification quando nuovo update disponibile
+  - Pulsante "Aggiorna Ora" per installare immediato
+  - Auto-reload dopo aggiornamento
+  - Gestione `controllerchange` event
+  - Console logging dettagliato per debugging
+
 #### 🔧 Fixato - Layout Toggle Mobile
 - **Risolto problema toggle fuori schermo**
   - Rimosso `overflow: hidden` problematico
