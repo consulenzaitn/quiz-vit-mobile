@@ -4,6 +4,49 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.1] - 2025-11-24
+
+### ✨ Miglioramenti - Practice Mode & UX
+
+#### 🎓 Enhanced - Practice Mode (Modalità Pratica)
+
+**Nuove caratteristiche educative:**
+
+- ✅ **Nessun timer**: disabilitato automaticamente per apprendimento senza pressione
+- ✅ **Retry immediato**: pulsante "Riprova" quando sbagli per ritentare la stessa domanda
+- ✅ **No statistiche**: i quiz Practice non vengono salvati in cronologia/statistiche
+- ✅ **Badge visibile**: indicatore "🎓 Modalità Pratica" nel header del quiz
+- ✅ **Focus educativo**: zero pressione, solo apprendimento
+
+**Differenze Practice Mode vs altre modalità:**
+
+| Caratteristica | Practice Mode | Modalità Standard | Exam Mode |
+|---|---|---|---|
+| Timer | ❌ Disabilitato | ✅ Opzionale | ✅ 60 min fisso |
+| Feedback | ✅ Immediato | ✅ Immediato | ❌ A fine quiz |
+| Retry domanda | ✅ Si | ❌ No | ❌ No |
+| Salva statistiche | ❌ No | ✅ Si | ✅ Si |
+| Punteggio finale | ✅ Si (solo info) | ✅ Si | ✅ Si |
+
+**Modifiche tecniche:**
+
+- `currentQuiz.allowRetry`: flag per abilitare retry in practice mode
+- `currentQuiz.saveToHistory`: flag per non salvare cronologia
+- `retryQuestion()`: nuova funzione per riprovare domanda
+- `finishQuiz()`: skip saveQuizStats() se non saveToHistory
+- `showQuizView()`: mostra/nascondi badge practice mode
+
+#### 📊 Aggiunto - Versione App Visibile
+
+- Numero versione "v1.6.1" visibile nel navbar (in alto)
+- Colore grigio chiaro per non disturbare
+- Sempre visibile per debug e verifica aggiornamenti
+- Aggiornamento automatico del numero ad ogni release
+
+**Cache version:** v34 → v35
+
+---
+
 ## [v1.6.0] - 2025-11-24
 
 ### 🎯 Fase 4 - Quiz Modes & Timer Improvements (Bug Fixes)

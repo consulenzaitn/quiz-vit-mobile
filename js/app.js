@@ -471,6 +471,14 @@ function showQuizSetup() {
 function showQuizView() {
     hideAllViews();
     document.getElementById('quiz-view-container').classList.remove('hidden');
+
+    // Show practice mode badge if in practice mode
+    const practiceBadge = document.getElementById('practice-mode-badge');
+    if (currentQuiz && currentQuiz.isPracticeMode) {
+        practiceBadge.classList.remove('hidden');
+    } else {
+        practiceBadge.classList.add('hidden');
+    }
 }
 
 function showQuizResults() {
@@ -1334,7 +1342,7 @@ function startQuiz() {
         startTime: Date.now(),
         timer: null,
         timerDuration: isExamMode ? 3600 : timerDuration, // Exam mode: 60 minuti totali
-        timerEnabled: timerEnabled,
+        timerEnabled: isPracticeMode ? false : timerEnabled, // Practice mode: no timer
         requireConfirmation: requireConfirmation,
         mode: mode,
         target: topic,
@@ -1343,7 +1351,9 @@ function startQuiz() {
         isPracticeMode: isPracticeMode, // Practice Mode: no scoring, immediate retry
         isExamMode: isExamMode, // Exam Mode: no feedback until end
         showFeedback: !isExamMode, // Show feedback immediately unless Exam Mode
-        isGlobalTimer: isExamMode // Exam mode uses global timer (not per question)
+        isGlobalTimer: isExamMode, // Exam mode uses global timer (not per question)
+        allowRetry: isPracticeMode, // Practice mode: allow immediate retry
+        saveToHistory: !isPracticeMode // Practice mode: don't save to history
     };
 
     showQuizView();
@@ -1531,7 +1541,18 @@ function checkAnswer(selectedAnswer, correctAnswer) {
             messageEl.innerHTML = '<i class="bi bi-check-circle me-2"></i><strong>Corretto!</strong>';
         } else {
             messageEl.className = 'alert alert-danger';
-            messageEl.innerHTML = `<i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong>`;
+
+            // Practice Mode: add retry button
+            if (currentQuiz.allowRetry) {
+                messageEl.innerHTML = `
+                    <div><i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong></div>
+                    <button class="btn btn-warning btn-sm mt-2" onclick="retryQuestion()">
+                        <i class="bi bi-arrow-counterclockwise me-1"></i>Riprova
+                    </button>
+                `;
+            } else {
+                messageEl.innerHTML = `<i class="bi bi-x-circle me-2"></i><strong>Sbagliato!</strong> La risposta corretta è: <strong>${correctAnswer}</strong>`;
+            }
         }
 
         feedbackEl.classList.remove('hidden');
@@ -1545,6 +1566,17 @@ function checkAnswer(selectedAnswer, correctAnswer) {
             nextQuestion();
         }, 500);
     }
+}
+
+function retryQuestion() {
+    // Practice Mode: retry the same question
+    HapticFeedback.medium();
+
+    // Remove last answer from array (the wrong one)
+    currentQuiz.answers.pop();
+
+    // Reset the question display
+    displayQuestion();
 }
 
 function nextQuestion() {
@@ -1795,7 +1827,11 @@ function finishQuiz() {
     // Celebration haptic feedback on quiz completion
     HapticFeedback.celebration();
 
-    saveQuizStats();
+    // Practice Mode: don't save stats/history
+    if (currentQuiz.saveToHistory) {
+        saveQuizStats();
+    }
+
     showQuizResults();
 }
 
