@@ -424,7 +424,7 @@ window.QUIZ_DATA = [
     "Domanda": "Il comitato provinciale per l'ordine e la sicurezza pubblica:",
     "RispostaCorretta": "Valuta le problematiche emergenti individuando possibili strategie d’azione utilizzando, all'occorrenza, le diverse forze di polizia presenti sul territorio e verificando l'andamento dei risultati conseguiti",
     "RispostaErrata1": "Valuta esclusivamente tematiche afferenti la criminalità organizzata ed il terrorismo",
-    "RispostaErrata2": "Valuta esclusivamente tematiche afferenti l’O.P. In occasione di manifestazioni sportative",
+    "RispostaErrata2": "Valuta esclusivamente tematiche afferenti l’o.p. In occasione di manifestazioni sportative",
     "RispostaErrata3": ""
   },
   {
@@ -450,7 +450,7 @@ window.QUIZ_DATA = [
     "Materia": "ATTIVITÀ DI CONTROLLO DEL TERRITORIO",
     "Domanda": "Dove sono incardinate le UOPI",
     "RispostaCorretta": "All'interno dei RPC",
-    "RispostaErrata1": "All'interno degli UPGSP",
+    "RispostaErrata1": "All'interno degli upgsp",
     "RispostaErrata2": "All'interno dei commissariati prossimi agli obiettivi vigilati",
     "RispostaErrata3": ""
   },
@@ -485,7 +485,7 @@ window.QUIZ_DATA = [
     "ID": 54,
     "Materia": "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
     "Domanda": "Oltre che in caso di istanza prodotta dall’interessato, l’attività di aggiornamento/rettifica dei dati iscritti negli schedari ha carattere di obbligatorietà?",
-    "RispostaCorretta": "Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt. 3 e 47 del d. Lgs.18 maggio 2018 n. 51.",
+    "RispostaCorretta": "Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt.3 e 47 del d. Lgs.18 maggio 2018 n. 51.",
     "RispostaErrata1": "Sì, ma soltanto quando si ha sentore che l’interessato si è rivolto al garante per la protezione dei dati personali",
     "RispostaErrata2": "Sì, nel caso in cui la sentenza sia favorevole al soggetto segnalato.",
     "RispostaErrata3": ""
@@ -539,8 +539,8 @@ window.QUIZ_DATA = [
     "ID": 60,
     "Materia": "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
     "Domanda": "Qual è l’articolo del decreto legislativo 51/2018, che disciplina le modalità procedurali attraverso le quali viene assicurato l’aggiornamento periodico, la proporzionalità, la pertinenza e la non eccedenza dei dati personali trattati, anche attraverso interrogazioni autorizzate del casellario giudiziale e del casellario dei carichi pendenti del ministero della giustizia.",
-    "RispostaCorretta": "Art. 47 d.lgs 51/2018",
-    "RispostaErrata1": "Art. 7 del d.lgs. n. 51/2018",
+    "RispostaCorretta": "Art.47 d.lgs 51/2018",
+    "RispostaErrata1": "Art. 7 del d.lgs. N. 51/2018",
     "RispostaErrata2": "Art. 10 del d.lgs n. 51/2018",
     "RispostaErrata3": ""
   },
@@ -943,7 +943,7 @@ window.QUIZ_DATA = [
   {
     "ID": 105,
     "Materia": "DIRITTO PENALE - PUBBLICO UFFICIALE E INCARICATO DI PUBBLICO SERVIZIO. PECULATO",
-    "Domanda": "Un agente della polizia di stato in servizio di O.P. è",
+    "Domanda": "Un agente della polizia di stato in servizio di o.p. è",
     "RispostaCorretta": "Pubblico ufficiale",
     "RispostaErrata1": "Esercente un servizio di pubblica necessità",
     "RispostaErrata2": "Ufficiale di pubblica sicurezza",
@@ -3367,7 +3367,7 @@ window.QUIZ_DATA = [
     "Domanda": "La banca dati schengen è conosciuta come:",
     "RispostaCorretta": "Sis ii",
     "RispostaErrata1": "Cen",
-    "RispostaErrata2": "SDI",
+    "RispostaErrata2": "Sdi",
     "RispostaErrata3": ""
   },
   {
@@ -4184,9 +4184,9 @@ window.QUIZ_DATA = [
     "ID": 465,
     "Materia": "LA REVISIONE DEI RUOLI E DELLE CARRIERE E LE PRINCIPALI NOVITÀ INTRODOTTE NELL'ORDINAMENTO DEL PERSONALE DELLA POLIZIA DI STATO",
     "Domanda": "Il ruolo degli ispettori (anche tecnici) prevede oggi un percorso di carriera “a sviluppo direttivo” e si caratterizza per:",
-    "RispostaCorretta": "La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
-    "RispostaErrata1": "La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
-    "RispostaErrata2": "La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
+    "RispostaCorretta": "La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
+    "RispostaErrata1": "La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
+    "RispostaErrata2": "La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.",
     "RispostaErrata3": ""
   },
   {
@@ -6128,9 +6128,9 @@ window.QUIZ_DATA = [
     "ID": 681,
     "Materia": "PROGETTO SCUDO",
     "Domanda": "Quale legge ha istituito il cd. Codice rosso?",
-    "RispostaCorretta": "La l. n. 69/2019",
-    "RispostaErrata1": "La l. n. 169/2023",
-    "RispostaErrata2": "La l. n. 135/2001",
+    "RispostaCorretta": "La l. N. 69/2019",
+    "RispostaErrata1": "La l. N. 169/2023",
+    "RispostaErrata2": "La l. N. 135/2001",
     "RispostaErrata3": ""
   },
   {
@@ -6199,7 +6199,7 @@ window.QUIZ_DATA = [
   {
     "ID": 689,
     "Materia": "PROGETTO SCUDO",
-    "Domanda": "Il tasto interroga SDI:",
+    "Domanda": "Il tasto interroga sdi:",
     "RispostaCorretta": "Permette di effettuare il controllo in modalità cope",
     "RispostaErrata1": "Non consente di riversare il contenuto della scheda scudo nella registrazione controllo del territorio",
     "RispostaErrata2": "Verrà utilizzato prima di creare la scheda in scudo",
@@ -6208,7 +6208,7 @@ window.QUIZ_DATA = [
   {
     "ID": 690,
     "Materia": "PROGETTO SCUDO",
-    "Domanda": "Di solito, come motivazione dell'interrogazione SDI si indica \"presunte violenze domestiche\", tranne in un caso in cui si deve selezionare \"prevenzione generale\"",
+    "Domanda": "Di solito, come motivazione dell'interrogazione sdi si indica \"presunte violenze domestiche\", tranne in un caso in cui si deve selezionare \"prevenzione generale\"",
     "RispostaCorretta": "Quando il presunto autore è assente, in quanto non è possibile effettuare la ricerca in cope senza la sua presenza",
     "RispostaErrata1": "Quando il soggetto ha precedenti",
     "RispostaErrata2": "Quando la vittima è minorenne, per motivi di privacy",
@@ -6486,7 +6486,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 721,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Chi è il datore di lavoro in un ufficio con autonomia gestionale della pubblica amministrazione?",
     "RispostaCorretta": "Il dirigente, o funzionario, che esercita i poteri decisionali e di spesa",
     "RispostaErrata1": "Il dirigente dell'ufficio",
@@ -6495,7 +6495,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 722,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Il medico competente deve essere sempre nominato?",
     "RispostaCorretta": "Si, se il personale deve essere sottoposto a sorveglianza sanitaria",
     "RispostaErrata1": "Si",
@@ -6504,7 +6504,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 723,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Cos'è un documento di valutazione dei rischi?",
     "RispostaCorretta": "Un documento in cui il datore di lavoro valuta i rischi della sua attività e propone un programma di riduzione",
     "RispostaErrata1": "Un documento in cui il datore di lavoro analizza i rischi della sua attività",
@@ -6513,7 +6513,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 724,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Cos'è un rischio lavorativo?",
     "RispostaCorretta": "La probabilità che un pericolo cagioni un danno",
     "RispostaErrata1": "L'entità di un pericolo",
@@ -6522,7 +6522,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 725,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Il datore di lavoro può svolgere la funzione di responsabile del servizio di prevenzione e protezione?",
     "RispostaCorretta": "Si, solo in certe situazioni",
     "RispostaErrata1": "Mai",
@@ -6531,7 +6531,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 726,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Un rappresentante dei lavoratori per la sicurezza può ricoprire l'incarico di responsabile del servizio di prevenzione e protezione?",
     "RispostaCorretta": "Mai, le due funzioni sono normativamente incompatibili",
     "RispostaErrata1": "Si, solo in certe situazioni",
@@ -6540,7 +6540,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 727,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Cos'è un luogo di lavoro?",
     "RispostaCorretta": "Ogni ambiente in cui si svolge un'attività lavorativa",
     "RispostaErrata1": "Una fabbrica",
@@ -6549,7 +6549,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 728,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "L'uniforme ed i componenti dell'equipaggiamento del personale della polizia di stato sono dispositivi di protezione individuale?",
     "RispostaCorretta": "No per disposizione normativa",
     "RispostaErrata1": "Si, solo in certe situazioni",
@@ -6558,7 +6558,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 729,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Chi redige il documento unico di valutazione del rischio d'interferenza?",
     "RispostaCorretta": "Il soggetto che gestisce il contratto",
     "RispostaErrata1": "Il datore di lavoro",
@@ -6567,7 +6567,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 730,
-    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81",
+    "Materia": "SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81",
     "Domanda": "Chi svolge la funzione di vigilanza nelle aree operative e riservate della polizia di stato?",
     "RispostaCorretta": "Il personale sanitario e tecnico dei ruoli della polizia di stato",
     "RispostaErrata1": "L'a.s.l.",
@@ -6604,7 +6604,7 @@ window.QUIZ_DATA = [
   {
     "ID": 734,
     "Materia": "UFFICIO PREVENZIONE GENERALE E SOCCORSO PUBBLICO ARTICOLAZIONI OPERATIVE E COMPETENZE",
-    "Domanda": "Cosa significa UPGSP?",
+    "Domanda": "Cosa significa upgsp?",
     "RispostaCorretta": "Ufficio prevenzione generale e soccorso pubblico",
     "RispostaErrata1": "Ufficio polizia giudiziaria e soccorso pubblico",
     "RispostaErrata2": "Ufficio pubblica sicurezza polizia generale",
@@ -6613,7 +6613,7 @@ window.QUIZ_DATA = [
   {
     "ID": 735,
     "Materia": "UFFICIO PREVENZIONE GENERALE E SOCCORSO PUBBLICO ARTICOLAZIONI OPERATIVE E COMPETENZE",
-    "Domanda": "Qual è la competenza territoriale degli UPGSP?",
+    "Domanda": "Qual è la competenza territoriale degli upgsp?",
     "RispostaCorretta": "Provinciale",
     "RispostaErrata1": "Centro città",
     "RispostaErrata2": "Ambito città metropolitana",

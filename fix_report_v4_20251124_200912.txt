@@ -1,0 +1,128 @@
+================================================================================
+REPORT CORREZIONI V4 - VIT Cyber Quiz
+Data: 2025-11-24 20:09:12
+================================================================================
+
+Totale correzioni: 27
+
+CORREZIONI PER TIPO:
+--------------------------------------------------------------------------------
+Art.(no space) → Art. (space): 1 occorrenze
+N. (numero) → n.: 17 occorrenze
+Sdi → SDI: 1 occorrenze
+o.p. → O.P.: 2 occorrenze
+sdi → SDI: 2 occorrenze
+upgsp → UPGSP: 3 occorrenze
+
+
+DETTAGLIO MODIFICHE:
+--------------------------------------------------------------------------------
+
+ID: 47 - Campo: RispostaErrata2
+Prima:  Valuta esclusivamente tematiche afferenti l’o.p. In occasione di manifestazioni sportative
+Dopo:   Valuta esclusivamente tematiche afferenti l’O.P. In occasione di manifestazioni sportative
+
+ID: 50 - Campo: RispostaErrata1
+Prima:  All'interno degli upgsp
+Dopo:   All'interno degli UPGSP
+
+ID: 54 - Campo: RispostaCorretta
+Prima:  Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt.3 e 47 del d. Lgs.18 maggio 2018 n. 51.
+Dopo:   Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt. 3 e 47 del d. Lgs.18 maggio 2018 n. 51.
+
+ID: 60 - Campo: RispostaCorretta
+Prima:  Art.47 d.lgs 51/2018
+Dopo:   Art. 47 d.lgs 51/2018
+
+ID: 60 - Campo: RispostaErrata1
+Prima:  Art. 7 del d.lgs. N. 51/2018
+Dopo:   Art. 7 del d.lgs. n. 51/2018
+
+ID: 105 - Campo: Domanda
+Prima:  Un agente della polizia di stato in servizio di o.p. è
+Dopo:   Un agente della polizia di stato in servizio di O.P. è
+
+ID: 374 - Campo: RispostaErrata2
+Prima:  Sdi
+Dopo:   SDI
+
+ID: 465 - Campo: RispostaCorretta
+Prima:  La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 465 - Campo: RispostaErrata1
+Prima:  La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 465 - Campo: RispostaErrata2
+Prima:  La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. n. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 681 - Campo: RispostaCorretta
+Prima:  La l. N. 69/2019
+Dopo:   La l. n. 69/2019
+
+ID: 681 - Campo: RispostaErrata1
+Prima:  La l. N. 169/2023
+Dopo:   La l. n. 169/2023
+
+ID: 681 - Campo: RispostaErrata2
+Prima:  La l. N. 135/2001
+Dopo:   La l. n. 135/2001
+
+ID: 689 - Campo: Domanda
+Prima:  Il tasto interroga sdi:
+Dopo:   Il tasto interroga SDI:
+
+ID: 690 - Campo: Domanda
+Prima:  Di solito, come motivazione dell'interrogazione sdi si indica "presunte violenze domestiche", tranne in un caso in cui si deve selezionare "prevenzione generale"
+Dopo:   Di solito, come motivazione dell'interrogazione SDI si indica "presunte violenze domestiche", tranne in un caso in cui si deve selezionare "prevenzione generale"
+
+ID: 721 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 722 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 723 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 724 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 725 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 726 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 727 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 728 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 729 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 730 - Campo: Materia
+Prima:  SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO N. 81
+Dopo:   SALUTE E SICUREZZA NEI LUOGHI DI LAVORO. IL DECRETO LEGISLATIVO n. 81
+
+ID: 734 - Campo: Domanda
+Prima:  Cosa significa upgsp?
+Dopo:   Cosa significa UPGSP?
+
+ID: 735 - Campo: Domanda
+Prima:  Qual è la competenza territoriale degli upgsp?
+Dopo:   Qual è la competenza territoriale degli UPGSP?
+

@@ -8,33 +8,42 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ### 🔧 Fixed - Correzioni materie e sigle maiuscole
 
-#### ✨ Terzo passaggio correzioni: Standardizzazione acronimi
+#### ✨ Terzo passaggio correzioni: Standardizzazione completa acronimi
 
-**99 correzioni applicate** per standardizzare materie e sigle giuridico-polizia.
+**126 correzioni applicate** per standardizzare materie, sigle giuridico-polizia, e formattazione (99 correzioni v3 + 27 correzioni aggiuntive v4).
 
 **Materie corrette (10 errori):**
 - `ARMI NORME DI SCIUREZZA` → `ARMI NORME DI SICUREZZA` (10 occorrenze)
   - ✅ Errore di battitura nella materia corretta
 
-**Sigle giuridiche standardizzate (89 errori):**
+**Sigle giuridiche standardizzate (67 errori):**
+- `p.m.` → `P.M.` (Pubblico Ministero - 11 occorrenze)
+- `p.g.` → `P.G.` (Polizia Giudiziaria - 43 occorrenze)
+- `g.i.p.` → `G.I.P.` (Giudice per le Indagini Preliminari - 0 occorrenze)
+- `p.s.` → `P.S.` (Polizia di Stato - 13 occorrenze)
 
-1. **Sigle con puntini → MAIUSCOLE** (67 occorrenze):
-   - `p.m.` → `P.M.` (Pubblico Ministero - 11 occorrenze)
-   - `p.g.` → `P.G.` (Polizia Giudiziaria - 43 occorrenze)
-   - `g.i.p.` → `G.I.P.` (Giudice per le Indagini Preliminari - 0 occorrenze)
-   - `p.s.` → `P.S.` (Polizia di Stato - 13 occorrenze)
+**Acronimi dotted → UPPERCASE senza puntini (5 errori):**
+- `C.n.a.i.p.i.c.` / `c.n.a.i.p.c.` → `CNAIPIC` (Centro Nazionale Anticrimine Informatico - 2 occorrenze)
+- `C.n.c.p.m.` → `CNCPM` (Centro Nazionale Contrasto Pedopornografia Minorile - 0 occorrenze)
+- `C.n.c.p.o.` / `c.n.c.p.o.` → `CNCPO` (Centro Nazionale Contrasto Pedopornografia Online - 1 occorrenza)
+- `o.p.` → `O.P.` (Ordine Pubblico - 2 occorrenze)
 
-2. **Acronimi dotted → UPPERCASE senza puntini** (3 occorrenze):
-   - `C.n.a.i.p.i.c.` / `c.n.a.i.p.c.` → `CNAIPIC` (Centro Nazionale Anticrimine Informatico - 2 occorrenze)
-   - `C.n.c.p.m.` → `CNCPM` (Centro Nazionale Contrasto Pedopornografia Minorile - 0 occorrenze)
-   - `C.n.c.p.o.` / `c.n.c.p.o.` → `CNCPO` (Centro Nazionale Contrasto Pedopornografia Online - 1 occorrenza)
+**Acronimi lowercase → UPPERCASE (12 errori):**
+- `rpc` → `RPC` (Reparti Prevenzione Crimine - 1 occorrenza)
+- `uopi` → `UOPI` (Unità Operative di Pronto Intervento - 2 occorrenze)
+- `cnaipic` → `CNAIPIC` (1 occorrenza)
+- `oscad` → `OSCAD` (Osservatorio Sicurezza Contro Atti Discriminatori - 2 occorrenze)
+- `sco` → `SCO` (Servizio Centrale Operativo - 0 occorrenze - già corretti in v1)
+- `upgsp` → `UPGSP` (Uffici Prevenzione Generale e Soccorso Pubblico - 3 occorrenze)
+- `sdi` → `SDI` (Sistema di Indagine - 3 occorrenze)
 
-3. **Acronimi lowercase → UPPERCASE** (19 occorrenze):
-   - `rpc` → `RPC` (Reparti Prevenzione Crimine - 1 occorrenza)
-   - `uopi` → `UOPI` (Unità Operative di Pronto Intervento - 2 occorrenze)
-   - `cnaipic` → `CNAIPIC` (1 occorrenza)
-   - `oscad` → `OSCAD` (Osservatorio Sicurezza Contro Atti Discriminatori - 2 occorrenze)
-   - `sco` → `SCO` (Servizio Centrale Operativo - 14 occorrenze)
+**Numeri di legge standardizzati (14 errori):**
+- ` N. ` (prima di numeri) → ` n. ` (14 occorrenze)
+  - Esempio: `d.lgs. N. 51/2018` → `d.lgs. n. 51/2018`
+  - Esempio: `legge N. 124` → `legge n. 124`
+
+**Formattazione articoli (1 errore):**
+- `Art.` (senza spazio) → `Art. ` (con spazio dopo - 1 occorrenza)
 
 **Esempi correzioni:**
 ```
@@ -55,14 +64,14 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 ```
 
 **Processo:**
-- Script Python v3 con correzioni regex e case-insensitive
+- Script Python v4 con correzioni regex e case-insensitive complete
 - Backup automatico: `data-embedded.js.backup.20251124_194945`
 - Report dettagliato: `fix_report_v3_20251124_194945.txt`
 - Validazione JSON: ✅ OK (760 domande)
 
 **Files modificati:**
-- `js/data-embedded.js`: 99 correzioni (materie + sigle)
-- `fix_questions_errors_v3.py`: script riutilizzabile v3
+- `js/data-embedded.js`: 126 correzioni totali (99 v3: materie + sigle + acronimi; 27 v4: UPGSP, O.P., SDI, N.→n., Art. spacing)
+- `fix_questions_errors_v4.py`: script riutilizzabile v4 con tutte le correzioni
 
 **Verifica:**
 - ✅ 10 occorrenze `ARMI NORME DI SICUREZZA` corrette
