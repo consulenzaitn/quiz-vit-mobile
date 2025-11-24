@@ -67,11 +67,13 @@ function attachEventListeners() {
     document.getElementById('start-quiz-btn').addEventListener('click', showQuizSetup);
     document.getElementById('stats-btn').addEventListener('click', showStats);
     document.getElementById('manage-areas-btn').addEventListener('click', showManageAreas);
+    document.getElementById('history-btn').addEventListener('click', showHistory);
 
     // Back buttons
     document.getElementById('back-from-quiz-setup-btn').addEventListener('click', showMainMenu);
     document.getElementById('back-from-stats-btn').addEventListener('click', showMainMenu);
     document.getElementById('back-from-areas-btn').addEventListener('click', showMainMenu);
+    document.getElementById('back-from-history-btn').addEventListener('click', showMainMenu);
     document.getElementById('back-from-results-btn').addEventListener('click', showMainMenu);
     document.getElementById('quit-quiz-btn').addEventListener('click', () => {
         if (confirm('Sei sicuro di voler uscire dal quiz? I progressi saranno persi.')) {
@@ -112,7 +114,7 @@ function hideAllViews() {
     const views = [
         'main-menu', 'import-container', 'quiz-setup-container',
         'quiz-view-container', 'quiz-results-container',
-        'stats-container', 'manage-areas-container'
+        'stats-container', 'manage-areas-container', 'history-container'
     ];
     views.forEach(id => {
         const el = document.getElementById(id);
@@ -166,6 +168,74 @@ function showManageAreas() {
     populateAreasManagement();
 }
 
+function showHistory() {
+    hideAllViews();
+    document.getElementById('history-container').classList.remove('hidden');
+    displayHistory();
+}
+
+function displayHistory() {
+    const historyContainer = document.getElementById('history-list');
+    const history = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+
+    if (history.length === 0) {
+        historyContainer.innerHTML = '<p class="text-muted">Nessun quiz completato</p>';
+        return;
+    }
+
+    let html = '<div class="table-responsive"><table class="table table-hover">';
+    html += `
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Modalità</th>
+                <th>Target</th>
+                <th>Domande</th>
+                <th>Corrette</th>
+                <th>Punteggio</th>
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    history.forEach(entry => {
+        const date = new Date(entry.date);
+        const formattedDate = date.toLocaleDateString('it-IT', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        const modeLabels = {
+            'area': 'Area',
+            'subject': 'Materia',
+            'random': 'Casuale',
+            'wrong': 'Sbagliate',
+            'wrong-by-area': 'Sbag. Area',
+            'wrong-by-subject': 'Sbag. Materia'
+        };
+
+        const scoreClass = entry.score >= 80 ? 'text-success' : (entry.score >= 60 ? 'text-warning' : 'text-danger');
+        const scoreIcon = entry.score >= 80 ? '✓' : (entry.score >= 60 ? '~' : '✗');
+
+        html += `
+            <tr>
+                <td><small>${formattedDate}</small></td>
+                <td><span class="badge bg-secondary">${modeLabels[entry.mode] || entry.mode}</span></td>
+                <td>${entry.target}</td>
+                <td>${entry.questionsCount}</td>
+                <td>${entry.correctCount}</td>
+                <td class="${scoreClass}"><strong>${scoreIcon} ${entry.score}%</strong></td>
+            </tr>
+        `;
+    });
+
+    html += '</tbody></table></div>';
+    historyContainer.innerHTML = html;
+}
+
 // ======================================
 // Quiz Setup
 // ======================================
@@ -181,13 +251,24 @@ function updateQuizSetupUI() {
     const mode = document.getElementById('quiz-mode-select').value;
     const topicContainer = document.getElementById('topic-select-container');
     const numContainer = document.getElementById('num-questions-container');
+    const excludeSeenContainer = document.getElementById('exclude-seen-container');
     const topicSelect = document.getElementById('quiz-topic-select');
 
     topicSelect.innerHTML = '';
 
+    // Mostra/nascondi "Escludi domande già viste" solo per modalità normali
+    const showExcludeSeen = (mode === 'area' || mode === 'subject' || mode === 'random');
+    if (excludeSeenContainer) {
+        if (showExcludeSeen) {
+            excludeSeenContainer.classList.remove('hidden');
+        } else {
+            excludeSeenContainer.classList.add('hidden');
+        }
+    }
+
     if (mode === 'area') {
         topicContainer.classList.remove('hidden');
-        numContainer.classList.add('hidden');
+        numContainer.classList.remove('hidden');
 
         // Populate areas
         Object.keys(config.areas || {}).forEach(areaName => {
@@ -205,7 +286,7 @@ function updateQuizSetupUI() {
 
     } else if (mode === 'subject') {
         topicContainer.classList.remove('hidden');
-        numContainer.classList.add('hidden');
+        numContainer.classList.remove('hidden');
 
         // Get unique subjects
         const subjects = [...new Set(allQuestions.map(q => q.Materia))].sort();
@@ -223,6 +304,39 @@ function updateQuizSetupUI() {
     } else if (mode === 'wrong') {
         topicContainer.classList.add('hidden');
         numContainer.classList.add('hidden');
+
+    } else if (mode === 'wrong-by-area') {
+        topicContainer.classList.remove('hidden');
+        numContainer.classList.add('hidden');
+
+        // Populate areas
+        Object.keys(config.areas || {}).forEach(areaName => {
+            const wrongCount = getWrongQuestionsForArea(areaName).length;
+            const option = document.createElement('option');
+            option.value = areaName;
+            option.textContent = `${areaName} (${wrongCount} sbagliate)`;
+            topicSelect.appendChild(option);
+        });
+
+        if (Object.keys(config.areas || {}).length === 0) {
+            const option = document.createElement('option');
+            option.textContent = 'Nessuna area configurata';
+            topicSelect.appendChild(option);
+        }
+
+    } else if (mode === 'wrong-by-subject') {
+        topicContainer.classList.remove('hidden');
+        numContainer.classList.add('hidden');
+
+        // Get unique subjects
+        const subjects = [...new Set(allQuestions.map(q => q.Materia))].sort();
+        subjects.forEach(subject => {
+            const wrongCount = getWrongQuestionsForSubject(subject).length;
+            const option = document.createElement('option');
+            option.value = subject;
+            option.textContent = `${subject} (${wrongCount} sbagliate)`;
+            topicSelect.appendChild(option);
+        });
     }
 }
 
@@ -246,6 +360,8 @@ function startQuiz() {
     const numQuestions = parseInt(document.getElementById('num-questions-input').value) || 10;
     const timerEnabled = document.getElementById('timer-checkbox').checked;
     const timerDuration = parseInt(document.getElementById('timer-duration-input').value) || 30;
+    const excludeSeenCheckbox = document.getElementById('exclude-seen-checkbox');
+    const excludeSeen = excludeSeenCheckbox ? excludeSeenCheckbox.checked : false;
 
     // Select questions based on mode
     let selectedQuestions = [];
@@ -260,11 +376,40 @@ function startQuiz() {
     } else if (mode === 'wrong') {
         const wrongIds = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
         selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
+    } else if (mode === 'wrong-by-area') {
+        const wrongIds = getWrongQuestionsForArea(topic);
+        selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
+    } else if (mode === 'wrong-by-subject') {
+        const wrongIds = getWrongQuestionsForSubject(topic);
+        selectedQuestions = allQuestions.filter(q => wrongIds.includes(q.ID));
+    }
+
+    // Escludi domande già viste se richiesto
+    if (excludeSeen && mode !== 'wrong' && mode !== 'wrong-by-area' && mode !== 'wrong-by-subject') {
+        const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+
+        if (mode === 'area') {
+            const subjects = config.areas[topic] || [];
+            const completedIds = new Set();
+            subjects.forEach(subject => {
+                const subjectCompleted = completed[subject] || [];
+                subjectCompleted.forEach(id => completedIds.add(id));
+            });
+            selectedQuestions = selectedQuestions.filter(q => !completedIds.has(q.ID));
+        } else if (mode === 'subject') {
+            const completedIds = completed[topic] || [];
+            selectedQuestions = selectedQuestions.filter(q => !completedIds.includes(q.ID));
+        }
     }
 
     if (selectedQuestions.length === 0) {
         showToast('Nessuna domanda disponibile per questa selezione!');
         return;
+    }
+
+    // Limita il numero di domande se richiesto
+    if (mode !== 'wrong' && mode !== 'wrong-by-area' && mode !== 'wrong-by-subject') {
+        selectedQuestions = shuffleArray(selectedQuestions).slice(0, numQuestions);
     }
 
     // Initialize quiz
@@ -275,7 +420,9 @@ function startQuiz() {
         startTime: Date.now(),
         timer: null,
         timerDuration: timerDuration,
-        timerEnabled: timerEnabled
+        timerEnabled: timerEnabled,
+        mode: mode,
+        target: topic
     };
 
     showQuizView();
@@ -510,6 +657,25 @@ function saveQuizStats() {
 
     stats.totalQuizzes++;
 
+    // Tracciamento domande completate per materia
+    const completedQuestions = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+
+    // Tracciamento domande sbagliate per materia
+    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+
+    // Tracciamento domande sbagliate per area
+    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+
+    // Calcolo statistiche per area (trova l'area della materia)
+    const getAreaForSubject = (subject) => {
+        for (const [areaName, subjects] of Object.entries(config.areas || {})) {
+            if (subjects.includes(subject)) {
+                return areaName;
+            }
+        }
+        return null;
+    };
+
     currentQuiz.answers.forEach(answer => {
         if (answer.isCorrect) {
             stats.totalCorrect++;
@@ -518,6 +684,10 @@ function saveQuizStats() {
         }
 
         const subject = answer.question.Materia;
+        const questionId = answer.question.ID;
+        const area = getAreaForSubject(subject);
+
+        // Statistiche per materia
         if (!stats.bySubject[subject]) {
             stats.bySubject[subject] = { correct: 0, wrong: 0 };
         }
@@ -527,11 +697,56 @@ function saveQuizStats() {
         } else {
             stats.bySubject[subject].wrong++;
         }
+
+        // Statistiche per area
+        if (area) {
+            if (!stats.byArea[area]) {
+                stats.byArea[area] = { correct: 0, wrong: 0 };
+            }
+
+            if (answer.isCorrect) {
+                stats.byArea[area].correct++;
+            } else {
+                stats.byArea[area].wrong++;
+            }
+        }
+
+        // Traccia domande completate (viste) per materia
+        if (!completedQuestions[subject]) {
+            completedQuestions[subject] = [];
+        }
+        if (!completedQuestions[subject].includes(questionId)) {
+            completedQuestions[subject].push(questionId);
+        }
+
+        // Traccia domande sbagliate per materia
+        if (!answer.isCorrect) {
+            if (!wrongBySubject[subject]) {
+                wrongBySubject[subject] = [];
+            }
+            if (!wrongBySubject[subject].includes(questionId)) {
+                wrongBySubject[subject].push(questionId);
+            }
+
+            // Traccia domande sbagliate per area
+            if (area) {
+                if (!wrongByArea[area]) {
+                    wrongByArea[area] = [];
+                }
+                if (!wrongByArea[area].includes(questionId)) {
+                    wrongByArea[area].push(questionId);
+                }
+            }
+        }
     });
 
+    // Salva tutto in localStorage
     localStorage.setItem('quizStats', JSON.stringify(stats));
+    localStorage.setItem('completedQuestions', JSON.stringify(completedQuestions));
+    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
+    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
 
-    // Save wrong questions IDs
+    // Mantieni compatibilità con vecchio sistema
     const wrongIds = currentQuiz.answers
         .filter(a => !a.isCorrect)
         .map(a => a.question.ID);
@@ -539,6 +754,28 @@ function saveQuizStats() {
     const existingWrong = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
     const uniqueWrong = [...new Set([...existingWrong, ...wrongIds])];
     localStorage.setItem('wrongQuestions', JSON.stringify(uniqueWrong));
+
+    // Salva cronologia quiz
+    const history = JSON.parse(localStorage.getItem('quizHistory') || '[]');
+    const correctCount = currentQuiz.answers.filter(a => a.isCorrect).length;
+    const totalCount = currentQuiz.answers.length;
+    const score = Math.round((correctCount / totalCount) * 100);
+
+    history.unshift({
+        date: new Date().toISOString(),
+        mode: currentQuiz.mode,
+        target: currentQuiz.target || 'Tutte',
+        questionsCount: totalCount,
+        correctCount: correctCount,
+        score: score
+    });
+
+    // Mantieni solo ultime 50 entries
+    if (history.length > 50) {
+        history.splice(50);
+    }
+
+    localStorage.setItem('quizHistory', JSON.stringify(history));
 }
 
 function displayStatistics() {
@@ -548,6 +785,43 @@ function displayStatistics() {
     document.getElementById('stats-correct-answers').textContent = stats.totalCorrect || 0;
     document.getElementById('stats-wrong-answers').textContent = stats.totalWrong || 0;
 
+    // By area
+    const areaContainer = document.getElementById('stats-area-breakdown');
+    areaContainer.innerHTML = '';
+
+    if (stats.byArea && Object.keys(stats.byArea).length > 0) {
+        Object.entries(stats.byArea).forEach(([area, data]) => {
+            const total = data.correct + data.wrong;
+            const percentage = Math.round((data.correct / total) * 100);
+            const wrongCount = getWrongQuestionsForArea(area).length;
+
+            const div = document.createElement('div');
+            div.className = 'stats-item mb-3';
+            div.innerHTML = `
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">${area}</h6>
+                    <div class="btn-group btn-group-sm" role="group">
+                        ${wrongCount > 0 ? `<button class="btn btn-outline-warning" onclick="retryWrongQuestionsByArea('${area.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-arrow-clockwise"></i> Riprova sbagliate (${wrongCount})
+                        </button>` : ''}
+                        <button class="btn btn-outline-danger" onclick="resetProgressForArea('${area.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-trash"></i> Reset
+                        </button>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar ${percentage >= 60 ? 'bg-success' : 'bg-danger'}"
+                         style="width: ${percentage}%">
+                        ${data.correct}/${total} (${percentage}%)
+                    </div>
+                </div>
+            `;
+            areaContainer.appendChild(div);
+        });
+    } else {
+        areaContainer.innerHTML = '<p class="text-muted">Nessuna statistica disponibile per area</p>';
+    }
+
     // By subject
     const subjectContainer = document.getElementById('stats-subject-breakdown');
     subjectContainer.innerHTML = '';
@@ -556,11 +830,22 @@ function displayStatistics() {
         Object.entries(stats.bySubject).forEach(([subject, data]) => {
             const total = data.correct + data.wrong;
             const percentage = Math.round((data.correct / total) * 100);
+            const wrongCount = getWrongQuestionsForSubject(subject).length;
 
             const div = document.createElement('div');
-            div.className = 'stats-item';
+            div.className = 'stats-item mb-3';
             div.innerHTML = `
-                <h6>${subject}</h6>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h6 class="mb-0">${subject}</h6>
+                    <div class="btn-group btn-group-sm" role="group">
+                        ${wrongCount > 0 ? `<button class="btn btn-outline-warning" onclick="retryWrongQuestionsBySubject('${subject.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-arrow-clockwise"></i> Riprova sbagliate (${wrongCount})
+                        </button>` : ''}
+                        <button class="btn btn-outline-danger" onclick="resetProgressForSubject('${subject.replace(/'/g, "\\'")}')">
+                            <i class="bi bi-trash"></i> Reset
+                        </button>
+                    </div>
+                </div>
                 <div class="progress">
                     <div class="progress-bar ${percentage >= 60 ? 'bg-success' : 'bg-danger'}"
                          style="width: ${percentage}%">
@@ -588,6 +873,30 @@ function clearStats() {
 function retryWrongQuestions() {
     document.getElementById('quiz-mode-select').value = 'wrong';
     showQuizSetup();
+}
+
+function retryWrongQuestionsByArea(areaName) {
+    // Imposta la modalità e il topic
+    document.getElementById('quiz-mode-select').value = 'wrong-by-area';
+    showQuizSetup();
+
+    // Dopo che il setup è visibile, imposta l'area
+    setTimeout(() => {
+        const topicSelect = document.getElementById('quiz-topic-select');
+        topicSelect.value = areaName;
+    }, 100);
+}
+
+function retryWrongQuestionsBySubject(subjectName) {
+    // Imposta la modalità e il topic
+    document.getElementById('quiz-mode-select').value = 'wrong-by-subject';
+    showQuizSetup();
+
+    // Dopo che il setup è visibile, imposta la materia
+    setTimeout(() => {
+        const topicSelect = document.getElementById('quiz-topic-select');
+        topicSelect.value = subjectName;
+    }, 100);
 }
 
 // ======================================
@@ -752,7 +1061,14 @@ function displayCurrentAssociations() {
     Object.entries(config.areas).forEach(([areaName, subjects]) => {
         html += `<div class="mb-3">
             <strong>${areaName}:</strong><br>
-            ${subjects.length > 0 ? subjects.map(s => `<span class="association-badge">${s}</span>`).join(' ') : '<em class="text-muted">Nessuna materia associata</em>'}
+            ${subjects.length > 0 ? subjects.map(s => `
+                <span class="association-badge">
+                    ${s}
+                    <i class="bi bi-x-circle ms-1"
+                       style="cursor: pointer; color: #dc3545;"
+                       onclick="removeSubjectFromArea('${areaName.replace(/'/g, "\\'")}', '${s.replace(/'/g, "\\'")}')"
+                       title="Rimuovi ${s} da ${areaName}"></i>
+                </span>`).join(' ') : '<em class="text-muted">Nessuna materia associata</em>'}
         </div>`;
     });
 
@@ -760,6 +1076,25 @@ function displayCurrentAssociations() {
 
     // Update the subject multiselect UI when displaying associations
     updateSubjectMultiselectUI();
+}
+
+function removeSubjectFromArea(areaName, subjectName) {
+    if (!confirm(`Vuoi rimuovere "${subjectName}" dall'area "${areaName}"?`)) {
+        return;
+    }
+
+    // Rimuovi la materia dall'area
+    if (config.areas[areaName]) {
+        config.areas[areaName] = config.areas[areaName].filter(s => s !== subjectName);
+    }
+
+    // Salva in localStorage
+    localStorage.setItem('quizConfig', JSON.stringify(config));
+
+    // Aggiorna UI
+    displayCurrentAssociations();
+    updateSubjectMultiselectUI();
+    showToast(`"${subjectName}" rimosso da "${areaName}"`);
 }
 
 
@@ -780,6 +1115,46 @@ function updateDashboard() {
 
     const wrongIds = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
     document.getElementById('wrong-questions-stat').textContent = wrongIds.length;
+
+    // Update area progress section
+    const areaProgressContainer = document.getElementById('area-progress-container');
+    if (areaProgressContainer) {
+        const areas = Object.keys(config.areas || {});
+
+        if (areas.length === 0) {
+            areaProgressContainer.innerHTML = '<p class="text-muted">Configura le aree per vedere il progresso</p>';
+        } else {
+            let html = '';
+            areas.forEach(areaName => {
+                const progress = getProgressForArea(areaName);
+                const wrongCount = getWrongQuestionsForArea(areaName).length;
+                const progressClass = progress.percentage === 100 ? 'bg-success' : (progress.percentage >= 50 ? 'bg-primary' : 'bg-warning');
+                const completedBadge = progress.percentage === 100 ? '<span class="badge bg-success ms-2">✓ Completata</span>' : '';
+
+                html += `
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <strong>${areaName}${completedBadge}</strong>
+                            <span class="text-muted">${progress.completed}/${progress.total} domande (${progress.percentage}%)</span>
+                        </div>
+                        <div class="progress" style="height: 25px;">
+                            <div class="progress-bar ${progressClass}" role="progressbar" style="width: ${progress.percentage}%"
+                                 aria-valuenow="${progress.percentage}" aria-valuemin="0" aria-valuemax="100">
+                                ${progress.percentage}%
+                            </div>
+                        </div>
+                        <div class="mt-1">
+                            <small class="text-muted">
+                                ${wrongCount > 0 ? `<i class="bi bi-x-circle text-danger"></i> ${wrongCount} sbagliate` : '<i class="bi bi-check-circle text-success"></i> Nessuna domanda sbagliata'}
+                            </small>
+                        </div>
+                    </div>
+                `;
+            });
+
+            areaProgressContainer.innerHTML = html;
+        }
+    }
 }
 
 // ======================================
@@ -825,6 +1200,155 @@ async function reloadDataFromFiles() {
     } else {
         showToast('Nessun file JSON trovato. Importa le domande prima.');
     }
+}
+
+// ======================================
+// Reset Progress Functions
+// ======================================
+function resetProgressForArea(areaName) {
+    if (!confirm(`Vuoi resettare tutto il progresso per l'area "${areaName}"?\n\nQuesto cancellerà:\n- Domande completate\n- Domande sbagliate\n- Statistiche\n\nLe domande rimarranno disponibili.`)) {
+        return;
+    }
+
+    const subjects = config.areas[areaName] || [];
+
+    // Rimuovi domande completate per tutte le materie dell'area
+    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    subjects.forEach(subject => {
+        delete completed[subject];
+    });
+    localStorage.setItem('completedQuestions', JSON.stringify(completed));
+
+    // Rimuovi domande sbagliate per area
+    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    delete wrongByArea[areaName];
+    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
+
+    // Rimuovi domande sbagliate per materie dell'area
+    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    subjects.forEach(subject => {
+        delete wrongBySubject[subject];
+    });
+    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
+
+    // Azzera statistiche per area
+    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    if (stats.byArea) {
+        delete stats.byArea[areaName];
+    }
+    // Azzera statistiche per materie dell'area
+    if (stats.bySubject) {
+        subjects.forEach(subject => {
+            delete stats.bySubject[subject];
+        });
+    }
+    localStorage.setItem('quizStats', JSON.stringify(stats));
+
+    // Rimuovi domande sbagliate globali che appartengono all'area
+    const wrongQuestions = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const areaQuestionIds = allQuestions
+        .filter(q => subjects.includes(q.Materia))
+        .map(q => q.ID);
+    const filteredWrong = wrongQuestions.filter(id => !areaQuestionIds.includes(id));
+    localStorage.setItem('wrongQuestions', JSON.stringify(filteredWrong));
+
+    showToast(`Progresso per "${areaName}" resettato!`);
+    updateDashboard();
+    displayStatistics();
+}
+
+function resetProgressForSubject(subjectName) {
+    if (!confirm(`Vuoi resettare tutto il progresso per la materia "${subjectName}"?\n\nQuesto cancellerà:\n- Domande completate\n- Domande sbagliate\n- Statistiche\n\nLe domande rimarranno disponibili.`)) {
+        return;
+    }
+
+    // Rimuovi domande completate per la materia
+    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    delete completed[subjectName];
+    localStorage.setItem('completedQuestions', JSON.stringify(completed));
+
+    // Rimuovi domande sbagliate per materia
+    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    delete wrongBySubject[subjectName];
+    localStorage.setItem('wrongQuestionsBySubject', JSON.stringify(wrongBySubject));
+
+    // Azzera statistiche per materia
+    const stats = JSON.parse(localStorage.getItem('quizStats') || '{}');
+    if (stats.bySubject) {
+        delete stats.bySubject[subjectName];
+    }
+    localStorage.setItem('quizStats', JSON.stringify(stats));
+
+    // Rimuovi domande sbagliate globali che appartengono alla materia
+    const wrongQuestions = JSON.parse(localStorage.getItem('wrongQuestions') || '[]');
+    const subjectQuestionIds = allQuestions
+        .filter(q => q.Materia === subjectName)
+        .map(q => q.ID);
+    const filteredWrong = wrongQuestions.filter(id => !subjectQuestionIds.includes(id));
+    localStorage.setItem('wrongQuestions', JSON.stringify(filteredWrong));
+
+    // Aggiorna anche wrongByArea se questa materia era in un'area
+    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    for (const [areaName, subjects] of Object.entries(config.areas || {})) {
+        if (subjects.includes(subjectName)) {
+            if (wrongByArea[areaName]) {
+                wrongByArea[areaName] = wrongByArea[areaName].filter(id => !subjectQuestionIds.includes(id));
+            }
+        }
+    }
+    localStorage.setItem('wrongQuestionsByArea', JSON.stringify(wrongByArea));
+
+    showToast(`Progresso per "${subjectName}" resettato!`);
+    updateDashboard();
+    displayStatistics();
+}
+
+// ======================================
+// Progress Tracking Helper Functions
+// ======================================
+function getProgressForSubject(subjectName) {
+    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+    const completedIds = completed[subjectName] || [];
+    const totalQuestions = allQuestions.filter(q => q.Materia === subjectName).length;
+    const percentage = totalQuestions > 0 ? Math.round((completedIds.length / totalQuestions) * 100) : 0;
+
+    return {
+        completed: completedIds.length,
+        total: totalQuestions,
+        percentage: percentage
+    };
+}
+
+function getProgressForArea(areaName) {
+    const subjects = config.areas[areaName] || [];
+    const completed = JSON.parse(localStorage.getItem('completedQuestions') || '{}');
+
+    let totalCompleted = 0;
+    let totalQuestions = 0;
+
+    subjects.forEach(subject => {
+        const completedIds = completed[subject] || [];
+        totalCompleted += completedIds.length;
+        totalQuestions += allQuestions.filter(q => q.Materia === subject).length;
+    });
+
+    const percentage = totalQuestions > 0 ? Math.round((totalCompleted / totalQuestions) * 100) : 0;
+
+    return {
+        completed: totalCompleted,
+        total: totalQuestions,
+        percentage: percentage
+    };
+}
+
+function getWrongQuestionsForSubject(subjectName) {
+    const wrongBySubject = JSON.parse(localStorage.getItem('wrongQuestionsBySubject') || '{}');
+    return wrongBySubject[subjectName] || [];
+}
+
+function getWrongQuestionsForArea(areaName) {
+    const wrongByArea = JSON.parse(localStorage.getItem('wrongQuestionsByArea') || '{}');
+    return wrongByArea[areaName] || [];
 }
 
 // ======================================

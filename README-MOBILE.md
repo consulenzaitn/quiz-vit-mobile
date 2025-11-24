@@ -64,7 +64,10 @@ Se non vuoi installare l'app:
 4. Seleziona le materie da associare all'area (tieni premuto per selezione multipla)
 5. Clicca **"Salva Associazione"**
 
-**Nota:** Ogni materia può essere associata a una sola area alla volta.
+**💡 Novità:**
+
+- Puoi **rimuovere materie** dalle aree cliccando sulla **X** accanto al nome
+- **Ogni materia** può essere associata a una sola area alla volta
 
 ### Avviare un quiz
 
@@ -73,21 +76,46 @@ Se non vuoi installare l'app:
    - **Per Area**: tutte le domande di un'area specifica
    - **Per Materia**: domande di una singola materia
    - **Tutte le domande**: tutte le 760 domande disponibili
-   - **Domande sbagliate**: ripeti solo le domande sbagliate in precedenza
-3. Imposta il numero di domande e opzionalmente un timer
-4. Inizia il quiz!
+   - **Domande sbagliate (Tutte)**: ripeti tutte le domande sbagliate
+   - **🆕 Domande sbagliate per Area**: solo le domande sbagliate di un'area specifica
+   - **🆕 Domande sbagliate per Materia**: solo le domande sbagliate di una materia
+3. **🆕 Opzioni avanzate:**
+   - ✅ **Escludi domande già viste**: filtra le domande che hai già completato
+4. Imposta il numero di domande e opzionalmente un timer
+5. Inizia il quiz!
 
-### Visualizzare statistiche
+### Visualizzare il progresso
+
+**🆕 Dashboard - Progresso per Area:**
+
+- Visualizza il progresso per ogni area con barre colorate
+- Badge **"✓ Completata"** quando finisci tutte le domande di un'area
+- Contatore domande sbagliate per area
+
+**Statistiche dettagliate:**
 
 - Clicca su **"Statistiche"** per vedere:
-  - Quiz completati
-  - Punteggi per area e materia
-  - Lista delle domande sbagliate
+  - Quiz completati totali
+  - Performance per area con pulsanti:
+    - **Riprova sbagliate**: rifai solo le domande sbagliate dell'area
+    - **Reset**: cancella tutto il progresso dell'area
+  - Performance per materia con pulsanti:
+    - **Riprova sbagliate**: rifai solo le domande sbagliate della materia
+    - **Reset**: cancella tutto il progresso della materia
+
+**🆕 Cronologia Quiz:**
+
+- Clicca su **"Cronologia"** per vedere:
+  - Data e ora di ogni quiz completato
+  - Modalità usata (Area, Materia, Casuale, ecc.)
+  - Numero domande e punteggio
+  - Ultime 50 sessioni salvate
 
 ### Cancellare i dati
 
-- **Statistiche**: Clicca su "Cancella tutte le statistiche" nella sezione Statistiche
-- **Configurazione aree**: Le associazioni sono salvate automaticamente. Per eliminarle, cancella i dati del sito nelle impostazioni del browser
+- **Reset selettivo**: Usa i pulsanti "Reset" nelle statistiche per cancellare il progresso di singole aree o materie
+- **Statistiche globali**: Clicca su "Cancella tutte le statistiche" nella sezione Statistiche
+- **Configurazione aree**: Usa il pulsante **X** per rimuovere materie dalle aree
 
 ---
 
