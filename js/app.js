@@ -1060,7 +1060,12 @@ function displayCurrentAssociations() {
     let html = '';
     Object.entries(config.areas).forEach(([areaName, subjects]) => {
         html += `<div class="mb-3">
-            <strong>${areaName}:</strong><br>
+            <div class="d-flex justify-content-between align-items-center">
+                <strong>${areaName}:</strong>
+                ${subjects.length === 0 ? `<button class="btn btn-sm btn-outline-danger" onclick="deleteArea('${areaName.replace(/'/g, "\\'")}')">
+                    <i class="bi bi-trash"></i> Elimina Area
+                </button>` : ''}
+            </div>
             ${subjects.length > 0 ? subjects.map(s => `
                 <span class="association-badge">
                     ${s}
@@ -1095,6 +1100,30 @@ function removeSubjectFromArea(areaName, subjectName) {
     displayCurrentAssociations();
     updateSubjectMultiselectUI();
     showToast(`"${subjectName}" rimosso da "${areaName}"`);
+}
+
+function deleteArea(areaName) {
+    // Verifica che l'area sia vuota
+    if (config.areas[areaName] && config.areas[areaName].length > 0) {
+        showToast('Non puoi eliminare un\'area che contiene materie!');
+        return;
+    }
+
+    if (!confirm(`Vuoi eliminare l'area "${areaName}"?`)) {
+        return;
+    }
+
+    // Elimina l'area
+    delete config.areas[areaName];
+
+    // Salva in localStorage
+    localStorage.setItem('quizConfig', JSON.stringify(config));
+
+    // Aggiorna UI
+    updateAreaSelect();
+    displayCurrentAssociations();
+    updateDashboard();
+    showToast(`Area "${areaName}" eliminata!`);
 }
 
 

@@ -67,6 +67,7 @@ Se non vuoi installare l'app:
 **💡 Novità:**
 
 - Puoi **rimuovere materie** dalle aree cliccando sulla **X** accanto al nome
+- Puoi **eliminare un'area vuota** (senza materie) cliccando sul pulsante **"Elimina Area"**
 - **Ogni materia** può essere associata a una sola area alla volta
 
 ### Avviare un quiz
