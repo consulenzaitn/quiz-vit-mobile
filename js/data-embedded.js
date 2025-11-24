@@ -6851,4 +6851,4 @@ window.QUIZ_CONFIG = {
   areas: {}
 };
 
-console.log('📱 Quiz VIT Mobile - Dati caricati:', window.QUIZ_DATA.length, 'domande');
+console.log('📱 VIT Cyber - Dati caricati:', window.QUIZ_DATA.length, 'domande');

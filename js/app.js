@@ -337,7 +337,7 @@ function loadEmbeddedData() {
     // Carica dati da window.QUIZ_DATA (embedded da data-embedded.js)
     if (window.QUIZ_DATA) {
         allQuestions = window.QUIZ_DATA;
-        console.log(`📱 Mobile: Loaded ${allQuestions.length} questions from embedded data`);
+        console.log(`📱 VIT Cyber: Caricati ${allQuestions.length} domande`);
     } else {
         console.error('❌ window.QUIZ_DATA not found!');
         allQuestions = [];
@@ -347,10 +347,10 @@ function loadEmbeddedData() {
     const savedConfig = SafeStorage.getItem('quizConfig');
     if (savedConfig) {
         config = savedConfig;
-        console.log(`📱 Mobile: Loaded config from localStorage: ${Object.keys(config.areas).length} areas`);
+        console.log(`📱 VIT Cyber: Config caricata: ${Object.keys(config.areas).length} aree`);
     } else {
         config = window.QUIZ_CONFIG || { areas: {}, version: '1.0' };
-        console.log('📱 Mobile: Using embedded default config (no areas configured yet)');
+        console.log('📱 VIT Cyber: Config predefinita (nessuna area configurata)');
     }
 
     updateDashboard();
