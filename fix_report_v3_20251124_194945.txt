@@ -1,0 +1,421 @@
+================================================================================
+REPORT CORREZIONI V3 - VIT Cyber Quiz
+Data: 2025-11-24 19:49:45
+================================================================================
+
+Totale correzioni: 99
+
+CORREZIONI PER TIPO:
+--------------------------------------------------------------------------------
+ARMI NORME DI SCIUREZZA → ARMI NORME DI SICUREZZA: 10 occorrenze
+C.n.c.p.o. → CNCPO: 1 occorrenze
+c.n.a.i.p.c. → CNAIPIC: 1 occorrenze
+cnaipic →  CNAIPIC: 1 occorrenze
+oscad →  OSCAD: 2 occorrenze
+p.g. → P.G.: 43 occorrenze
+p.m. → P.M.: 11 occorrenze
+p.s. → P.S.: 13 occorrenze
+rpc →  RPC: 1 occorrenze
+sco →  SCO: 14 occorrenze
+uopi →  UOPI: 2 occorrenze
+
+
+DETTAGLIO MODIFICHE:
+--------------------------------------------------------------------------------
+
+ID: 16 - Campo: RispostaErrata2
+Prima:  E’ sottoposto al vaglio del p.m.
+Dopo:   E’ sottoposto al vaglio del P.M.
+
+ID: 18 - Campo: RispostaErrata1
+Prima:  Una istanza del p.m. Per l'esercizio dell'azione penale
+Dopo:   Una istanza del P.M. Per l'esercizio dell'azione penale
+
+ID: 19 - Campo: Domanda
+Prima:  Gli atti di p.g. Ripetibili riguardano attività che:
+Dopo:   Gli atti di P.G. Ripetibili riguardano attività che:
+
+ID: 21 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 22 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 23 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 24 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 25 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 26 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 27 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 28 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 29 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 30 - Campo: Materia
+Prima:  ARMI NORME DI SCIUREZZA
+Dopo:   ARMI NORME DI SICUREZZA
+
+ID: 31 - Campo: Domanda
+Prima:  La p.g. Svolge attività investigativa d’iniziativa:
+Dopo:   La P.G. Svolge attività investigativa d’iniziativa:
+
+ID: 34 - Campo: Domanda
+Prima:  L’attività investigativa d’iniziativa della p.g. è finalizzata:
+Dopo:   L’attività investigativa d’iniziativa della P.G. è finalizzata:
+
+ID: 35 - Campo: Domanda
+Prima:  Nel caso in cui il p.m. Abbia già assunto la direzione delle indagini, l’attività d’iniziativa della p.g.:
+Dopo:   Nel caso in cui il P.M. Abbia già assunto la direzione delle indagini, l’attività d’iniziativa della P.G.:
+
+ID: 35 - Campo: RispostaErrata2
+Prima:  Deve essere preventivamente autorizzata dal g.i.p. Su richiesta della stessa p.g.
+Dopo:   Deve essere preventivamente autorizzata dal G.I.P. Su richiesta della stessa P.G.
+
+ID: 36 - Campo: RispostaCorretta
+Prima:  Non deve contrastare con le direttive impartite dal p.m. E deve essere caratterizzato dalla necessità e dall’urgenza
+Dopo:   Non deve contrastare con le direttive impartite dal P.M. E deve essere caratterizzato dalla necessità e dall’urgenza
+
+ID: 36 - Campo: RispostaErrata1
+Prima:  Può contrastare con le direttive impartite dal p.m. Ma deve essere caratterizzato dalla necessità e dall’urgenza
+Dopo:   Può contrastare con le direttive impartite dal P.M. Ma deve essere caratterizzato dalla necessità e dall’urgenza
+
+ID: 36 - Campo: RispostaErrata2
+Prima:  Può contrastare con le direttive impartite dal p.m. E non è necessario che sia caratterizzato dalla necessità e dall’urgenza
+Dopo:   Può contrastare con le direttive impartite dal P.M. E non è necessario che sia caratterizzato dalla necessità e dall’urgenza
+
+ID: 39 - Campo: Domanda
+Prima:  L’autorità giudiziaria può delegare alla p.g. Qualsiasi tipo di atto?
+Dopo:   L’autorità giudiziaria può delegare alla P.G. Qualsiasi tipo di atto?
+
+ID: 48 - Campo: Domanda
+Prima:  Chi attiva le uopi
+Dopo:   Chi attiva le UOPI
+
+ID: 50 - Campo: Domanda
+Prima:  Dove sono incardinate le uopi
+Dopo:   Dove sono incardinate le UOPI
+
+ID: 50 - Campo: RispostaCorretta
+Prima:  All'interno dei rpc
+Dopo:   All'interno dei RPC
+
+ID: 54 - Campo: RispostaCorretta
+Prima:  Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo scopo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt.3 e 47 del d. Lgs.18 maggio 2018 n. 51.
+Dopo:   Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt.3 e 47 del d. Lgs.18 maggio 2018 n. 51.
+
+ID: 59 - Campo: RispostaCorretta
+Prima:  Il dipartimento della p.s.
+Dopo:   Il dipartimento della P.S.
+
+ID: 62 - Campo: RispostaCorretta
+Prima:  Incremento del numero di ufficiali di p.g., riduzione dei tempi di permanenza di talune qualifiche, aumento dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+Dopo:   Incremento del numero di ufficiali di P.G., riduzione dei tempi di permanenza di talune qualifiche, aumento dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+
+ID: 62 - Campo: RispostaErrata1
+Prima:  Diminuzione del numero di ufficiali di p.g., riduzione dei tempi di permanenza di talune qualifiche, riduzione dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+Dopo:   Diminuzione del numero di ufficiali di P.G., riduzione dei tempi di permanenza di talune qualifiche, riduzione dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+
+ID: 62 - Campo: RispostaErrata2
+Prima:  Incremento del numero di ufficiali di p.g., riduzione dei tempi di permanenza di talune qualifiche, riduzione dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+Dopo:   Incremento del numero di ufficiali di P.G., riduzione dei tempi di permanenza di talune qualifiche, riduzione dell’attuale dotazione organica complessiva nei ruoli di base, introduzione, nell’ambito del ruolo degli ispettori tecnici, del settore tecnico “sicurezza cibernetica”.
+
+ID: 91 - Campo: RispostaErrata2
+Prima:  Un atto di competenza esclusiva della p.g.
+Dopo:   Un atto di competenza esclusiva della P.G.
+
+ID: 97 - Campo: RispostaErrata2
+Prima:  Un atto di competenza esclusiva della p.g.
+Dopo:   Un atto di competenza esclusiva della P.G.
+
+ID: 122 - Campo: RispostaErrata2
+Prima:  Settore scolastico
+Dopo:   Settore SCOlastico
+
+ID: 171 - Campo: RispostaCorretta
+Prima:  Costituiscono un modo per scoraggiare il consumatore dal tenere condotte che possano rappresentare pericolo per se stesso e la collettività
+Dopo:   Costituiscono un modo per SCOraggiare il consumatore dal tenere condotte che possano rappresentare pericolo per se stesso e la collettività
+
+ID: 183 - Campo: RispostaCorretta
+Prima:  È inserita nel fascicolo del p.m. E ne è data lettura in dibattimento in caso di contestazioni
+Dopo:   È inserita nel fascicolo del P.M. E ne è data lettura in dibattimento in caso di contestazioni
+
+ID: 189 - Campo: Domanda
+Prima:  Gli atti di p.g. Ripetibili riguardano attività che:
+Dopo:   Gli atti di P.G. Ripetibili riguardano attività che:
+
+ID: 212 - Campo: RispostaCorretta
+Prima:  C.n.a.i.p.i.c. - commissariato di p.s. Online - c.n.c.p.o.
+Dopo:   CNAIPIC - commissariato di P.S. Online - CNCPO
+
+ID: 212 - Campo: RispostaErrata1
+Prima:  C.n.a.i.p.i.c. - commissariato di p.s. Online - dna
+Dopo:   CNAIPIC - commissariato di P.S. Online - dna
+
+ID: 212 - Campo: RispostaErrata2
+Prima:  Sco - commissariato di p.s. Online - c.n.c.p.o.
+Dopo:   SCO - commissariato di P.S. Online - CNCPO
+
+ID: 215 - Campo: Domanda
+Prima:  Quali sono le funzioni del cnaipic:
+Dopo:   Quali sono le funzioni del CNAIPIC:
+
+ID: 216 - Campo: RispostaErrata2
+Prima:  La p.g. Non è mai autorizzata ad avvalersi dello strumento della sottocopertura
+Dopo:   La P.G. Non è mai autorizzata ad avvalersi dello strumento della sottocopertura
+
+ID: 262 - Campo: Domanda
+Prima:  Ai sensi dell’art. 13 cost, la perquisizione locale d’iniziativa della p.g. Per la ricerca di armi ed esplosivi (art. 41 tulp):
+Dopo:   Ai sensi dell’art. 13 cost, la perquisizione locale d’iniziativa della P.G. Per la ricerca di armi ed esplosivi (art. 41 tulp):
+
+ID: 263 - Campo: RispostaErrata2
+Prima:  Normalmente è disposta dal p.m. E non necessita di convalida del g.i.p.
+Dopo:   Normalmente è disposta dal P.M. E non necessita di convalida del G.I.P.
+
+ID: 301 - Campo: RispostaCorretta
+Prima:  C.n.c.p.o. (centro nazionale contrasto pedopornografia online)
+Dopo:   CNCPO (centro nazionale contrasto pedopornografia online)
+
+ID: 301 - Campo: RispostaErrata1
+Prima:  C.n.c.p.m. (centro nazionale contrasto pedopornografia minorile)
+Dopo:   C.n.c.P.M. (centro nazionale contrasto pedopornografia minorile)
+
+ID: 315 - Campo: Domanda
+Prima:  Cosa è il c.n.a.i.p.c.?
+Dopo:   Cosa è il CNAIPIC?
+
+ID: 361 - Campo: RispostaErrata2
+Prima:  Art. 1 del t.u.l.p.s.
+Dopo:   Art. 1 del t.u.l.P.S.
+
+ID: 379 - Campo: RispostaErrata2
+Prima:  Giustificare scopo e condizioni del soggiorno previsto
+Dopo:   Giustificare SCOpo e condizioni del soggiorno previsto
+
+ID: 421 - Campo: RispostaCorretta
+Prima:  Dal p.m.
+Dopo:   Dal P.M.
+
+ID: 423 - Campo: Domanda
+Prima:  L'agente di p.g. Che non riferisce dolosamente una notizia di reato è punito:
+Dopo:   L'agente di P.G. Che non riferisce dolosamente una notizia di reato è punito:
+
+ID: 423 - Campo: RispostaErrata1
+Prima:  Con il trasferimento ad un servizio che non preveda lo svolgimento di attività di p.g.
+Dopo:   Con il trasferimento ad un servizio che non preveda lo svolgimento di attività di P.G.
+
+ID: 424 - Campo: RispostaErrata2
+Prima:  Sono uffici a cui sono assegnati solo ufficiali di p.g. Per svolgere l’attività di polizia giudiziaria
+Dopo:   Sono uffici a cui sono assegnati solo ufficiali di P.G. Per svolgere l’attività di polizia giudiziaria
+
+ID: 425 - Campo: RispostaCorretta
+Prima:  Sono tutti ufficiali di p.g.
+Dopo:   Sono tutti ufficiali di P.G.
+
+ID: 425 - Campo: RispostaErrata1
+Prima:  Sono tutti agenti di p.g.
+Dopo:   Sono tutti agenti di P.G.
+
+ID: 425 - Campo: RispostaErrata2
+Prima:  Non hanno funzioni di p.g. Ma solo di polizia tributaria
+Dopo:   Non hanno funzioni di P.G. Ma solo di polizia tributaria
+
+ID: 426 - Campo: RispostaCorretta
+Prima:  Un ufficiale di p.g.
+Dopo:   Un ufficiale di P.G.
+
+ID: 426 - Campo: RispostaErrata1
+Prima:  Un agente di p.g.
+Dopo:   Un agente di P.G.
+
+ID: 426 - Campo: RispostaErrata2
+Prima:  In alcune circostanze è agente, in altre è ufficiale di p.g.
+Dopo:   In alcune circostanze è agente, in altre è ufficiale di P.G.
+
+ID: 427 - Campo: RispostaCorretta
+Prima:  Un agente di p.g. A competenza limitata
+Dopo:   Un agente di P.G. A competenza limitata
+
+ID: 427 - Campo: RispostaErrata1
+Prima:  Un agente di p.g. A competenza generale
+Dopo:   Un agente di P.G. A competenza generale
+
+ID: 427 - Campo: RispostaErrata2
+Prima:  Svolge funzioni di p.g. Solo se riceve un apposito incarico da parte del p.m.
+Dopo:   Svolge funzioni di P.G. Solo se riceve un apposito incarico da parte del P.M.
+
+ID: 428 - Campo: Domanda
+Prima:  Una sezione di p.g. Può essere costituita presso:
+Dopo:   Una sezione di P.G. Può essere costituita presso:
+
+ID: 429 - Campo: RispostaCorretta
+Prima:  Sia agli ufficiali che agli agenti di p.g.
+Dopo:   Sia agli ufficiali che agli agenti di P.G.
+
+ID: 429 - Campo: RispostaErrata1
+Prima:  Solo agli ufficiali di p.g.
+Dopo:   Solo agli ufficiali di P.G.
+
+ID: 429 - Campo: RispostaErrata2
+Prima:  Solo agli agenti di p.g.
+Dopo:   Solo agli agenti di P.G.
+
+ID: 430 - Campo: Domanda
+Prima:  Il sindaco è un ufficiale di p.g.:
+Dopo:   Il sindaco è un ufficiale di P.G.:
+
+ID: 447 - Campo: RispostaErrata2
+Prima:  La cancellazione dai ruoli dell'amministrazione della p.s.
+Dopo:   La cancellazione dai ruoli dell'amministrazione della P.S.
+
+ID: 465 - Campo: RispostaCorretta
+Prima:  La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di p.s. E ufficiali di p.g., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore a due anni per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 465 - Campo: RispostaErrata1
+Prima:  La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di p.s. E ufficiali di p.g., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore ad un anno per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 465 - Campo: RispostaErrata2
+Prima:  La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di p.s. E ufficiali di p.g., con particolare riguardo all’attività investigativa.
+Dopo:   La frequenza di un corso di formazione non inferiore ad un anno e sei mesi per i vincitori del concorso pubblico, per titoli ed esami, per vice ispettore, preordinato anche all’acquisizione di crediti formativi universitari per il conseguimento di una delle lauree triennali a contenuto giuridico di cui all’articolo 5-bis, commi 1 e 2, del d. Lgs. N. 334 del 2000, nonché alla loro formazione tecnico-professionale di agenti di P.S. E ufficiali di P.G., con particolare riguardo all’attività investigativa.
+
+ID: 466 - Campo: RispostaCorretta
+Prima:  Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle tre qualifiche di vice commissario, commissario e commissario capo, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 1.800 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di p.s. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+Dopo:   Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle tre qualifiche di vice commissario, commissario e commissario capo, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 1.800 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di P.S. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+
+ID: 466 - Campo: RispostaErrata1
+Prima:  Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle tre qualifiche di vice commissario, commissario e commissario capo, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 2.000 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di p.s. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+Dopo:   Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle tre qualifiche di vice commissario, commissario e commissario capo, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 2.000 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di P.S. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+
+ID: 466 - Campo: RispostaErrata2
+Prima:  Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle due qualifiche di vice commissario, commissario, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 1.800 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di p.s. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+Dopo:   Il ruolo direttivo ad esaurimento della polizia di stato (ruolo direttivo con l’entrata in vigore del c.d. “secondo correttivo”, decreto legislativo 27 dicembre 2019, n. 172) articolato nelle due qualifiche di vice commissario, commissario, con funzioni analoghe a quelle delle corrispondenti qualifiche della carriera dei funzionari di polizia e con una dotazione organica di 1.800 unità, 1.500 delle quali riservate agli ispettori-sostituti commissari di P.S. Che avrebbero potuto concorrere per l’accesso al ruolo direttivo speciale attraverso una specifica disciplina transitoria.
+
+ID: 601 - Campo: RispostaErrata2
+Prima:  Solo scomparso e disperso
+Dopo:   Solo SCOmparso e disperso
+
+ID: 603 - Campo: Domanda
+Prima:  La materia delle persone scomparse è disciplinata da una sola legge?
+Dopo:   La materia delle persone SCOmparse è disciplinata da una sola legge?
+
+ID: 603 - Campo: RispostaErrata2
+Prima:  Dipende dal luogo di scomparsa?
+Dopo:   Dipende dal luogo di SCOmparsa?
+
+ID: 605 - Campo: Domanda
+Prima:  Quante sono, mediamente, le denunce di scomparsa per anno in italia?
+Dopo:   Quante sono, mediamente, le denunce di SCOmparsa per anno in italia?
+
+ID: 606 - Campo: Domanda
+Prima:  Chi può denunciare la notizia di una scomparsa?
+Dopo:   Chi può denunciare la notizia di una SCOmparsa?
+
+ID: 607 - Campo: Domanda
+Prima:  La denuncia di scomparsa va inserita al c.e.d.?
+Dopo:   La denuncia di SCOmparsa va inserita al c.e.d.?
+
+ID: 609 - Campo: Domanda
+Prima:  Il commissario di governo per le persone scomparse si occupa anche di cadaveri non identificati?
+Dopo:   Il commissario di governo per le persone SCOmparse si occupa anche di cadaveri non identificati?
+
+ID: 610 - Campo: Domanda
+Prima:  Le associazioni possono concorrere alle ricerche delle persone scomparse?
+Dopo:   Le associazioni possono concorrere alle ricerche delle persone SCOmparse?
+
+ID: 621 - Campo: Domanda
+Prima:  L’oscad, oltre che da rappresentanti della direzione centrale della polizia criminale, è composto da:
+Dopo:   L’OSCAD, oltre che da rappresentanti della direzione centrale della polizia criminale, è composto da:
+
+ID: 625 - Campo: Domanda
+Prima:  Chi può inviare una segnalazione ad oscad?
+Dopo:   Chi può inviare una segnalazione ad OSCAD?
+
+ID: 644 - Campo: Domanda
+Prima:  Qual è il primo adempimento dell'autorità di p.s. In caso di rintraccio di un msna?
+Dopo:   Qual è il primo adempimento dell'autorità di P.S. In caso di rintraccio di un msna?
+
+ID: 645 - Campo: Domanda
+Prima:  Quale adempimento deve essere svolto dall'autorità di p.s. Con immediatezza allorquando si trova di fronte ad un msna?
+Dopo:   Quale adempimento deve essere svolto dall'autorità di P.S. Con immediatezza allorquando si trova di fronte ad un msna?
+
+ID: 646 - Campo: RispostaErrata2
+Prima:  Con un colloquio da parte di personale qualificato della struttura ospedaliera, qualora sia evidente un sufficiente stadio di sviluppo e su iniziativa della p.g.
+Dopo:   Con un colloquio da parte di personale qualificato della struttura ospedaliera, qualora sia evidente un sufficiente stadio di sviluppo e su iniziativa della P.G.
+
+ID: 705 - Campo: Domanda
+Prima:  Per un dipendente appartenente al ruolo dei sovrintendenti in servizio presso il dipartimento della p.s., a chi compete la compilazione del rapporto informativo?
+Dopo:   Per un dipendente appartenente al ruolo dei sovrintendenti in servizio presso il dipartimento della P.S., a chi compete la compilazione del rapporto informativo?
+
+ID: 711 - Campo: RispostaCorretta
+Prima:  Agente di p.s. E agente di p.g.
+Dopo:   Agente di P.S. E agente di P.G.
+
+ID: 711 - Campo: RispostaErrata1
+Prima:  Agente di p.s. E ufficiale di p.g.
+Dopo:   Agente di P.S. E ufficiale di P.G.
+
+ID: 711 - Campo: RispostaErrata2
+Prima:  Agente di p.g. E ufficiale di p.s.
+Dopo:   Agente di P.G. E ufficiale di P.S.
+
+ID: 713 - Campo: RispostaCorretta
+Prima:  Ufficiale di p.g. E agente di p.s.
+Dopo:   Ufficiale di P.G. E agente di P.S.
+
+ID: 713 - Campo: RispostaErrata1
+Prima:  Ufficiale di p.g. E ufficiale di p.s.
+Dopo:   Ufficiale di P.G. E ufficiale di P.S.
+
+ID: 713 - Campo: RispostaErrata2
+Prima:  Agente di p.g. E agente di p.s.
+Dopo:   Agente di P.G. E agente di P.S.
+
+ID: 714 - Campo: RispostaCorretta
+Prima:  Ufficiale di p.g. E ufficiale di p.s.
+Dopo:   Ufficiale di P.G. E ufficiale di P.S.
+
+ID: 714 - Campo: RispostaErrata1
+Prima:  Agente di p.g. E ufficiale di p.s.
+Dopo:   Agente di P.G. E ufficiale di P.S.
+
+ID: 714 - Campo: RispostaErrata2
+Prima:  Ufficiale di p.g. E autorità di p.s.
+Dopo:   Ufficiale di P.G. E autorità di P.S.
+
+ID: 732 - Campo: RispostaErrata1
+Prima:  Sviluppano ulteriori attività di p.g. In totale autonomia rispetto agli organi investigativi
+Dopo:   Sviluppano ulteriori attività di P.G. In totale autonomia rispetto agli organi investigativi
+
+ID: 743 - Campo: RispostaCorretta
+Prima:  Si, perché agenti di p.s.
+Dopo:   Si, perché agenti di P.S.
+
+ID: 750 - Campo: Domanda
+Prima:  Sparare in aria a scopo intimidatorio:
+Dopo:   Sparare in aria a SCOpo intimidatorio:
+
+ID: 750 - Campo: RispostaCorretta
+Prima:  Non è vietato dalla legge, ma è comunque sconsigliabile, specie in condizioni di tiro “disagevoli”, per l’elevato rischio di colpire terzi innocenti
+Dopo:   Non è vietato dalla legge, ma è comunque SCOnsigliabile, specie in condizioni di tiro “disagevoli”, per l’elevato rischio di colpire terzi innocenti
+

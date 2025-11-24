@@ -1,13 +1,13 @@
 // Service Worker per VIT Cyber
 // Permette il funzionamento offline completo
 
-const CACHE_NAME = 'vit-cyber-v42';
+const CACHE_NAME = 'vit-cyber-v43';
 const urlsToCache = [
   './',
   './index.html',
-  './css/style.css?v=42',
-  './js/app.js?v=42',
-  './js/data-embedded.js?v=42',
+  './css/style.css?v=43',
+  './js/app.js?v=43',
+  './js/data-embedded.js?v=43',
   './manifest.json',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',

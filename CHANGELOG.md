@@ -4,6 +4,78 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.7.3] - 2025-11-24
+
+### 🔧 Fixed - Correzioni materie e sigle maiuscole
+
+#### ✨ Terzo passaggio correzioni: Standardizzazione acronimi
+
+**99 correzioni applicate** per standardizzare materie e sigle giuridico-polizia.
+
+**Materie corrette (10 errori):**
+- `ARMI NORME DI SCIUREZZA` → `ARMI NORME DI SICUREZZA` (10 occorrenze)
+  - ✅ Errore di battitura nella materia corretta
+
+**Sigle giuridiche standardizzate (89 errori):**
+
+1. **Sigle con puntini → MAIUSCOLE** (67 occorrenze):
+   - `p.m.` → `P.M.` (Pubblico Ministero - 11 occorrenze)
+   - `p.g.` → `P.G.` (Polizia Giudiziaria - 43 occorrenze)
+   - `g.i.p.` → `G.I.P.` (Giudice per le Indagini Preliminari - 0 occorrenze)
+   - `p.s.` → `P.S.` (Polizia di Stato - 13 occorrenze)
+
+2. **Acronimi dotted → UPPERCASE senza puntini** (3 occorrenze):
+   - `C.n.a.i.p.i.c.` / `c.n.a.i.p.c.` → `CNAIPIC` (Centro Nazionale Anticrimine Informatico - 2 occorrenze)
+   - `C.n.c.p.m.` → `CNCPM` (Centro Nazionale Contrasto Pedopornografia Minorile - 0 occorrenze)
+   - `C.n.c.p.o.` / `c.n.c.p.o.` → `CNCPO` (Centro Nazionale Contrasto Pedopornografia Online - 1 occorrenza)
+
+3. **Acronimi lowercase → UPPERCASE** (19 occorrenze):
+   - `rpc` → `RPC` (Reparti Prevenzione Crimine - 1 occorrenza)
+   - `uopi` → `UOPI` (Unità Operative di Pronto Intervento - 2 occorrenze)
+   - `cnaipic` → `CNAIPIC` (1 occorrenza)
+   - `oscad` → `OSCAD` (Osservatorio Sicurezza Contro Atti Discriminatori - 2 occorrenze)
+   - `sco` → `SCO` (Servizio Centrale Operativo - 14 occorrenze)
+
+**Esempi correzioni:**
+```
+❌ "E' sottoposto al vaglio del p.m."
+✅ "E' sottoposto al vaglio del P.M."
+
+❌ "Gli atti di p.g. Ripetibili riguardano attività che:"
+✅ "Gli atti di P.G. Ripetibili riguardano attività che:"
+
+❌ "Materia": "ARMI NORME DI SCIUREZZA"
+✅ "Materia": "ARMI NORME DI SICUREZZA"
+
+❌ "C.n.a.i.p.i.c. - commissariato di p.s. Online"
+✅ "CNAIPIC - commissariato di P.S. Online"
+
+❌ "Chi attiva le uopi"
+✅ "Chi attiva le UOPI"
+```
+
+**Processo:**
+- Script Python v3 con correzioni regex e case-insensitive
+- Backup automatico: `data-embedded.js.backup.20251124_194945`
+- Report dettagliato: `fix_report_v3_20251124_194945.txt`
+- Validazione JSON: ✅ OK (760 domande)
+
+**Files modificati:**
+- `js/data-embedded.js`: 99 correzioni (materie + sigle)
+- `fix_questions_errors_v3.py`: script riutilizzabile v3
+
+**Verifica:**
+- ✅ 10 occorrenze `ARMI NORME DI SICUREZZA` corrette
+- ✅ 0 occorrenze `ARMI NORME DI SCIUREZZA` rimanenti
+- ✅ Tutte sigle standardizzate in maiuscolo
+- ✅ Acronimi senza puntini dove appropriato
+
+**Nota:** Sigla `dna` mantenuta minuscola come richiesto (non DNA).
+
+**Cache version:** v42 → v43
+
+---
+
 ## [v1.7.2] - 2025-11-24
 
 ### 🔧 Fixed - Correzioni ortografiche aggiuntive

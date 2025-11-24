@@ -1,0 +1,52 @@
+================================================================================
+REPORT CORREZIONI V2 - VIT Cyber Quiz
+Data: 2025-11-24 19:39:53
+================================================================================
+
+Totale correzioni: 8
+
+CORREZIONI PER TIPO:
+--------------------------------------------------------------------------------
+Qual'è → Qual è: 2 occorrenze
+affinchè → affinché: 1 occorrenze
+indebilta → indebita: 1 occorrenze
+perchè → perché: 1 occorrenze
+schernimneto → schernimento: 1 occorrenze
+successive → successivi: 2 occorrenze
+
+
+DETTAGLIO MODIFICHE:
+--------------------------------------------------------------------------------
+
+ID: 60 - Campo: Domanda
+Prima:  Qual'è l’articolo del decreto legislativo 51/2018, che disciplina le modalità procedurali attraverso le quali viene assicurato l’aggiornamento periodico, la proporzionalità, la pertinenza e la non eccedenza dei dati personali trattati, anche attraverso interrogazioni autorizzate del casellario giudiziale e del casellario dei carichi pendenti del ministero della giustizia.
+Dopo:   Qual è l’articolo del decreto legislativo 51/2018, che disciplina le modalità procedurali attraverso le quali viene assicurato l’aggiornamento periodico, la proporzionalità, la pertinenza e la non eccedenza dei dati personali trattati, anche attraverso interrogazioni autorizzate del casellario giudiziale e del casellario dei carichi pendenti del ministero della giustizia.
+
+ID: 93 - Campo: RispostaCorretta
+Prima:  Per atti comunque collegati ad un evento sportivo che possono anche essere cronologicamente antecedenti ovvero successive allo stesso.
+Dopo:   Per atti comunque collegati ad un evento sportivo che possono anche essere cronologicamente antecedenti ovvero successivi allo stesso.
+
+ID: 129 - Campo: Domanda
+Prima:  Qual è la condotta dell'indebilta destinazione di denaro o cose mobili?
+Dopo:   Qual è la condotta dell'indebita destinazione di denaro o cose mobili?
+
+ID: 205 - Campo: RispostaErrata2
+Prima:  Tecnica di schernimneto della vittima attraverso i social da parte di uno specifico gruppo
+Dopo:   Tecnica di schernimento della vittima attraverso i social da parte di uno specifico gruppo
+
+ID: 251 - Campo: RispostaCorretta
+Prima:  L’interesse all’acquisizione della notitia criminis da parte dell’autorità giudiziaria,affinchè la stessa sia messa in condizione di esercitare correttamente l’azione penale b)l’interesse a che l’imputato non menta nel corso dell’interrogatorio
+Dopo:   L’interesse all’acquisizione della notitia criminis da parte dell’autorità giudiziaria,affinché la stessa sia messa in condizione di esercitare correttamente l’azione penale b)l’interesse a che l’imputato non menta nel corso dell’interrogatorio
+
+ID: 420 - Campo: RispostaCorretta
+Prima:  Siamo nella 2° posizione percettiva quando ci "mettiamo nei panni dell'altro" ed è utile perchè ci consente di raccogliere informazioni sul suo punto di vista e provare empatia.
+Dopo:   Siamo nella 2° posizione percettiva quando ci "mettiamo nei panni dell'altro" ed è utile perché ci consente di raccogliere informazioni sul suo punto di vista e provare empatia.
+
+ID: 639 - Campo: RispostaErrata2
+Prima:  È l’insieme delle operazioni successive all’atto finale, necessarie affinché questo divenga efficace
+Dopo:   È l’insieme delle operazioni successivi all’atto finale, necessarie affinché questo divenga efficace
+
+ID: 687 - Campo: Domanda
+Prima:  Qual'è l'utilità di valorizzare il filtro di ricerca relativo alla persona?
+Dopo:   Qual è l'utilità di valorizzare il filtro di ricerca relativo alla persona?
+

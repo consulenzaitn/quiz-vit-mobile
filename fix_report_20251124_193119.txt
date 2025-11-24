@@ -1,0 +1,380 @@
+================================================================================
+REPORT CORREZIONI - VIT Cyber Quiz
+Data: 2025-11-24 19:31:19
+================================================================================
+
+Totale correzioni: 92
+- Correzioni spacing: 89
+- Correzioni typos: 3
+
+DETTAGLIO MODIFICHE:
+--------------------------------------------------------------------------------
+
+ID: 2 - Campo: RispostaErrata2
+Prima:  Sospensione dal servzio
+Dopo:   Sospensione dal servizio
+
+ID: 5 - Campo: Domanda
+Prima:  La promozione ad assistenete capo con l'entrata in vigore del riordino si ottiene dopo una permanza nella qualifica di assistente di:
+Dopo:   La promozione ad assistente capo con l'entrata in vigore del riordino si ottiene dopo una permanenza nella qualifica di assistente di:
+
+ID: 5 - Campo: RispostaErrata2
+Prima:  Sette anni .
+Dopo:   Sette anni.
+
+ID: 6 - Campo: Domanda
+Prima:  L'acceso alla qualifica di vice sovrintendente con l'entrata in vigore del riordino avviene nel limite del 70% dei posti, a regime, mediante:
+Dopo:   L'accesso alla qualifica di vice sovrintendente con l'entrata in vigore del riordino avviene nel limite del 70% dei posti, a regime, mediante:
+
+ID: 42 - Campo: Domanda
+Prima:  Quali sono le caratteristiche basilari dell'attività di controllo del territorio ?
+Dopo:   Quali sono le caratteristiche basilari dell'attività di controllo del territorio?
+
+ID: 43 - Campo: Domanda
+Prima:  Quanti sono i reparti prevenzione crimine dislocati sul territorio nazionale ?
+Dopo:   Quanti sono i reparti prevenzione crimine dislocati sul territorio nazionale?
+
+ID: 44 - Campo: Domanda
+Prima:  Da chi dipendono i reparti prevenzione crimine ?
+Dopo:   Da chi dipendono i reparti prevenzione crimine?
+
+ID: 49 - Campo: Domanda
+Prima:  In quali contesti operativi sono chiamati ad operare i reparti prevenzione crimine ?
+Dopo:   In quali contesti operativi sono chiamati ad operare i reparti prevenzione crimine?
+
+ID: 111 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 112 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 113 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 114 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 115 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 116 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 117 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 118 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 119 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 120 - Campo: Materia
+Prima:  DIRITTO PENALE : CONCUSSIONE E CORRUZIONE
+Dopo:   DIRITTO PENALE: CONCUSSIONE E CORRUZIONE
+
+ID: 131 - Campo: Domanda
+Prima:  La nozione della corruzione di tipo amministrativo :
+Dopo:   La nozione della corruzione di tipo amministrativo:
+
+ID: 138 - Campo: RispostaCorretta
+Prima:  Che precede l’analisi dei rischi “corruttivi” .
+Dopo:   Che precede l’analisi dei rischi “corruttivi”.
+
+ID: 139 - Campo: Domanda
+Prima:  Quali tra le seguenti non rientra tra le quattro aree a rischio dicorruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione :
+Dopo:   Quali tra le seguenti non rientra tra le quattro aree a rischio dicorruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione:
+
+ID: 203 - Campo: Domanda
+Prima:  Nel crimine d'odio quale è la ragione specifica di appartenenza ?
+Dopo:   Nel crimine d'odio quale è la ragione specifica di appartenenza?
+
+ID: 249 - Campo: Domanda
+Prima:  Per il delitto di appropriazione indebita , è consentito il fermo ai sensi dell'art. 384, c.p.p.?
+Dopo:   Per il delitto di appropriazione indebita, è consentito il fermo ai sensi dell'art. 384, c.p.p.?
+
+ID: 251 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 252 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 253 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 254 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 255 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 256 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 257 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 258 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 259 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 260 - Campo: Materia
+Prima:  I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA : OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+Dopo:   I DELITTI CONTRO L’AMMINISTRAZIONE DELLA GIUSTIZIA: OMESSA DENUNCIA DI REATO DA PARTE DEL P.U.
+
+ID: 274 - Campo: Domanda
+Prima:  Quale artico del cp.. Ha esteso la perquisizione locale anche ai sistemi informatici e etelematici ?
+Dopo:   Quale artico del c.p. Ha esteso la perquisizione locale anche ai sistemi informatici e telematici?
+
+ID: 279 - Campo: Domanda
+Prima:  La perquisizione live necessita di software o hardware ?
+Dopo:   La perquisizione live necessita di software o hardware?
+
+ID: 294 - Campo: Domanda
+Prima:  La libertà sindacale :
+Dopo:   La libertà sindacale:
+
+ID: 296 - Campo: Domanda
+Prima:  Lo statuto dei lavoratori (l.300/1970) :
+Dopo:   Lo statuto dei lavoratori (l.300/1970):
+
+ID: 297 - Campo: Domanda
+Prima:  L'art. 82 della l.121/81 :
+Dopo:   L'art. 82 della l.121/81:
+
+ID: 299 - Campo: Domanda
+Prima:  L'art.84 della l.121/81 :
+Dopo:   L'art.84 della l.121/81:
+
+ID: 307 - Campo: RispostaCorretta
+Prima:  È l'attività di identificazione, raccolta, conservazione,validazioone , analisi delle evidenze o prove digitale
+Dopo:   È l'attività di identificazione, raccolta, conservazione,validazioone, analisi delle evidenze o prove digitale
+
+ID: 311 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 312 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 313 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 314 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 315 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 316 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 317 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 318 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 319 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 320 - Campo: Materia
+Prima:  IL CYBERCRIME : DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+Dopo:   IL CYBERCRIME: DIMENSIONE GENERALE E FATTISPECIE PIÙ DIFFUSE
+
+ID: 351 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 352 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 353 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 354 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 355 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 356 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 357 - Campo: Domanda
+Prima:  Il reato si distingue in :
+Dopo:   Il reato si distingue in:
+
+ID: 357 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 358 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 359 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 360 - Campo: Materia
+Prima:  L'ILLECITO PENALE : NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+Dopo:   L'ILLECITO PENALE: NOZIONE FORMALE E SOSTANZIALE. DELITTI E CONTRAVVENZIONI. CENNI SUI PROFILI DI DISTINZIONE DALL'ILLECITO AMMINISTRATIVO
+
+ID: 421 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 422 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 423 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 424 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 425 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 426 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 427 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 428 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 429 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 430 - Campo: Materia
+Prima:  LA POLIZIA GIUDIZIARIA : ORGANIZZAZIONE E FUNZIONI
+Dopo:   LA POLIZIA GIUDIZIARIA: ORGANIZZAZIONE E FUNZIONI
+
+ID: 478 - Campo: Domanda
+Prima:  Quale legge ha introdotto il reato di diffusione illecita di immagini o video sessualmente espliciti (art. 612-ter c.p.) ?
+Dopo:   Quale legge ha introdotto il reato di diffusione illecita di immagini o video sessualmente espliciti (art. 612-ter c.p.)?
+
+ID: 542 - Campo: RispostaErrata2
+Prima:  A richiesta del dipendente .
+Dopo:   A richiesta del dipendente.
+
+ID: 544 - Campo: Domanda
+Prima:  Cosa è il sistema mercurio extended ?
+Dopo:   Cosa è il sistema mercurio extended?
+
+ID: 601 - Campo: Domanda
+Prima:  Scomparso, disperso e irreperibile sono figure equivalenti ?
+Dopo:   Scomparso, disperso e irreperibile sono figure equivalenti?
+
+ID: 602 - Campo: Domanda
+Prima:  Il commissario di governo è nominato dal ministro dell’interno ?
+Dopo:   Il commissario di governo è nominato dal ministro dell’interno?
+
+ID: 603 - Campo: Domanda
+Prima:  La materia delle persone scomparse è disciplinata da una sola legge ?
+Dopo:   La materia delle persone scomparse è disciplinata da una sola legge?
+
+ID: 604 - Campo: Domanda
+Prima:  Chi attiva i piani provinciali di ricerca ?
+Dopo:   Chi attiva i piani provinciali di ricerca?
+
+ID: 605 - Campo: Domanda
+Prima:  Quante sono, mediamente, le denunce di scomparsa per anno in italia ?
+Dopo:   Quante sono, mediamente, le denunce di scomparsa per anno in italia?
+
+ID: 606 - Campo: Domanda
+Prima:  Chi può denunciare la notizia di una scomparsa ?
+Dopo:   Chi può denunciare la notizia di una scomparsa?
+
+ID: 607 - Campo: Domanda
+Prima:  La denuncia di scomparsa va inserita al c.e.d. ?
+Dopo:   La denuncia di scomparsa va inserita al c.e.d.?
+
+ID: 608 - Campo: Domanda
+Prima:  Da chi vanno compilate le schede ri.sc. ?
+Dopo:   Da chi vanno compilate le schede ri.sc.?
+
+ID: 610 - Campo: Domanda
+Prima:  Le associazioni possono concorrere alle ricerche delle persone scomparse ?
+Dopo:   Le associazioni possono concorrere alle ricerche delle persone scomparse?
+
+ID: 667 - Campo: Domanda
+Prima:  È possibile inserire un assenza avente un particolare stato ( ad esempio conseguenza di un trauma in servizio ) ? se si come?
+Dopo:   È possibile inserire un assenza avente un particolare stato ( ad esempio conseguenza di un trauma in servizio )? se si come?
+
+ID: 668 - Campo: Domanda
+Prima:  È possibile inserire dati pregressi relativi a periodi di servizio svolti presso altri uffici ?
+Dopo:   È possibile inserire dati pregressi relativi a periodi di servizio svolti presso altri uffici?
+
+ID: 670 - Campo: RispostaCorretta
+Prima:  Pagato - flag colore verde con scritta che indica mese ed anno di liquidazione; archiviato - flag colore verde con scritta 'metti in pagamentò ; sospeso - flag colore azzurro con scritta 'metti in pagamentò; a compensativo - flag colore giallo con scritta 'metti in pagamentò; da gestire - flag colore rosso con scritta sospendi | archivia | a compensativo
+Dopo:   Pagato - flag colore verde con scritta che indica mese ed anno di liquidazione; archiviato - flag colore verde con scritta 'metti in pagamentò; sospeso - flag colore azzurro con scritta 'metti in pagamentò; a compensativo - flag colore giallo con scritta 'metti in pagamentò; da gestire - flag colore rosso con scritta sospendi | archivia | a compensativo
+
+ID: 670 - Campo: RispostaErrata1
+Prima:  Archiviato - flag colore verde con scritta che indica mese ed anno di liquidazione; pagato - flag colore verde con scritta 'metti in pagamentò ; sospeso - flag colore rosso con scritta 'metti in pagamentò; a compensativo - flag colore azzurro con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo
+Dopo:   Archiviato - flag colore verde con scritta che indica mese ed anno di liquidazione; pagato - flag colore verde con scritta 'metti in pagamentò; sospeso - flag colore rosso con scritta 'metti in pagamentò; a compensativo - flag colore azzurro con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo
+
+ID: 670 - Campo: RispostaErrata2
+Prima:  Pagato - flag colore rosso con scritta che indica mese ed anno di liquidazione; archiviato - flag colore giallo con scritta 'metti in pagamentò ; sospeso - flag colore verde con scritta 'metti in pagamentò; a compensativo - flag colore blu con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo
+Dopo:   Pagato - flag colore rosso con scritta che indica mese ed anno di liquidazione; archiviato - flag colore giallo con scritta 'metti in pagamentò; sospeso - flag colore verde con scritta 'metti in pagamentò; a compensativo - flag colore blu con scritta 'metti in pagamentò; da gestire - flag colore giallo con scritta sospendi | archivia | a compensativo
+
+ID: 716 - Campo: Domanda
+Prima:  In quante qualifiche è articolato il ruolo degli ispettori ?
+Dopo:   In quante qualifiche è articolato il ruolo degli ispettori?
+
+ID: 717 - Campo: Domanda
+Prima:  In quante qualifiche è articolato il ruolo degli agenti e assistenti ?
+Dopo:   In quante qualifiche è articolato il ruolo degli agenti e assistenti?
+
+ID: 735 - Campo: Domanda
+Prima:  Qual è la competenza territoriale degli upgsp ?
+Dopo:   Qual è la competenza territoriale degli upgsp?
+
+ID: 739 - Campo: Domanda
+Prima:  Come si effettua la vigilanza dinamica ?
+Dopo:   Come si effettua la vigilanza dinamica?
+
