@@ -852,36 +852,52 @@ i.bi {
    ====================================== */
 /* Ensure quiz setup card is fully scrollable */
 #quiz-setup-container .card {
-    max-height: none;
-    overflow: visible;
+    max-height: none !important;
+    overflow: visible !important;
+    height: auto !important;
 }
 
 #quiz-setup-container .card-body {
-    overflow-y: auto;
-    overflow-x: hidden;
-    max-height: none;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+    max-height: none !important;
+    height: auto !important;
+    padding: 1.5rem;
 }
 
-/* Ensure all form controls are visible */
-#exclude-seen-container,
-#timer-checkbox,
-#timer-duration-container {
-    display: block !important;
-    visibility: visible !important;
+/* Form checks/switches: ensure proper spacing */
+.form-check {
+    padding-left: 2.5rem;
+    min-height: 2.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    margin-top: 0;
+    width: 3rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.form-check-label {
+    padding-left: 0.5rem;
+    cursor: pointer;
 }
 
 /* Mobile: Ensure full visibility */
 @media (max-width: 768px) {
     #quiz-setup-container .card-body {
         padding: 1rem;
-        min-height: auto;
     }
 
-    /* Force full width for option toggles */
-    #exclude-seen-container,
     .form-check {
-        width: 100%;
-        margin-bottom: 1rem;
+        padding-left: 2rem;
+    }
+
+    .form-check-input {
+        width: 2.5rem;
+        height: 1.25rem;
     }
 }
 

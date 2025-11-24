@@ -190,28 +190,33 @@
                         </div>
                     </div>
 
-                    <!-- Opzioni Avanzate (full width per mobile) -->
-                    <div class="row">
-                        <div class="col-12 mb-3" id="exclude-seen-container">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="exclude-seen-checkbox">
-                                <label class="form-check-label" for="exclude-seen-checkbox">
-                                    <strong>Escludi domande già viste</strong>
-                                </label>
-                            </div>
+                    <!-- Opzioni Avanzate -->
+                    <div class="mb-3">
+                        <h6 class="text-muted mb-3">Opzioni Quiz</h6>
+
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="exclude-seen-checkbox">
+                            <label class="form-check-label" for="exclude-seen-checkbox">
+                                Escludi domande già viste
+                            </label>
                         </div>
 
-                        <div class="col-12 mb-3">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="timer-checkbox">
-                                <label class="form-check-label" for="timer-checkbox">
-                                    <strong>Abilita Timer</strong>
-                                </label>
-                            </div>
-                            <div id="timer-duration-container" class="mt-2 ms-4 hidden">
-                                <label for="timer-duration-input" class="form-label small">Secondi per domanda</label>
-                                <input type="number" class="form-control form-control-sm" id="timer-duration-input" value="30" min="5" style="max-width: 150px;">
-                            </div>
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" id="require-confirmation-checkbox" checked>
+                            <label class="form-check-label" for="require-confirmation-checkbox">
+                                Richiedi conferma risposta
+                            </label>
+                        </div>
+
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" id="timer-checkbox">
+                            <label class="form-check-label" for="timer-checkbox">
+                                Abilita Timer
+                            </label>
+                        </div>
+                        <div id="timer-duration-container" class="ms-4 mb-3 hidden">
+                            <label for="timer-duration-input" class="form-label small">Secondi per domanda</label>
+                            <input type="number" class="form-control form-control-sm" id="timer-duration-input" value="30" min="5" style="max-width: 150px;">
                         </div>
                     </div>
 

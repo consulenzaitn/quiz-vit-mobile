@@ -8,6 +8,22 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ### 🛡️ Fase 2 - Stabilità e Robustezza (In Corso)
 
+#### 🎯 Aggiunto - Toggle Conferma Risposta
+- **Toggle per abilitare/disabilitare conferma risposta**
+  - Checkbox "Richiedi conferma risposta" nelle opzioni quiz
+  - Attivo di default (checked)
+  - Se disattivato, il click sulla risposta la valida immediatamente (comportamento classico)
+  - Se attivato, richiede il pulsante "Conferma Risposta"
+  - Salvato in `currentQuiz.requireConfirmation`
+
+#### 🔧 Fixato - Layout Toggle Mobile
+- **Risolto problema toggle fuori schermo**
+  - Rimosso `overflow: hidden` problematico
+  - Aggiunto `overflow: visible !important` su card e card-body
+  - Form-check con spacing corretto (2.5rem padding-left)
+  - Switch ridimensionati (3rem x 1.5rem desktop, 2.5rem x 1.25rem mobile)
+  - Layout più pulito con heading "Opzioni Quiz"
+
 #### 🛡️ Aggiunto - Global Error Handler
 - **Sistema di gestione errori globale**
   - `window.onerror` handler per errori JavaScript

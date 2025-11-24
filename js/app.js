@@ -107,7 +107,8 @@ let currentQuiz = {
     answers: [],
     startTime: null,
     timer: null,
-    timerDuration: 30
+    timerDuration: 30,
+    requireConfirmation: true
 };
 
 // ======================================
@@ -579,6 +580,8 @@ function startQuiz() {
     const timerDuration = parseInt(document.getElementById('timer-duration-input').value) || 30;
     const excludeSeenCheckbox = document.getElementById('exclude-seen-checkbox');
     const excludeSeen = excludeSeenCheckbox ? excludeSeenCheckbox.checked : false;
+    const requireConfirmationCheckbox = document.getElementById('require-confirmation-checkbox');
+    const requireConfirmation = requireConfirmationCheckbox ? requireConfirmationCheckbox.checked : true;
 
     // Select questions based on mode
     let selectedQuestions = [];
@@ -638,6 +641,7 @@ function startQuiz() {
         timer: null,
         timerDuration: timerDuration,
         timerEnabled: timerEnabled,
+        requireConfirmation: requireConfirmation,
         mode: mode,
         target: topic
     };
@@ -706,6 +710,12 @@ function displayQuestion() {
 }
 
 function selectAnswer(selectedAnswer, correctAnswer) {
+    // If confirmation is not required, check answer immediately
+    if (!currentQuiz.requireConfirmation) {
+        checkAnswer(selectedAnswer, correctAnswer);
+        return;
+    }
+
     // Store the pending answer
     pendingAnswer = { selectedAnswer, correctAnswer };
 
