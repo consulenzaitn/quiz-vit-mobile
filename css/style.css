@@ -1362,9 +1362,9 @@ body.dark-mode .stat-badge {
 }
 
 .btn-filter.active {
-    border-color: var(--primary);
-    background: var(--primary) !important;
-    color: white !important;
+    border-color: #0d6efd !important;
+    background: #0d6efd !important;
+    color: #ffffff !important;
 }
 
 .btn-filter i {
