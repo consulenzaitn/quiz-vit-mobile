@@ -4,6 +4,67 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.5] - 2025-11-24
+
+### 🐛 Fixed - Timer value reset tra modalità
+
+#### ✅ Risolto valore timer quando si cambia modalità
+
+**Problema:**
+
+- Passando da Exam Mode ad altre modalità, il timer rimaneva a **3600 secondi**
+- In Practice Mode, il timer rimaneva abilitato con valore elevato
+- Confusione utente con valori non appropriati per la modalità scelta
+
+**Causa:**
+
+- `updateQuizSetupUI()` resettava solo gli stati `disabled` dei controlli
+- **Non resettava il valore** del timer quando si usciva da Exam Mode
+- Practice Mode non disabilitava esplicitamente il timer
+
+**Soluzione:**
+
+1. **Reset timer value da Exam Mode**: se timer = 3600, resetta a 60 secondi (default)
+2. **Practice Mode timer off**: disabilita automaticamente timer in Practice Mode
+3. **UI coerente**: ogni modalità ha valori timer appropriati
+
+**Modifiche tecniche:**
+
+```javascript
+// Reset timer when exiting Exam Mode
+if (mode !== 'exam') {
+    timerCheckbox.disabled = false;
+    timerInput.disabled = false;
+    // Reset timer value to default if coming from exam mode
+    if (timerInput.value === '3600') {
+        timerInput.value = '60'; // Default 60 seconds per question
+    }
+}
+
+// Practice Mode: disable timer by default
+if (mode === 'practice') {
+    timerCheckbox.checked = false;
+    timerContainer.classList.add('hidden');
+}
+```
+
+**Comportamento modalità:**
+
+- **Exam Mode**: Timer fisso 3600s (60 min), non modificabile
+- **Practice Mode**: Timer disabilitato by default, utente può abilitare
+- **Altre modalità**: Timer opzionale, default 60s per domanda
+
+**Impatto:**
+
+- ✅ Transizioni Exam → altre modalità: timer resettato correttamente
+- ✅ Practice Mode: timer disabilitato automaticamente
+- ✅ UX migliorata: valori coerenti con modalità
+- ✅ Nessuna confusione con valori ereditati
+
+**Cache version:** v38 → v39
+
+---
+
 ## [v1.6.4] - 2025-11-24
 
 ### 🐛 Fixed - Validation bug completamente risolto

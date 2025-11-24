@@ -601,6 +601,10 @@ function updateQuizSetupUI() {
     if (mode !== 'exam') {
         timerCheckbox.disabled = false;
         timerInput.disabled = false;
+        // Reset timer value to default if coming from exam mode
+        if (timerInput.value === '3600') {
+            timerInput.value = '60'; // Default 60 seconds per question
+        }
         if (timerCheckbox.checked) {
             timerContainer.classList.remove('hidden');
         }
@@ -694,6 +698,10 @@ function updateQuizSetupUI() {
         // Practice Mode: può scegliere area/materia o tutte
         topicContainer.classList.remove('hidden');
         numContainer.classList.remove('hidden');
+
+        // Practice Mode: disable timer by default (user can enable if needed)
+        timerCheckbox.checked = false;
+        timerContainer.classList.add('hidden');
 
         // Add "Tutte le domande" option
         const allOption = document.createElement('option');
