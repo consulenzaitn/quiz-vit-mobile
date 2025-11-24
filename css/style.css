@@ -741,7 +741,7 @@ body.dark-mode em {
 
 /* Inline Styles Moved from HTML */
 .toast-container-custom {
-    z-index: 11;
+    z-index: 2500; /* Above bottom nav (z-index: 1010) but below modals */
 }
 
 .progress-height-8 {
@@ -1170,11 +1170,20 @@ body.dark-mode .answer-btn.correct {
     min-height: 38px;
     padding: 0.375rem 0.5rem;
     transition: all 0.2s ease;
+    font-size: 1.1rem;
+}
+
+/* Flag button default state - make it more visible */
+#flag-question-btn {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    color: #ffc107;
 }
 
 #flag-question-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.3);
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+    background-color: rgba(255, 193, 7, 0.2);
 }
 
 #skip-question-btn:hover {
@@ -1182,15 +1191,21 @@ body.dark-mode .answer-btn.correct {
     box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
 }
 
-/* Flagged state */
+/* Flagged state - more prominent */
 #flag-question-btn.flagged {
-    background-color: var(--warning);
-    color: white;
-    border-color: var(--warning);
+    background-color: #ffc107;
+    color: #000;
+    border-color: #ffc107;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
 }
 
 #flag-question-btn.flagged i {
     animation: flagWave 0.5s ease-out;
+}
+
+#flag-question-btn.flagged:hover {
+    background-color: #ffb300;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.5), 0 0 0 3px rgba(255, 193, 7, 0.3);
 }
 
 @keyframes flagWave {
@@ -1277,6 +1292,91 @@ body.dark-mode .palette-container {
     padding: 1.5rem;
     overflow-y: auto;
     max-height: calc(85vh - 60px);
+    flex: 1;
+}
+
+/* Stats bar */
+.palette-stats {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stat-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.stat-badge i {
+    font-size: 1rem;
+}
+
+.stat-badge span {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.stat-badge.answered span {
+    color: var(--success);
+}
+
+.stat-badge.flagged span {
+    color: var(--warning);
+}
+
+body.dark-mode .stat-badge {
+    background: #252836;
+}
+
+/* Filter buttons */
+.palette-filters {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--bg-secondary);
+    background: transparent;
+    color: var(--text-muted);
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.btn-filter:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(13, 110, 253, 0.1);
+}
+
+.btn-filter.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: white;
+}
+
+.btn-filter i {
+    font-size: 0.875rem;
+}
+
+body.dark-mode .btn-filter {
+    border-color: #252836;
+}
+
+body.dark-mode .btn-filter:hover {
+    background: rgba(13, 110, 253, 0.2);
 }
 
 .palette-legend {
@@ -1345,9 +1445,20 @@ body.dark-mode .legend-dot.unanswered {
 
 .palette-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
-    gap: 0.75rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Optimize for many questions */
+.palette-grid.many-questions {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 0.4rem;
+}
+
+.palette-grid.very-many-questions {
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+    gap: 0.35rem;
 }
 
 .palette-cell {
@@ -1362,6 +1473,20 @@ body.dark-mode .legend-dot.unanswered {
     transition: all 0.2s ease;
     border: 2px solid transparent;
     position: relative;
+}
+
+/* Smaller text for many questions */
+.palette-grid.many-questions .palette-cell {
+    font-size: 0.75rem;
+}
+
+.palette-grid.very-many-questions .palette-cell {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.palette-cell.hidden-by-filter {
+    display: none;
 }
 
 .palette-cell:hover {

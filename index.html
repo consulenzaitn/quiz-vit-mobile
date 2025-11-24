@@ -25,7 +25,7 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom CSS with cache busting -->
-    <link rel="stylesheet" href="css/style.css?v=24">
+    <link rel="stylesheet" href="css/style.css?v=25">
 </head>
 <body>
     <!-- Header -->
@@ -311,24 +311,32 @@
                     </button>
                 </div>
                 <div class="palette-body">
-                    <div class="palette-legend mb-3">
-                        <div class="legend-item">
-                            <span class="legend-dot current"></span>
-                            <span>Corrente</span>
+                    <!-- Stats bar -->
+                    <div class="palette-stats mb-3">
+                        <div class="stat-badge">
+                            <i class="bi bi-list-ol"></i> <span id="palette-total-count">0</span> Totali
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-dot answered"></span>
-                            <span>Risposta</span>
+                        <div class="stat-badge answered">
+                            <i class="bi bi-check-circle"></i> <span id="palette-answered-count">0</span> Risposta
                         </div>
-                        <div class="legend-item">
-                            <span class="legend-dot unanswered"></span>
-                            <span>Non risposta</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot flagged"></span>
-                            <span>Segnata</span>
+                        <div class="stat-badge flagged">
+                            <i class="bi bi-flag-fill"></i> <span id="palette-flagged-count">0</span> Segnate
                         </div>
                     </div>
+
+                    <!-- Filter buttons -->
+                    <div class="palette-filters mb-3">
+                        <button class="btn btn-sm btn-filter active" data-filter="all">
+                            <i class="bi bi-grid"></i> Tutte
+                        </button>
+                        <button class="btn btn-sm btn-filter" data-filter="unanswered">
+                            <i class="bi bi-circle"></i> Da rispondere
+                        </button>
+                        <button class="btn btn-sm btn-filter" data-filter="flagged">
+                            <i class="bi bi-flag-fill"></i> Segnate
+                        </button>
+                    </div>
+
                     <div id="palette-grid" class="palette-grid">
                         <!-- Question cells will be inserted here -->
                     </div>
@@ -678,9 +686,9 @@
         </div>
     </div>
 
-    <script src="js/data-embedded.js?v=24"></script>
+    <script src="js/data-embedded.js?v=25"></script>
     <!-- Custom App JS with cache busting -->
-    <script src="js/app.js?v=24"></script>
+    <script src="js/app.js?v=25"></script>
 
     <!-- Service Worker Registration (PWA) -->
     <script>

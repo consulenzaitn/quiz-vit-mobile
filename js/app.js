@@ -1515,11 +1515,30 @@ function showQuestionPalette() {
     // Haptic feedback
     HapticFeedback.light();
 
+    // Calculate stats
+    const totalCount = currentQuiz.questions.length;
+    const answeredCount = currentQuiz.answers.filter(a => a).length;
+    const flaggedCount = currentQuiz.flagged.length;
+
+    // Update stats display
+    document.getElementById('palette-total-count').textContent = totalCount;
+    document.getElementById('palette-answered-count').textContent = answeredCount;
+    document.getElementById('palette-flagged-count').textContent = flaggedCount;
+
+    // Add responsive class based on question count
+    grid.classList.remove('many-questions', 'very-many-questions');
+    if (totalCount > 100) {
+        grid.classList.add('very-many-questions');
+    } else if (totalCount > 50) {
+        grid.classList.add('many-questions');
+    }
+
     // Create cell for each question
     currentQuiz.questions.forEach((question, idx) => {
         const cell = document.createElement('div');
         cell.className = 'palette-cell';
         cell.textContent = idx + 1;
+        cell.dataset.index = idx;
 
         // Add state classes
         if (idx === currentQuiz.currentIndex) {
@@ -1546,12 +1565,50 @@ function showQuestionPalette() {
         grid.appendChild(cell);
     });
 
+    // Setup filter buttons
+    const filterButtons = document.querySelectorAll('.btn-filter');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Apply filter
+            const filter = btn.dataset.filter;
+            filterPaletteCells(filter);
+
+            HapticFeedback.light();
+        });
+    });
+
     // Show overlay
     overlay.classList.remove('hidden');
 
     // Close on backdrop click
     const backdrop = overlay.querySelector('.palette-backdrop');
     backdrop.addEventListener('click', closeQuestionPalette, { once: true });
+}
+
+function filterPaletteCells(filter) {
+    const cells = document.querySelectorAll('.palette-cell');
+
+    cells.forEach(cell => {
+        const idx = parseInt(cell.dataset.index);
+        let shouldShow = true;
+
+        if (filter === 'unanswered') {
+            shouldShow = !currentQuiz.answers[idx];
+        } else if (filter === 'flagged') {
+            shouldShow = currentQuiz.flagged.includes(idx);
+        }
+        // 'all' shows everything
+
+        if (shouldShow) {
+            cell.classList.remove('hidden-by-filter');
+        } else {
+            cell.classList.add('hidden-by-filter');
+        }
+    });
 }
 
 function closeQuestionPalette() {
