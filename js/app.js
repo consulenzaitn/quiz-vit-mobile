@@ -361,6 +361,10 @@ function attachEventListeners() {
         }
     });
 
+    // Question navigation buttons
+    document.getElementById('flag-question-btn').addEventListener('click', toggleFlagQuestion);
+    document.getElementById('skip-question-btn').addEventListener('click', skipQuestion);
+
     // Quiz setup
     document.getElementById('quiz-mode-select').addEventListener('change', () => {
         updateQuizSetupUI();
@@ -1179,6 +1183,8 @@ function startQuiz() {
         questions: shuffleArray(selectedQuestions),
         currentIndex: 0,
         answers: [],
+        flagged: [], // Array of question indices flagged for review
+        skipped: [], // Array of question indices skipped
         startTime: Date.now(),
         timer: null,
         timerDuration: timerDuration,
@@ -1245,6 +1251,25 @@ function displayQuestion() {
     // Hide feedback and confirm button
     document.getElementById('answer-feedback').classList.add('hidden');
     document.getElementById('confirm-answer-container').classList.add('hidden');
+
+    // Update flag button state
+    const flagBtn = document.getElementById('flag-question-btn');
+    if (currentQuiz.flagged.includes(currentQuiz.currentIndex)) {
+        flagBtn.classList.add('flagged');
+        flagBtn.querySelector('i').className = 'bi bi-flag-fill';
+    } else {
+        flagBtn.classList.remove('flagged');
+        flagBtn.querySelector('i').className = 'bi bi-flag';
+    }
+
+    // Hide skip button if this is the last unanswered question
+    const skipBtn = document.getElementById('skip-question-btn');
+    const unansweredCount = currentQuiz.questions.filter((q, idx) => !currentQuiz.answers[idx]).length;
+    if (unansweredCount <= 1) {
+        skipBtn.style.display = 'none';
+    } else {
+        skipBtn.style.display = '';
+    }
 
     // Start timer if enabled
     if (currentQuiz.timerEnabled) {
@@ -1338,16 +1363,131 @@ function checkAnswer(selectedAnswer, correctAnswer) {
 }
 
 function nextQuestion() {
+    // Mark current question as skipped if not answered
+    if (!currentQuiz.answers[currentQuiz.currentIndex]) {
+        if (!currentQuiz.skipped.includes(currentQuiz.currentIndex)) {
+            currentQuiz.skipped.push(currentQuiz.currentIndex);
+        }
+    }
+
     currentQuiz.currentIndex++;
+
+    // Check if there are unanswered questions (including skipped ones)
+    const hasUnanswered = currentQuiz.questions.some((q, idx) => !currentQuiz.answers[idx]);
 
     if (currentQuiz.currentIndex < currentQuiz.questions.length) {
         displayQuestion();
+    } else if (hasUnanswered) {
+        // If we reached the end but there are unanswered questions, go to first unanswered
+        const firstUnanswered = currentQuiz.questions.findIndex((q, idx) => !currentQuiz.answers[idx]);
+        if (firstUnanswered !== -1) {
+            currentQuiz.currentIndex = firstUnanswered;
+            displayQuestion();
+        } else {
+            finishQuiz();
+        }
+    } else {
+        // Check if there are flagged questions to review
+        const flaggedUnanswered = currentQuiz.flagged.filter(idx => !currentQuiz.answers[idx]);
+        if (flaggedUnanswered.length > 0) {
+            showFlaggedReview();
+        } else {
+            finishQuiz();
+        }
+    }
+}
+
+// ======================================
+// Question Navigation (Flag & Skip)
+// ======================================
+function toggleFlagQuestion() {
+    const currentIdx = currentQuiz.currentIndex;
+    const flagBtn = document.getElementById('flag-question-btn');
+
+    // Haptic feedback
+    HapticFeedback.light();
+
+    if (currentQuiz.flagged.includes(currentIdx)) {
+        // Remove flag
+        currentQuiz.flagged = currentQuiz.flagged.filter(idx => idx !== currentIdx);
+        flagBtn.classList.remove('flagged');
+        flagBtn.querySelector('i').className = 'bi bi-flag';
+        showToast('Flag rimosso', 'info');
+    } else {
+        // Add flag
+        currentQuiz.flagged.push(currentIdx);
+        flagBtn.classList.add('flagged');
+        flagBtn.querySelector('i').className = 'bi bi-flag-fill';
+        showToast('Domanda segnata per revisione', 'warning');
+    }
+}
+
+function skipQuestion() {
+    // Only allow skipping if question is not answered
+    if (currentQuiz.answers[currentQuiz.currentIndex]) {
+        showToast('Hai già risposto a questa domanda', 'info');
+        return;
+    }
+
+    // Check if there are other unanswered questions
+    const unansweredCount = currentQuiz.questions.filter((q, idx) => !currentQuiz.answers[idx]).length;
+    if (unansweredCount <= 1) {
+        showToast('Non puoi saltare l\'ultima domanda', 'warning');
+        return;
+    }
+
+    // Haptic feedback
+    HapticFeedback.medium();
+
+    // Mark as skipped
+    if (!currentQuiz.skipped.includes(currentQuiz.currentIndex)) {
+        currentQuiz.skipped.push(currentQuiz.currentIndex);
+    }
+
+    showToast('Domanda saltata', 'info');
+
+    // Go to next question
+    nextQuestion();
+}
+
+function showFlaggedReview() {
+    const flaggedUnanswered = currentQuiz.flagged.filter(idx => !currentQuiz.answers[idx]);
+
+    if (flaggedUnanswered.length === 0) {
+        finishQuiz();
+        return;
+    }
+
+    // Show review prompt
+    const reviewPrompt = confirm(`Hai ${flaggedUnanswered.length} domand${flaggedUnanswered.length === 1 ? 'a segnata' : 'e segnate'} per revisione. Vuoi rivederl${flaggedUnanswered.length === 1 ? 'a' : 'e'} ora?`);
+
+    if (reviewPrompt) {
+        // Go to first flagged unanswered question
+        currentQuiz.currentIndex = flaggedUnanswered[0];
+        displayQuestion();
+        showToast('Revisione domande segnate', 'warning');
     } else {
         finishQuiz();
     }
 }
 
 function finishQuiz() {
+    // Check for unanswered questions
+    const unansweredCount = currentQuiz.questions.filter((q, idx) => !currentQuiz.answers[idx]).length;
+
+    if (unansweredCount > 0) {
+        const confirmFinish = confirm(`Ci sono ancora ${unansweredCount} domande senza risposta. Vuoi terminare il quiz comunque? (Le domande senza risposta saranno considerate sbagliate)`);
+        if (!confirmFinish) {
+            // Go to first unanswered question
+            const firstUnanswered = currentQuiz.questions.findIndex((q, idx) => !currentQuiz.answers[idx]);
+            if (firstUnanswered !== -1) {
+                currentQuiz.currentIndex = firstUnanswered;
+                displayQuestion();
+            }
+            return;
+        }
+    }
+
     stopTimer();
 
     // Celebration haptic feedback on quiz completion
