@@ -4,6 +4,42 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.6.0] - 2025-11-24
+
+### 🎯 Fase 4 - Quiz Modes & Timer Improvements (Bug Fixes)
+
+#### 🐛 Fixed - Practice Mode e Exam Mode
+
+**Practice Mode Fix:**
+
+- Risolto problema "0 domande disponibili" quando si seleziona Practice Mode
+- Aggiornata funzione `getAvailableQuestionsCount()` per gestire correttamente i prefissi "area:" e "subject:"
+- Practice Mode ora conta correttamente le domande disponibili per ogni selezione (tutte/area/materia)
+
+**Exam Mode Fix:**
+
+- Risolto timer: ora 60 minuti TOTALI per tutto il quiz (non 60 secondi per domanda)
+- Timer non modificabile in Exam Mode (checkbox e input disabilitati)
+- Implementato timer globale che continua tra una domanda e l'altra
+- Formato display MM:SS per timer globale (es. "60:00" → "59:59" → ... → "0:30")
+- Timer si ferma automaticamente quando scade il tempo e termina il quiz
+- Timer controls tornano modificabili quando si cambia modalità
+
+**Modifiche tecniche:**
+
+- `currentQuiz.isGlobalTimer`: flag per identificare timer globale (exam mode)
+- `currentQuiz.timeLeft`: traccia tempo rimanente tra domande
+- `formatTimerDisplay()`: formatta display in base al tipo di timer (MM:SS vs secondi)
+- `updateTimerDisplay()`: aggiorna display senza riavviare timer
+- `startTimer()`: gestisce sia timer per domanda che timer globale
+- `checkAnswer()`: non ferma timer in exam mode (timer continua)
+- `pauseQuiz()` / `resumeQuiz()`: aggiornati per nuovo sistema timer
+- `updateQuizSetupUI()`: disabilita/abilita controlli timer in base alla modalità
+
+**Cache version:** v33 → v34
+
+---
+
 ## [v1.5.0] - 2025-11-24
 
 ### 📱 Fase 3 - Mobile UX Enhancements (Completata)

@@ -585,6 +585,19 @@ function updateQuizSetupUI() {
     const excludeSeenContainer = document.getElementById('exclude-seen-container');
     const topicSelect = document.getElementById('quiz-topic-select');
 
+    // Reset timer controls (will be overridden by exam mode if needed)
+    const timerCheckbox = document.getElementById('timer-checkbox');
+    const timerInput = document.getElementById('timer-duration-input');
+    const timerContainer = document.getElementById('timer-duration-container');
+
+    if (mode !== 'exam') {
+        timerCheckbox.disabled = false;
+        timerInput.disabled = false;
+        if (timerCheckbox.checked) {
+            timerContainer.classList.remove('hidden');
+        }
+    }
+
     topicSelect.innerHTML = '';
 
     // Mostra/nascondi "Escludi domande già viste" solo per modalità normali
@@ -710,16 +723,24 @@ function updateQuizSetupUI() {
         });
 
     } else if (mode === 'exam') {
-        // Exam Mode: 60 domande fisse, 60 minuti
+        // Exam Mode: 60 domande fisse, 60 minuti totali
         topicContainer.classList.add('hidden');
         numContainer.classList.add('hidden');
 
         // Force timer settings for exam mode
         const timerCheckbox = document.getElementById('timer-checkbox');
         const timerInput = document.getElementById('timer-duration-input');
+        const timerContainer = document.getElementById('timer-duration-container');
+
         timerCheckbox.checked = true;
-        timerInput.value = 60; // 60 secondi per domanda
-        toggleTimerSettings();
+        timerCheckbox.disabled = true; // Non modificabile
+        timerInput.value = 3600; // 60 minuti = 3600 secondi totali
+        timerInput.disabled = true; // Non modificabile
+
+        // Nascondi il contenitore del timer perché non è modificabile
+        if (timerContainer) {
+            timerContainer.classList.add('hidden');
+        }
     }
 }
 
@@ -1128,7 +1149,7 @@ function validateTimerDuration() {
 
 function getAvailableQuestionsCount(mode) {
     const topic = document.getElementById('quiz-topic-select').value;
-    const excludeSeen = document.getElementById('exclude-seen-checkbox').checked;
+    const excludeSeen = document.getElementById('exclude-seen-checkbox')?.checked || false;
 
     let availableQuestions = [];
 
@@ -1139,6 +1160,21 @@ function getAvailableQuestionsCount(mode) {
         availableQuestions = allQuestions.filter(q => q.Materia === topic);
     } else if (mode === 'random') {
         availableQuestions = [...allQuestions];
+    } else if (mode === 'practice') {
+        // Practice Mode: count based on selection
+        if (!topic || topic === '') {
+            availableQuestions = [...allQuestions];
+        } else if (topic.startsWith('area:')) {
+            const areaName = topic.replace('area:', '');
+            const subjects = config.areas[areaName] || [];
+            availableQuestions = allQuestions.filter(q => subjects.includes(q.Materia));
+        } else if (topic.startsWith('subject:')) {
+            const subjectName = topic.replace('subject:', '');
+            availableQuestions = allQuestions.filter(q => q.Materia === subjectName);
+        }
+    } else if (mode === 'exam') {
+        // Exam Mode: always 60 questions
+        return 60;
     }
 
     // Apply exclude seen filter
@@ -1297,7 +1333,7 @@ function startQuiz() {
         skipped: [], // Array of question indices skipped
         startTime: Date.now(),
         timer: null,
-        timerDuration: timerDuration,
+        timerDuration: isExamMode ? 3600 : timerDuration, // Exam mode: 60 minuti totali
         timerEnabled: timerEnabled,
         requireConfirmation: requireConfirmation,
         mode: mode,
@@ -1306,7 +1342,8 @@ function startQuiz() {
         pausedTimeLeft: null, // Store remaining time when paused
         isPracticeMode: isPracticeMode, // Practice Mode: no scoring, immediate retry
         isExamMode: isExamMode, // Exam Mode: no feedback until end
-        showFeedback: !isExamMode // Show feedback immediately unless Exam Mode
+        showFeedback: !isExamMode, // Show feedback immediately unless Exam Mode
+        isGlobalTimer: isExamMode // Exam mode uses global timer (not per question)
     };
 
     showQuizView();
@@ -1396,7 +1433,13 @@ function displayQuestion() {
 
     // Start timer if enabled
     if (currentQuiz.timerEnabled) {
-        startTimer();
+        // For global timer (exam mode), only start on first question
+        if (!currentQuiz.isGlobalTimer || currentQuiz.currentIndex === 0) {
+            startTimer();
+        } else {
+            // Resume global timer display
+            updateTimerDisplay();
+        }
     } else {
         document.getElementById('timer-display').classList.add('hidden');
     }
@@ -1440,7 +1483,10 @@ function confirmAnswer() {
 }
 
 function checkAnswer(selectedAnswer, correctAnswer) {
-    stopTimer();
+    // Don't stop timer in exam mode (global timer continues)
+    if (!currentQuiz.isGlobalTimer) {
+        stopTimer();
+    }
 
     const isCorrect = selectedAnswer === correctAnswer;
 
@@ -1762,27 +1808,68 @@ function startTimer() {
 
     timerDisplay.classList.remove('hidden');
 
-    let timeLeft = currentQuiz.timerDuration;
+    // Initialize time tracking
+    if (!currentQuiz.timeLeft) {
+        currentQuiz.timeLeft = currentQuiz.timerDuration;
+    }
+
+    let timeLeft = currentQuiz.timeLeft;
     const totalTime = currentQuiz.timerDuration;
-    timerSeconds.textContent = timeLeft;
+
+    // Format and display initial time
+    formatTimerDisplay(timeLeft);
 
     // Apply initial color based on starting time
     updateTimerColor(timeLeft, totalTime);
 
     currentQuiz.timer = setInterval(() => {
         timeLeft--;
-        timerSeconds.textContent = timeLeft;
+        currentQuiz.timeLeft = timeLeft; // Store current time
+
+        // Format and display time
+        formatTimerDisplay(timeLeft);
 
         // Update timer color based on percentage remaining
         updateTimerColor(timeLeft, totalTime);
 
         if (timeLeft <= 0) {
             stopTimer();
-            // Auto-submit wrong answer
-            const question = currentQuiz.questions[currentQuiz.currentIndex];
-            checkAnswer('', question.RispostaCorretta);
+            if (currentQuiz.isGlobalTimer) {
+                // Exam mode: time's up, end quiz
+                endQuiz();
+            } else {
+                // Per-question timer: auto-submit wrong answer
+                const question = currentQuiz.questions[currentQuiz.currentIndex];
+                checkAnswer('', question.RispostaCorretta);
+            }
         }
     }, 1000);
+}
+
+// Helper function to format timer display
+function formatTimerDisplay(seconds) {
+    const timerSeconds = document.getElementById('timer-seconds');
+
+    if (currentQuiz.isGlobalTimer && seconds >= 60) {
+        // Format as MM:SS for global timer
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        timerSeconds.textContent = `${minutes}:${secs.toString().padStart(2, '0')}`;
+    } else {
+        // Just show seconds
+        timerSeconds.textContent = seconds;
+    }
+}
+
+// Helper function to update timer display without restarting
+function updateTimerDisplay() {
+    const timerDisplay = document.getElementById('timer-display');
+    timerDisplay.classList.remove('hidden');
+
+    if (currentQuiz.timeLeft) {
+        formatTimerDisplay(currentQuiz.timeLeft);
+        updateTimerColor(currentQuiz.timeLeft, currentQuiz.timerDuration);
+    }
 }
 
 // Helper function to update timer color based on time percentage
@@ -1823,8 +1910,7 @@ function pauseQuiz() {
 
     // Store current timer state if timer is active
     if (currentQuiz.timerEnabled && currentQuiz.timer) {
-        const timerSeconds = document.getElementById('timer-seconds');
-        currentQuiz.pausedTimeLeft = parseInt(timerSeconds.textContent);
+        currentQuiz.pausedTimeLeft = currentQuiz.timeLeft;
         stopTimer();
     }
 
@@ -1850,31 +1936,9 @@ function resumeQuiz() {
 
     // Restart timer if it was active
     if (currentQuiz.timerEnabled && currentQuiz.pausedTimeLeft !== null) {
-        const timerDisplay = document.getElementById('timer-display');
-        const timerSeconds = document.getElementById('timer-seconds');
-
-        timerDisplay.classList.remove('hidden');
-
-        let timeLeft = currentQuiz.pausedTimeLeft;
-        timerSeconds.textContent = timeLeft;
-
-        currentQuiz.timer = setInterval(() => {
-            timeLeft--;
-            timerSeconds.textContent = timeLeft;
-
-            if (timeLeft <= 5) {
-                timerDisplay.classList.add('warning');
-            }
-
-            if (timeLeft <= 0) {
-                stopTimer();
-                // Auto-submit wrong answer
-                const question = currentQuiz.questions[currentQuiz.currentIndex];
-                checkAnswer('', question.RispostaCorretta);
-            }
-        }, 1000);
-
+        currentQuiz.timeLeft = currentQuiz.pausedTimeLeft;
         currentQuiz.pausedTimeLeft = null;
+        startTimer();
     }
 
     // Update pause button icon
