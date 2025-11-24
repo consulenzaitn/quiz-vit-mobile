@@ -188,28 +188,29 @@
                             <label for="num-questions-input" class="form-label">Numero di Domande</label>
                             <input type="number" class="form-control" id="num-questions-input" min="1" placeholder="Es: 10">
                         </div>
+                    </div>
 
-                        <div class="col-md-6 mb-3" id="exclude-seen-container">
-                            <label class="form-label">Opzioni</label>
+                    <!-- Opzioni Avanzate (full width per mobile) -->
+                    <div class="row">
+                        <div class="col-12 mb-3" id="exclude-seen-container">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="exclude-seen-checkbox">
                                 <label class="form-check-label" for="exclude-seen-checkbox">
-                                    Escludi domande già viste
+                                    <strong>Escludi domande già viste</strong>
                                 </label>
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label">Timer</label>
+                        <div class="col-12 mb-3">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="timer-checkbox">
                                 <label class="form-check-label" for="timer-checkbox">
-                                    Abilita Timer
+                                    <strong>Abilita Timer</strong>
                                 </label>
                             </div>
-                            <div id="timer-duration-container" class="mt-2 hidden">
-                                <label for="timer-duration-input" class="form-label">Secondi per domanda</label>
-                                <input type="number" class="form-control" id="timer-duration-input" value="30" min="5">
+                            <div id="timer-duration-container" class="mt-2 ms-4 hidden">
+                                <label for="timer-duration-input" class="form-label small">Secondi per domanda</label>
+                                <input type="number" class="form-control form-control-sm" id="timer-duration-input" value="30" min="5" style="max-width: 150px;">
                             </div>
                         </div>
                     </div>
