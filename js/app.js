@@ -203,6 +203,15 @@ let updateAvailableRegistration = null;
 
 function setupServiceWorker() {
     if ('serviceWorker' in navigator) {
+        // Check if we're running from file:// protocol (local development)
+        const isFileProtocol = window.location.protocol === 'file:';
+
+        if (isFileProtocol) {
+            console.log('ℹ️ Running from file:// protocol - Service Worker not available (normal for local testing)');
+            console.log('💡 To enable offline features, serve from http:// or https:// (e.g., with a local server)');
+            return;
+        }
+
         navigator.serviceWorker.register('./sw.js')
             .then(registration => {
                 console.log('✅ Service Worker registered:', registration);

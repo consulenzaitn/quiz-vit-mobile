@@ -1522,17 +1522,23 @@ body.dark-mode .palette-cell.unanswered {
     content: '\F288'; /* bi-flag-fill */
     font-family: 'bootstrap-icons';
     position: absolute;
-    top: 2px;
-    right: 2px;
-    color: var(--warning);
-    font-size: 10px;
-    background: white;
+    top: -4px;
+    right: -4px;
+    color: #000;
+    font-size: 8px;
+    background: var(--warning);
     border-radius: 50%;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 2px solid white;
+}
+
+body.dark-mode .palette-cell.flagged::after {
+    border-color: #1a1d29;
 }
 
 @keyframes slideInUp {
