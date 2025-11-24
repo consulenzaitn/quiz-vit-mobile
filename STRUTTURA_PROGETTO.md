@@ -47,7 +47,7 @@ Il progetto è diviso in due aree principali:
 ### Documentazione
 | File | Descrizione | Necessario |
 |------|-------------|------------|
-| `README-MOBILE.md` | Guida utente | Consigliato |
+| `README.md` | Guida utente | Consigliato |
 | `CHANGELOG.md` | Storico versioni | Consigliato |
 | `ROADMAP.md` | Piano sviluppo futuro | Consigliato |
 
