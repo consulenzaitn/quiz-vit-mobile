@@ -197,9 +197,17 @@ const QuizStatePersistence = {
                 return false;
             }
 
-            // Adjust currentIndex if some questions were removed
-            let currentIndex = savedState.currentIndex;
-            if (currentIndex >= questions.length) {
+            // Get answers array (ensure it's the right length)
+            let answers = savedState.answers || [];
+            // Ensure answers array has the right length (pad with undefined if needed)
+            while (answers.length < questions.length) {
+                answers.push(undefined);
+            }
+
+            // Find first unanswered question
+            let currentIndex = answers.findIndex((a, idx) => !a && idx < questions.length);
+            if (currentIndex === -1) {
+                // All questions answered, go to last question
                 currentIndex = questions.length - 1;
             }
 
@@ -209,7 +217,7 @@ const QuizStatePersistence = {
             currentQuiz = {
                 questions: questions,
                 currentIndex: currentIndex,
-                answers: savedState.answers || [],
+                answers: answers,
                 flagged: savedState.flagged || [],
                 skipped: savedState.skipped || [],
                 startTime: adjustedStartTime,
@@ -2985,14 +2993,18 @@ function handleResumeQuiz() {
             QuizStatePersistence.save();
         }, 30000);
 
+        // Calculate remaining questions for toast message
+        const answeredCount = currentQuiz.answers.filter(a => a).length;
+        const remainingCount = currentQuiz.questions.length - answeredCount;
+
         // Show pause overlay since quiz starts paused
         if (currentQuiz.timerEnabled) {
             document.getElementById('pause-overlay').classList.remove('hidden');
-            showToast('Quiz ripristinato. Premi Riprendi per continuare.');
+            showToast(`Quiz ripristinato! ${remainingCount} domande rimanenti. Premi Riprendi per continuare.`);
         } else {
             // If no timer, just unpause and continue
             currentQuiz.isPaused = false;
-            showToast('Quiz ripristinato!');
+            showToast(`Quiz ripristinato! ${remainingCount} domande rimanenti.`);
         }
 
         // Setup swipe gestures
