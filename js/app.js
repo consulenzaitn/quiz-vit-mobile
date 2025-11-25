@@ -69,6 +69,190 @@ const SafeStorage = {
 };
 
 // ======================================
+// Quiz State Persistence (Save & Resume)
+// ======================================
+const QuizStatePersistence = {
+    STORAGE_KEY: 'savedQuizState',
+    VERSION: 1,
+    MAX_AGE_MS: 24 * 60 * 60 * 1000, // 24 hours
+
+    // Save current quiz state to localStorage
+    save() {
+        try {
+            // Guard: Only save if quiz is active
+            if (!currentQuiz || !currentQuiz.questions || currentQuiz.questions.length === 0) {
+                return false;
+            }
+
+            // Guard: Don't save practice mode or exam mode
+            if (currentQuiz.isPracticeMode || currentQuiz.isExamMode) {
+                return false;
+            }
+
+            const stateToSave = {
+                version: this.VERSION,
+                savedAt: Date.now(),
+                mode: currentQuiz.mode,
+                target: currentQuiz.target,
+                questionIds: currentQuiz.questions.map(q => q.ID),
+                currentIndex: currentQuiz.currentIndex,
+                answers: currentQuiz.answers,
+                flagged: currentQuiz.flagged || [],
+                skipped: currentQuiz.skipped || [],
+                timerEnabled: currentQuiz.timerEnabled,
+                timerDuration: currentQuiz.timerDuration,
+                timeLeft: currentQuiz.timeLeft || currentQuiz.timerDuration,
+                elapsedTime: Date.now() - currentQuiz.startTime,
+                showFeedback: currentQuiz.showFeedback,
+                requireConfirmation: currentQuiz.requireConfirmation
+            };
+
+            SafeStorage.setItem(this.STORAGE_KEY, stateToSave);
+            console.log('Quiz state saved');
+            return true;
+        } catch (error) {
+            console.error('Failed to save quiz state:', error);
+            return false;
+        }
+    },
+
+    // Load saved quiz state from localStorage with validation
+    load() {
+        try {
+            const saved = SafeStorage.getItem(this.STORAGE_KEY, null);
+
+            if (!saved) {
+                return null;
+            }
+
+            // Validate version compatibility
+            if (saved.version !== this.VERSION) {
+                console.warn('Saved quiz version mismatch, discarding');
+                this.clear();
+                return null;
+            }
+
+            // Check staleness (24 hours)
+            if (Date.now() - saved.savedAt > this.MAX_AGE_MS) {
+                console.log('Saved quiz is too old, discarding');
+                this.clear();
+                return null;
+            }
+
+            // Validate mode (exclude practice and exam modes)
+            const validModes = ['area', 'subject', 'random', 'wrong', 'wrong-by-area', 'wrong-by-subject'];
+            if (!validModes.includes(saved.mode)) {
+                console.warn('Saved quiz mode not supported for resume');
+                this.clear();
+                return null;
+            }
+
+            // Validate required fields
+            const requiredFields = ['savedAt', 'mode', 'questionIds', 'currentIndex'];
+            for (const field of requiredFields) {
+                if (saved[field] === undefined) {
+                    console.warn(`Missing required field: ${field}`);
+                    this.clear();
+                    return null;
+                }
+            }
+
+            // Validate that questions still exist
+            const questionIdSet = new Set(allQuestions.map(q => q.ID));
+            const validQuestionIds = saved.questionIds.filter(id => questionIdSet.has(id));
+
+            if (validQuestionIds.length < saved.questionIds.length * 0.5) {
+                // More than 50% questions missing, discard
+                console.warn('Too many questions missing from saved quiz');
+                this.clear();
+                return null;
+            }
+
+            return saved;
+        } catch (error) {
+            console.error('Failed to load saved quiz state:', error);
+            this.clear();
+            return null;
+        }
+    },
+
+    // Clear saved quiz state
+    clear() {
+        SafeStorage.removeItem(this.STORAGE_KEY);
+        console.log('Saved quiz state cleared');
+    },
+
+    // Restore quiz from saved state
+    restore(savedState) {
+        try {
+            // Rebuild questions array from IDs
+            const questionMap = new Map(allQuestions.map(q => [q.ID, q]));
+            const questions = savedState.questionIds
+                .map(id => questionMap.get(id))
+                .filter(q => q !== undefined);
+
+            if (questions.length === 0) {
+                showToast('Impossibile ripristinare il quiz: domande non trovate', 'error');
+                this.clear();
+                return false;
+            }
+
+            // Adjust currentIndex if some questions were removed
+            let currentIndex = savedState.currentIndex;
+            if (currentIndex >= questions.length) {
+                currentIndex = questions.length - 1;
+            }
+
+            // Calculate adjusted start time for accurate elapsed time
+            const adjustedStartTime = Date.now() - savedState.elapsedTime;
+
+            currentQuiz = {
+                questions: questions,
+                currentIndex: currentIndex,
+                answers: savedState.answers || [],
+                flagged: savedState.flagged || [],
+                skipped: savedState.skipped || [],
+                startTime: adjustedStartTime,
+                timer: null,
+                timerDuration: savedState.timerDuration,
+                timerEnabled: savedState.timerEnabled,
+                timeLeft: savedState.timeLeft,
+                isPaused: true, // Start paused to let user review
+                pausedTimeLeft: savedState.timeLeft,
+                isGlobalTimer: false,
+                mode: savedState.mode,
+                target: savedState.target,
+                showFeedback: savedState.showFeedback,
+                requireConfirmation: savedState.requireConfirmation,
+                saveToHistory: true,
+                isPracticeMode: false,
+                isExamMode: false,
+                allowRetry: false,
+                retryCount: 0,
+                autoSaveInterval: null
+            };
+
+            return true;
+        } catch (error) {
+            console.error('Failed to restore quiz:', error);
+            showToast('Errore nel ripristino del quiz', 'error');
+            this.clear();
+            return false;
+        }
+    }
+};
+
+// Helper function to format relative time
+function formatTimeAgo(timestamp) {
+    const seconds = Math.floor((Date.now() - timestamp) / 1000);
+
+    if (seconds < 60) return 'pochi secondi fa';
+    if (seconds < 3600) return `${Math.floor(seconds / 60)} minuti fa`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)} ore fa`;
+    return `${Math.floor(seconds / 86400)} giorni fa`;
+}
+
+// ======================================
 // Loading Manager
 // ======================================
 const LoadingManager = {
@@ -194,6 +378,9 @@ function initApp() {
     setupKeyboardShortcuts();
     setupBottomNavigation();
     checkOnboardingStatus();
+
+    // Check for saved quiz (must be after loadEmbeddedData so questions are available)
+    checkForSavedQuiz();
 }
 
 // ======================================
@@ -389,11 +576,29 @@ function attachEventListeners() {
     document.getElementById('back-from-areas-btn').addEventListener('click', showMainMenu);
     document.getElementById('back-from-history-btn').addEventListener('click', showMainMenu);
     document.getElementById('back-from-results-btn').addEventListener('click', showMainMenu);
-    document.getElementById('quit-quiz-btn').addEventListener('click', () => {
-        if (confirm('Sei sicuro di voler uscire dal quiz? I progressi saranno persi.')) {
-            stopTimer();
-            showMainMenu();
+    document.getElementById('quit-quiz-btn').addEventListener('click', showQuitQuizModal);
+
+    // Resume Quiz Modal buttons
+    document.getElementById('resume-saved-quiz-btn').addEventListener('click', handleResumeQuiz);
+    document.getElementById('discard-saved-quiz-btn').addEventListener('click', handleDiscardSavedQuiz);
+
+    // Quit Quiz Modal buttons
+    document.getElementById('quit-save-btn').addEventListener('click', handleQuitAndSave);
+    document.getElementById('quit-discard-btn').addEventListener('click', handleQuitAndDiscard);
+
+    // Auto-save on visibility change (app going to background)
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            QuizStatePersistence.save();
         }
+    });
+
+    // Auto-save before page unload
+    window.addEventListener('beforeunload', () => {
+        QuizStatePersistence.save();
+    });
+    window.addEventListener('pagehide', () => {
+        QuizStatePersistence.save();
     });
 
     // Question navigation buttons
@@ -1367,6 +1572,9 @@ function startQuiz() {
     const isPracticeMode = mode === 'practice';
     const isExamMode = mode === 'exam';
 
+    // Clear any previously saved quiz state (we're starting fresh)
+    QuizStatePersistence.clear();
+
     currentQuiz = {
         questions: shuffleArray(selectedQuestions),
         currentIndex: 0,
@@ -1388,8 +1596,16 @@ function startQuiz() {
         isGlobalTimer: isExamMode, // Exam mode uses global timer (not per question)
         allowRetry: isPracticeMode, // Practice mode: allow immediate retry (max 2 attempts)
         saveToHistory: !isPracticeMode, // Practice mode: don't save to history
-        retryCount: 0 // Practice mode: track retry attempts per question
+        retryCount: 0, // Practice mode: track retry attempts per question
+        autoSaveInterval: null // Auto-save interval reference
     };
+
+    // Setup auto-save interval (every 30 seconds) for supported modes
+    if (!isPracticeMode && !isExamMode) {
+        currentQuiz.autoSaveInterval = setInterval(() => {
+            QuizStatePersistence.save();
+        }, 30000);
+    }
 
     showQuizView();
     displayQuestion();
@@ -1554,6 +1770,11 @@ function checkAnswer(selectedAnswer, correctAnswer) {
         correctAnswer: correctAnswer,
         isCorrect: isCorrect
     });
+
+    // Save quiz state after each answer (for recovery if app closes)
+    if (!currentQuiz.isPracticeMode && !currentQuiz.isExamMode) {
+        QuizStatePersistence.save();
+    }
 
     // Visual feedback (only if showFeedback is true)
     if (currentQuiz.showFeedback) {
@@ -1872,6 +2093,15 @@ function finishQuiz() {
     }
 
     stopTimer();
+
+    // Clear auto-save interval
+    if (currentQuiz.autoSaveInterval) {
+        clearInterval(currentQuiz.autoSaveInterval);
+        currentQuiz.autoSaveInterval = null;
+    }
+
+    // Clear saved quiz state (quiz completed normally)
+    QuizStatePersistence.clear();
 
     // Celebration haptic feedback on quiz completion
     HapticFeedback.celebration();
@@ -2690,6 +2920,158 @@ function showToast(message) {
 
     const toast = new bootstrap.Toast(toastEl);
     toast.show();
+}
+
+// ======================================
+// Quiz Resume/Quit Modal Functions
+// ======================================
+
+// Mode labels for display in Italian
+const MODE_LABELS = {
+    'area': 'Per Area',
+    'subject': 'Per Materia',
+    'random': 'Casuale',
+    'wrong': 'Domande Sbagliate',
+    'wrong-by-area': 'Sbagliate per Area',
+    'wrong-by-subject': 'Sbagliate per Materia'
+};
+
+// Check for saved quiz on app launch
+function checkForSavedQuiz() {
+    const savedState = QuizStatePersistence.load();
+
+    if (!savedState) {
+        return;
+    }
+
+    // Calculate progress info for display
+    const answeredCount = savedState.answers ? savedState.answers.filter(a => a !== null && a !== undefined).length : 0;
+    const totalCount = savedState.questionIds.length;
+    const progressPercent = Math.round((answeredCount / totalCount) * 100);
+
+    // Update modal content
+    document.getElementById('resume-mode').textContent = MODE_LABELS[savedState.mode] || savedState.mode;
+    document.getElementById('resume-target').textContent = savedState.target || 'N/A';
+    document.getElementById('resume-progress').textContent = `${answeredCount}/${totalCount} (${progressPercent}%)`;
+    document.getElementById('resume-time').textContent = formatTimeAgo(savedState.savedAt);
+
+    // Show the modal
+    const modalEl = document.getElementById('resume-quiz-modal');
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+}
+
+// Handle resume quiz button click
+function handleResumeQuiz() {
+    const savedState = QuizStatePersistence.load();
+
+    if (!savedState) {
+        showToast('Impossibile ripristinare il quiz', 'error');
+        return;
+    }
+
+    if (QuizStatePersistence.restore(savedState)) {
+        // Close the modal
+        const modalEl = document.getElementById('resume-quiz-modal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        if (modal) modal.hide();
+
+        // Show quiz view
+        showQuizView();
+        displayQuestion();
+
+        // Start auto-save interval
+        currentQuiz.autoSaveInterval = setInterval(() => {
+            QuizStatePersistence.save();
+        }, 30000);
+
+        // Show pause overlay since quiz starts paused
+        if (currentQuiz.timerEnabled) {
+            document.getElementById('pause-overlay').classList.remove('hidden');
+            showToast('Quiz ripristinato. Premi Riprendi per continuare.');
+        } else {
+            // If no timer, just unpause and continue
+            currentQuiz.isPaused = false;
+            showToast('Quiz ripristinato!');
+        }
+
+        // Setup swipe gestures
+        setupSwipeGestures();
+    }
+}
+
+// Handle discard saved quiz button click
+function handleDiscardSavedQuiz() {
+    QuizStatePersistence.clear();
+
+    // Close the modal
+    const modalEl = document.getElementById('resume-quiz-modal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+
+    showToast('Quiz precedente eliminato');
+}
+
+// Show quit quiz modal (called when user clicks quit during quiz)
+function showQuitQuizModal() {
+    // Don't show modal for practice or exam mode
+    if (currentQuiz.isPracticeMode || currentQuiz.isExamMode) {
+        // For these modes, use simple confirm
+        if (confirm('Sei sicuro di voler uscire dal quiz? I progressi saranno persi.')) {
+            cleanupQuizState();
+            showMainMenu();
+        }
+        return;
+    }
+
+    const modalEl = document.getElementById('quit-quiz-modal');
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+}
+
+// Handle quit and save button click
+function handleQuitAndSave() {
+    // Save the quiz state
+    QuizStatePersistence.save();
+
+    // Clean up timer but keep state saved
+    stopTimer();
+    if (currentQuiz.autoSaveInterval) {
+        clearInterval(currentQuiz.autoSaveInterval);
+        currentQuiz.autoSaveInterval = null;
+    }
+
+    // Close the modal
+    const modalEl = document.getElementById('quit-quiz-modal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+
+    showToast('Quiz salvato. Potrai riprenderlo più tardi.');
+    showMainMenu();
+}
+
+// Handle quit and discard button click
+function handleQuitAndDiscard() {
+    // Clean up everything
+    cleanupQuizState();
+    QuizStatePersistence.clear();
+
+    // Close the modal
+    const modalEl = document.getElementById('quit-quiz-modal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
+    if (modal) modal.hide();
+
+    showToast('Quiz terminato');
+    showMainMenu();
+}
+
+// Helper to clean up quiz state (timer, intervals)
+function cleanupQuizState() {
+    stopTimer();
+    if (currentQuiz.autoSaveInterval) {
+        clearInterval(currentQuiz.autoSaveInterval);
+        currentQuiz.autoSaveInterval = null;
+    }
 }
 
 // ======================================

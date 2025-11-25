@@ -2138,3 +2138,72 @@ body.dark-mode #weak-points-section .alert-warning {
         margin-bottom: 1rem;
     }
 }
+
+/* ======================================
+   Resume/Quit Quiz Modals
+   ====================================== */
+
+/* Resume Quiz Modal Info List */
+.resume-quiz-info li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.resume-quiz-info li:last-child {
+    border-bottom: none;
+}
+
+.resume-quiz-info li i {
+    color: var(--navbar-bg);
+    width: 24px;
+}
+
+/* Quit Quiz Modal */
+.quit-quiz-info {
+    background-color: var(--stats-item-bg);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+/* Modal Dark Mode Support */
+body.dark-mode #resume-quiz-modal .modal-content,
+body.dark-mode #quit-quiz-modal .modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+body.dark-mode #resume-quiz-modal .modal-header {
+    background-color: var(--navbar-bg) !important;
+}
+
+body.dark-mode #quit-quiz-modal .modal-header {
+    background-color: #8B6914 !important;
+    color: var(--text-primary);
+}
+
+body.dark-mode .resume-quiz-info li {
+    border-color: var(--border-color);
+}
+
+body.dark-mode .resume-quiz-info li i {
+    color: #60a5fa;
+}
+
+body.dark-mode .quit-quiz-info {
+    background-color: var(--stat-card-bg);
+}
+
+body.dark-mode #resume-quiz-modal .btn-outline-danger,
+body.dark-mode #quit-quiz-modal .btn-outline-danger {
+    color: #f87171;
+    border-color: #f87171;
+}
+
+body.dark-mode #resume-quiz-modal .btn-outline-danger:hover,
+body.dark-mode #quit-quiz-modal .btn-outline-danger:hover {
+    background-color: #f87171;
+    color: #1a1a2e;
+}

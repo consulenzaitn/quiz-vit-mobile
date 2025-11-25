@@ -601,6 +601,67 @@
         </div>
     </div>
 
+    <!-- Resume Quiz Modal -->
+    <div class="modal fade" id="resume-quiz-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">
+                        <i class="bi bi-arrow-repeat me-2"></i>Quiz Non Completato
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>Hai un quiz in sospeso:</p>
+                    <ul class="list-unstyled resume-quiz-info">
+                        <li><i class="bi bi-list-task me-2"></i><strong>Modalità:</strong> <span id="resume-mode"></span></li>
+                        <li><i class="bi bi-tag me-2"></i><strong>Target:</strong> <span id="resume-target"></span></li>
+                        <li><i class="bi bi-percent me-2"></i><strong>Progresso:</strong> <span id="resume-progress"></span></li>
+                        <li><i class="bi bi-clock me-2"></i><strong>Salvato:</strong> <span id="resume-time"></span></li>
+                    </ul>
+                    <p class="text-muted small mb-0">Vuoi riprendere da dove ti sei fermato?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" id="discard-saved-quiz-btn">
+                        <i class="bi bi-trash me-1"></i>Elimina
+                    </button>
+                    <button type="button" class="btn btn-primary" id="resume-saved-quiz-btn">
+                        <i class="bi bi-play-fill me-1"></i>Riprendi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quit Quiz Modal -->
+    <div class="modal fade" id="quit-quiz-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title">
+                        <i class="bi bi-box-arrow-left me-2"></i>Uscire dal Quiz?
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>Vuoi salvare il progresso per riprenderlo più tardi?</p>
+                    <div class="quit-quiz-info">
+                        <small class="text-muted">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Il quiz salvato sarà disponibile per 24 ore.
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" id="quit-discard-btn">
+                        <i class="bi bi-trash me-1"></i>Elimina
+                    </button>
+                    <button type="button" class="btn btn-success" id="quit-save-btn">
+                        <i class="bi bi-save me-1"></i>Salva ed Esci
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Embedded Data -->
