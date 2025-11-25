@@ -424,7 +424,7 @@ window.QUIZ_DATA = [
     "Domanda": "Il comitato provinciale per l'ordine e la sicurezza pubblica:",
     "RispostaCorretta": "Valuta le problematiche emergenti individuando possibili strategie d’azione utilizzando, all'occorrenza, le diverse forze di polizia presenti sul territorio e verificando l'andamento dei risultati conseguiti",
     "RispostaErrata1": "Valuta esclusivamente tematiche afferenti la criminalità organizzata ed il terrorismo",
-    "RispostaErrata2": "Valuta esclusivamente tematiche afferenti l’O.P. In occasione di manifestazioni sportative",
+    "RispostaErrata2": "Valuta esclusivamente tematiche afferenti l’O.P. In occasione di manifestazioni sportive",
     "RispostaErrata3": ""
   },
   {
@@ -485,7 +485,7 @@ window.QUIZ_DATA = [
     "ID": 54,
     "Materia": "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
     "Domanda": "Oltre che in caso di istanza prodotta dall’interessato, l’attività di aggiornamento/rettifica dei dati iscritti negli schedari ha carattere di obbligatorietà?",
-    "RispostaCorretta": "Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo SCOpo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt. 3 e 47 del d. Lgs.18 maggio 2018 n. 51.",
+    "RispostaCorretta": "Sì, ed a tal fine gli organi, uffici e comandi delle forze di polizia effettuano periodiche verifiche, allo Scopo di rilevare l’attualità e la correttezza dei dati iscritti, ai sensi del combinato disposto dagli artt. 3 e 47 del d. Lgs.18 maggio 2018 n. 51.",
     "RispostaErrata1": "Sì, ma soltanto quando si ha sentore che l’interessato si è rivolto al garante per la protezione dei dati personali",
     "RispostaErrata2": "Sì, nel caso in cui la sentenza sia favorevole al soggetto segnalato.",
     "RispostaErrata3": ""
@@ -504,7 +504,7 @@ window.QUIZ_DATA = [
     "Materia": "BANCA DATI INTERFORZE CED - AGGIORNAMENTO DELLA BANCA DATI INTERFORZE ACCESSO AI DATI",
     "Domanda": "La direzione centrale della polizia criminale può omettere di provvedere in merito alla richiesta di accesso ai dati prodotta dall’interessato?",
     "RispostaCorretta": "Sì, se ciò può pregiudicare azioni o operazioni a tutela dell’ordine e della sicurezza pubblica o di prevenzione e repressione della criminalità, dandone informazione al garante per la protezione dei dati personali, ai sensi di quanto disposto dall'art. 10 della legge 1° aprile 1981 n. 121.",
-    "RispostaErrata1": "Sì, allorchè l’istanza non è regolarizzata in base alla normativa sul bollo.",
+    "RispostaErrata1": "Sì, allorché l’istanza non è regolarizzata in base alla normativa sul bollo.",
     "RispostaErrata2": "No, mai: perché ciò configurerebbe una violazione dell’articolo 328 c.p. (omissione o rifiuto di atti d’ufficio)",
     "RispostaErrata3": ""
   },
@@ -817,7 +817,7 @@ window.QUIZ_DATA = [
   {
     "ID": 91,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il daspo è?",
+    "Domanda": "Il DASPO è?",
     "RispostaCorretta": "Una misura di prevenzione",
     "RispostaErrata1": "Una misura di sicurezza",
     "RispostaErrata2": "Un atto di competenza esclusiva della P.G.",
@@ -826,25 +826,25 @@ window.QUIZ_DATA = [
   {
     "ID": 92,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il daspo può essere adottato quando?",
+    "Domanda": "Il DASPO può essere adottato quando?",
     "RispostaCorretta": "Il soggetto ha preso parte attiva ad episodi di violenza su persone o cose in occasione o a causa di manifestazioni sportive",
     "RispostaErrata1": "Il soggetto ha preso parte attiva ad episodi di violenza su persone o cose anche in assenza di manifestazioni sportive",
-    "RispostaErrata2": "Il soggetto ha posto in essere una qualsiasi violazione amminstrativa o penale in occasione di manifestazioni sportive",
+    "RispostaErrata2": "Il soggetto ha posto in essere una qualsiasi violazione amministrativa o penale in occasione di manifestazioni sportive",
     "RispostaErrata3": ""
   },
   {
     "ID": 93,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il daspo può essere adottato quando?",
+    "Domanda": "Il DASPO può essere adottato quando?",
     "RispostaCorretta": "Per atti comunque collegati ad un evento sportivo che possono anche essere cronologicamente antecedenti ovvero successivi allo stesso.",
     "RispostaErrata1": "Solo a causa di atti compiuti durante lo svolgimento di una manifestazione sportiva",
-    "RispostaErrata2": "Mai per atti svolti prima di una manifestazoine sportiva",
+    "RispostaErrata2": "Mai per atti svolti prima di una manifestazione sportiva",
     "RispostaErrata3": ""
   },
   {
     "ID": 94,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Chi «supera indebitamente una recinzione o separazione dell’impianto ovvero invade il terreno di gioco» può ossere soggetto al daspo se?",
+    "Domanda": "Chi «supera indebitamente una recinzione o separazione dell’impianto ovvero invade il terreno di gioco» può essere soggetto al DASPO se?",
     "RispostaCorretta": "Vi sia scavalcamento o superamento di un ostacolo materiale",
     "RispostaErrata1": "Si sposta da un settore ad un altro approfittando di un varco occasionalmente lasciato aperto",
     "RispostaErrata2": "Solo se scavalca una recinzione superiore a 3 metri",
@@ -862,7 +862,7 @@ window.QUIZ_DATA = [
   {
     "ID": 96,
     "Materia": "DASPO E DACUR",
-    "Domanda": "È previsto il daspo per la violazione del regolamento d’uso dell’impianto sportivo?",
+    "Domanda": "È previsto il DASPO per la violazione del regolamento d’uso dell’impianto sportivo?",
     "RispostaCorretta": "È necessario che in precedenza sia stata già irrogato una sanzione per la violazione del regolamento",
     "RispostaErrata1": "Sempre",
     "RispostaErrata2": "Mai",
@@ -871,7 +871,7 @@ window.QUIZ_DATA = [
   {
     "ID": 97,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il dacur?",
+    "Domanda": "Il DACUR?",
     "RispostaCorretta": "Una misura di prevenzione",
     "RispostaErrata1": "Una misura di sicurezza",
     "RispostaErrata2": "Un atto di competenza esclusiva della P.G.",
@@ -880,7 +880,7 @@ window.QUIZ_DATA = [
   {
     "ID": 98,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il dacur?",
+    "Domanda": "Il DACUR?",
     "RispostaCorretta": "Deve essere sempre motivato",
     "RispostaErrata1": "Non deve essere motivato",
     "RispostaErrata2": "Deve essere motivato solo nei casi più gravi",
@@ -889,7 +889,7 @@ window.QUIZ_DATA = [
   {
     "ID": 99,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il dacur presuppone tra l'altro tra i suoi requsiti?",
+    "Domanda": "Il DACUR presuppone tra l'altro tra i suoi requisiti?",
     "RispostaCorretta": "Un pericolo per la sicurezza",
     "RispostaErrata1": "La commissione di un reato",
     "RispostaErrata2": "Una manifestazione sportiva",
@@ -898,7 +898,7 @@ window.QUIZ_DATA = [
   {
     "ID": 100,
     "Materia": "DASPO E DACUR",
-    "Domanda": "Il dacur è sanzionabile?",
+    "Domanda": "Il DACUR è sanzionabile?",
     "RispostaCorretta": "Per violazioni definite dalla normativa compiute in aree specifiche",
     "RispostaErrata1": "Per qualunque reato o violazione commessa in una zona urbana",
     "RispostaErrata2": "Per violazioni definite dalla normativa compiute in qualunque area urbana",
@@ -1099,7 +1099,7 @@ window.QUIZ_DATA = [
     "Domanda": "L'atto rifiutato ai sensi del primo comma dell'art. 328 c.p. Può concernere",
     "RispostaCorretta": "Ordine e sicurezza pubblica",
     "RispostaErrata1": "Urbanistica",
-    "RispostaErrata2": "Settore SCOlastico",
+    "RispostaErrata2": "Settore Scolastico",
     "RispostaErrata3": ""
   },
   {
@@ -1151,7 +1151,7 @@ window.QUIZ_DATA = [
     "ID": 128,
     "Materia": "DIRITTO PENALE. OMISSIONE O RIFIUTO DI ATTI D’UFFICIO. INDEBITA DESTINAZIONE DI DENARO O COSE MOBILI",
     "Domanda": "Che caratteristiche ha il vantaggio conseguito dal pubblico ufficiale o incaricato di pubblico servizio per sé o per altri nel delitto di indebita destinazione di denaro o cose mobili?",
-    "RispostaCorretta": "Ingiusto e atrimoniale",
+    "RispostaCorretta": "Ingiusto e patrimoniale",
     "RispostaErrata1": "Ingiusto",
     "RispostaErrata2": "Patrimoniale",
     "RispostaErrata3": ""
@@ -1222,7 +1222,7 @@ window.QUIZ_DATA = [
   {
     "ID": 136,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
-    "Domanda": "Il piano triennale per la prevenzione anticorruzione (ptcp) è approvato da:",
+    "Domanda": "Il piano triennale per la prevenzione anticorruzione (PTCP) è approvato da:",
     "RispostaCorretta": "Organo di indirizzo politico dell'amministrazione",
     "RispostaErrata1": "Prefetto.",
     "RispostaErrata2": "Responsabile della prevenzione della corruzione.",
@@ -1249,7 +1249,7 @@ window.QUIZ_DATA = [
   {
     "ID": 139,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
-    "Domanda": "Quali tra le seguenti non rientra tra le quattro aree a rischio dicorruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione:",
+    "Domanda": "Quali tra le seguenti non rientra tra le quattro aree a rischio di corruzione comuni e obbligatorie per tutte le amministrazioni pubbliche individuate nel primo piano nazionale anticorruzione:",
     "RispostaCorretta": "Gestione degli archivi.",
     "RispostaErrata1": "Acquisizione e progressione del personale.",
     "RispostaErrata2": "Affidamento di lavori, servizi e forniture.",
@@ -1258,7 +1258,7 @@ window.QUIZ_DATA = [
   {
     "ID": 140,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE I",
-    "Domanda": "Quali tra questi organismi esercita lavigilanza e il controllo sull’attuazione efficace delle misure di prevenzione della corruzione e sul rispetto delle regole sulla trasparenza:",
+    "Domanda": "Quali tra questi organismi esercita la vigilanza e il controllo sull’attuazione efficace delle misure di prevenzione della corruzione e sul rispetto delle regole sulla trasparenza:",
     "RispostaCorretta": "L’anac.",
     "RispostaErrata1": "L’enav.",
     "RispostaErrata2": "Il csm.",
@@ -1286,7 +1286,7 @@ window.QUIZ_DATA = [
     "ID": 143,
     "Materia": "DISCIPLINA IN MATERIA DI CONTRASTO E PREVENZIONE DELLA CORRUZIONE - PARTE II",
     "Domanda": "Il patto di integrità del ministero dell’interno si applica",
-    "RispostaCorretta": "A tutte le procedure di gara bandite dall’ amministrazione, sopra e sotto soglia",
+    "RispostaCorretta": "A tutte le procedure di gara bandite dall’amministrazione, sopra e sotto soglia",
     "RispostaErrata1": "Alle sole procedura di gara sopra soglia",
     "RispostaErrata2": "Alle sole procedura sotto soglia",
     "RispostaErrata3": ""
@@ -1475,7 +1475,7 @@ window.QUIZ_DATA = [
     "ID": 164,
     "Materia": "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE I",
     "Domanda": "Cosa caratterizza l'illecito penale?",
-    "RispostaCorretta": "L'art 73 dpr 309 del 90 richiama moltissime condotte per evitare spazi di impounità ma risulta ben chairo che l'illecito penale si caratterizza per la destinazione a terzi della sostanza",
+    "RispostaCorretta": "L'art 73 dpr 309 del 90 richiama moltissime condotte per evitare spazi di impunità ma risulta ben chiaro che l'illecito penale si caratterizza per la destinazione a terzi della sostanza",
     "RispostaErrata1": "L'illecito penale non si caratterizza per un fatto ma va valutato di volta in volta",
     "RispostaErrata2": "La detenzione della sostanza definisce l'illecito penale",
     "RispostaErrata3": ""
@@ -1520,7 +1520,7 @@ window.QUIZ_DATA = [
     "ID": 169,
     "Materia": "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE I",
     "Domanda": "Per fatto di lieve entità procediamo ad arresto del soggetto?",
-    "RispostaCorretta": "No, ma se si reputa opportuno procedre ad arresto facoltativo indicheremo i motivi",
+    "RispostaCorretta": "No, ma se si reputa opportuno procedere ad arresto facoltativo indicheremo i motivi",
     "RispostaErrata1": "Sì, sempre",
     "RispostaErrata2": "No, mai",
     "RispostaErrata3": ""
@@ -1528,7 +1528,7 @@ window.QUIZ_DATA = [
   {
     "ID": 170,
     "Materia": "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE I",
-    "Domanda": "L'associazione a deliquere ex art. 74 attribuisce particolari poteri di indagine?",
+    "Domanda": "L'associazione a delinquere ex art. 74 attribuisce particolari poteri di indagine?",
     "RispostaCorretta": "Sì, attribuisce competenza alle procure distrettuali antimafia con connessi forti poteri ed incisivi strumenti investigativi e diversa durata delle indagini",
     "RispostaErrata1": "No, non attribuisce particolari poteri",
     "RispostaErrata2": "Sì,m ma la competenza è sempre della procura ordinaria",
@@ -1538,7 +1538,7 @@ window.QUIZ_DATA = [
     "ID": 171,
     "Materia": "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE II",
     "Domanda": "Quali sono le finalità delle sanzioni amministrative previste da art. 75 dpr 309/90?",
-    "RispostaCorretta": "Costituiscono un modo per SCOraggiare il consumatore dal tenere condotte che possano rappresentare pericolo per se stesso e la collettività",
+    "RispostaCorretta": "Costituiscono un modo per Scoraggiare il consumatore dal tenere condotte che possano rappresentare pericolo per se stesso e la collettività",
     "RispostaErrata1": "Costituiscono la premessa per l’irrogazione delle sanzioni penali",
     "RispostaErrata2": "Si aggiungono ai programmi di recupero e dissuefazione",
     "RispostaErrata3": ""
@@ -1620,7 +1620,7 @@ window.QUIZ_DATA = [
     "Materia": "DISCIPLINA LEGISLAZIONE SUGLI STUPEFACENTI - PARTE II",
     "Domanda": "Cosa si intende per “confisca per equivalente”?",
     "RispostaCorretta": "Rappresenta uno strumento ablatorio “surrogatorio” che consente di aggredire, per un valore corrispondente a quelli originari, beni o utilità di provenienza lecita presenti nella sfera patrimoniale del soggetto condannato per il reato di narcotraffico trasnazionale",
-    "RispostaErrata1": "Rappresenta una misura di prevenzione patrimoniale ablatoria potenzialmente comprensiva dell'intero patrimonio illecitamente accumulato, purchè vi sia un nesso di pertinenzialità, anche di natura temporale, con il reato per il quale il soggetto risulta indiziato",
+    "RispostaErrata1": "Rappresenta una misura di prevenzione patrimoniale ablatoria potenzialmente comprensiva dell'intero patrimonio illecitamente accumulato, purché vi sia un nesso di pertinenzialità, anche di natura temporale, con il reato per il quale il soggetto risulta indiziato",
     "RispostaErrata2": "Rappresenta una misura di prevenzione patrimoniale ablatoria potenzialmente comprensiva dell'intero patrimonio illecitamente accumulato, pur in assenza di un qualsiasi nesso di pertinenzialità, anche di natura temporale, con il reato per il quale il soggetto risulta indiziato",
     "RispostaErrata3": ""
   },
@@ -1808,7 +1808,7 @@ window.QUIZ_DATA = [
     "ID": 201,
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
     "Domanda": "Quale è la procedura iniziale a livello nazionale ed europeo da parte dell'operatore di polizia per la rimozione dei contenuti terroristici online?",
-    "RispostaCorretta": "Individuazionedei link specifici, informazione al pubblico ministero distrettuale,",
+    "RispostaCorretta": "Individuazione dei link specifici, informazione al pubblico ministero distrettuale,",
     "RispostaErrata1": "Individuazione dei link specifici - informazione al giudice indagini preliminari",
     "RispostaErrata2": "Individuazione dei link specifici- intimazione al social network pe la rimozione",
     "RispostaErrata3": ""
@@ -1817,8 +1817,8 @@ window.QUIZ_DATA = [
     "ID": 202,
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
     "Domanda": "Cosa definisce il termine \"hate speech\"",
-    "RispostaCorretta": "Tutte le forme di espressione che diffondono incitano e promuovono l'odio razziale, la xenofobia,l0'antisemistismo e forme d'odio basate sull'intolleranza.",
-    "RispostaErrata1": "Tutte le forme che promuovono le campagne di difesa dell'odio razziale, la xenofobia,l'antisemistismo e forme d'odio basate sull'intolleranza.",
+    "RispostaCorretta": "Tutte le forme di espressione che diffondono incitano e promuovono l'odio razziale, la xenofobia,l0'antisemitismo e forme d'odio basate sull'intolleranza.",
+    "RispostaErrata1": "Tutte le forme che promuovono le campagne di difesa dell'odio razziale, la xenofobia,l'antisemitismo e forme d'odio basate sull'intolleranza.",
     "RispostaErrata2": "Tute le categorie virali di vittimizzazione nei confronti di categorie deboli",
     "RispostaErrata3": ""
   },
@@ -1827,14 +1827,14 @@ window.QUIZ_DATA = [
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
     "Domanda": "Nel crimine d'odio quale è la ragione specifica di appartenenza?",
     "RispostaCorretta": "La categoria assunta come target offender",
-    "RispostaErrata1": "La categoria assunata come target defender",
-    "RispostaErrata2": "La gategoria di genere del sex offender",
+    "RispostaErrata1": "La categoria assunta come target defender",
+    "RispostaErrata2": "La categoria di genere del sex offender",
     "RispostaErrata3": ""
   },
   {
     "ID": 204,
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
-    "Domanda": "Quale articolo del codice penale punisce chi propaganda idee fondate sulla superiorità o sull'odio raziale o etnico?",
+    "Domanda": "Quale articolo del codice penale punisce chi propaganda idee fondate sulla superiorità o sull'odio razziale o etnico?",
     "RispostaCorretta": "Art. 604 bis c.p.",
     "RispostaErrata1": "Art. 640 c.p. Bis",
     "RispostaErrata2": "Art 644 c.p. Bis",
@@ -1863,7 +1863,7 @@ window.QUIZ_DATA = [
     "Materia": "HATE SPEECH, PROSELITISMO E MANIFESTAZIONI DI ESTREMISMO IN RETE",
     "Domanda": "Parallelismi tra white supremacy e white jihad.",
     "RispostaCorretta": "Difesa della purezza religiosa e etnica, elogio al martirio, ampio utilizzo del web, la celebrazione dell'atto violento in rete",
-    "RispostaErrata1": "Difesa della purezza religiosa o etnica, elogio al martirio, scarso utiizzo del web per la propaganda, celebrazione dell'atto violento su youtube.",
+    "RispostaErrata1": "Difesa della purezza religiosa o etnica, elogio al martirio, scarso utilizzo del web per la propaganda, celebrazione dell'atto violento su youtube.",
     "RispostaErrata2": "Difesa della purezza religiosa o etnica, inneggiamento al colore bianco della pele, ampio utilizzo del web, propaganda sui giornali",
     "RispostaErrata3": ""
   },
@@ -1898,9 +1898,9 @@ window.QUIZ_DATA = [
     "ID": 211,
     "Materia": "I CRIMINI INFORMATICI. LA POLIZIA POSTALE E DELLE COMUNICAZIONI: PREVENZIONE E REPRESSIONE DEL CRIMINE SUL WEB",
     "Domanda": "Come si articola la polizia postale e per la sicurezza cibernetica",
-    "RispostaCorretta": "Un servizio centrale, 18 c.o.s.c. E 82 s.o.s.c.",
-    "RispostaErrata1": "Un servizio centrale, 22 c.o.s.c. E 70 s.o.s.c.",
-    "RispostaErrata2": "Un servizio centrale, 30 c.o.s.c. 72 s.o.s.c.",
+    "RispostaCorretta": "Un servizio centrale, 18 C.O.S.C. E 82 S.O.S.C.",
+    "RispostaErrata1": "Un servizio centrale, 22 C.O.S.C. E 70 S.O.S.C.",
+    "RispostaErrata2": "Un servizio centrale, 30 C.O.S.C. 72 S.O.S.C.",
     "RispostaErrata3": ""
   },
   {
@@ -1908,7 +1908,7 @@ window.QUIZ_DATA = [
     "Materia": "I CRIMINI INFORMATICI. LA POLIZIA POSTALE E DELLE COMUNICAZIONI: PREVENZIONE E REPRESSIONE DEL CRIMINE SUL WEB",
     "Domanda": "Quali sono i centri istituiti in seno al servizio polizia postale e per la sicurezza cibernetica?",
     "RispostaCorretta": "CNAIPIC - commissariato di P.S. Online - CNCPO",
-    "RispostaErrata1": "CNAIPIC - commissariato di P.S. Online - dna",
+    "RispostaErrata1": "CNAIPIC - commissariato di P.S. Online - DNA",
     "RispostaErrata2": "SCO - commissariato di P.S. Online - CNCPO",
     "RispostaErrata3": ""
   },
@@ -3412,7 +3412,7 @@ window.QUIZ_DATA = [
     "Domanda": "Non è condizione di ingresso nell’area schengen:",
     "RispostaCorretta": "Essere cittadino italiano",
     "RispostaErrata1": "Non essere segnalato in s.i.s. Ai fini del respingimento o del rifiuto di soggiorno nell’area schengen",
-    "RispostaErrata2": "Giustificare SCOpo e condizioni del soggiorno previsto",
+    "RispostaErrata2": "Giustificare Scopo e condizioni del soggiorno previsto",
     "RispostaErrata3": ""
   },
   {
@@ -3516,7 +3516,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 391,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "L'uso della lingua italiana è",
     "RispostaCorretta": "Obbligatorio",
     "RispostaErrata1": "Raccomandato",
@@ -3525,7 +3525,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 392,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Tra i doveri del personale rientra",
     "RispostaCorretta": "Non abusare dell'autorità",
     "RispostaErrata1": "Frequentare persone di dubbia moralità",
@@ -3534,7 +3534,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 393,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale è tenuto al rispetto ed alla lealtà nei confronti",
     "RispostaCorretta": "Dei superiori e dei colleghi",
     "RispostaErrata1": "Dei soli superiori",
@@ -3543,7 +3543,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 394,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale della polizia di stato deve avere particolare cura della propria persona e dell'aspetto esteriore al fine di",
     "RispostaCorretta": "Evitare giudizi negativi incidenti sul prestigio e sul decoro dell'amministrazione",
     "RispostaErrata1": "Evitare problematiche di carattere igenico-sanitario",
@@ -3552,7 +3552,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 395,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale della polizia di stato ha l'obbligo di presentarsi in servizio",
     "RispostaCorretta": "All'ora stabilita in perfetto ordine nella persona e con il vestiario, equipaggiamento ed armamento prescritti",
     "RispostaErrata1": "Appena pronto e con l'armamento in dotaione individuale",
@@ -3561,7 +3561,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 396,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale della polizia di stato durante il servizio d'istituto",
     "RispostaCorretta": "È tenuto ad indossare l'uniforme secondo le modalità previste",
     "RispostaErrata1": "È esonerato dall'indossare il berretto",
@@ -3570,7 +3570,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 397,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale della polizia di stato",
     "RispostaCorretta": "Non può fornire prestazioni lavorative che non siano attinenti al servizio di istituto",
     "RispostaErrata1": "Può fornire prestazioni di lavoro, o esercitare mestieri e professioni, solo fuori dell'orario di servizio",
@@ -3579,7 +3579,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 398,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Il personale della polizia di stato apprende le istruzioni sul servizio",
     "RispostaCorretta": "Nell'ordine e nel foglio di servizio",
     "RispostaErrata1": "Dal capo turno",
@@ -3588,7 +3588,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 399,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Al termine del servizio il personale è tenuto",
     "RispostaCorretta": "Riferire su ogni fatto rilevante accaduto in servizio con relazione e compilare eventuali ulteriori atti se prescritti dalla normativa",
     "RispostaErrata1": "Ad una segnalazione informale e dei soli fatti rilevanti",
@@ -3597,7 +3597,7 @@ window.QUIZ_DATA = [
   },
   {
     "ID": 400,
-    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENENERALI E PARTICOLARI",
+    "Materia": "L'AMMINISTRAZIONE DELLA PS DOVERI GENERALI E PARTICOLARI",
     "Domanda": "Al personale della polizia di stato può essere fatto obbligo al termine del servizio di mantenere la reperibilità",
     "RispostaCorretta": "Quando si prevede la possibilità del verificarsi di situazioni che richiedono la presenza di personale nel posto di lavoro",
     "RispostaErrata1": "Per esigenze del dirigente dell'ufficio",
@@ -5410,7 +5410,7 @@ window.QUIZ_DATA = [
     "Domanda": "Scomparso, disperso e irreperibile sono figure equivalenti?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
-    "RispostaErrata2": "Solo SCOmparso e disperso",
+    "RispostaErrata2": "Solo Scomparso e disperso",
     "RispostaErrata3": ""
   },
   {
@@ -5425,10 +5425,10 @@ window.QUIZ_DATA = [
   {
     "ID": 603,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "La materia delle persone SCOmparse è disciplinata da una sola legge?",
+    "Domanda": "La materia delle persone Scomparse è disciplinata da una sola legge?",
     "RispostaCorretta": "No",
     "RispostaErrata1": "Si",
-    "RispostaErrata2": "Dipende dal luogo di SCOmparsa?",
+    "RispostaErrata2": "Dipende dal luogo di Scomparsa?",
     "RispostaErrata3": ""
   },
   {
@@ -5443,7 +5443,7 @@ window.QUIZ_DATA = [
   {
     "ID": 605,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Quante sono, mediamente, le denunce di SCOmparsa per anno in italia?",
+    "Domanda": "Quante sono, mediamente, le denunce di Scomparsa per anno in italia?",
     "RispostaCorretta": "Più di 10000",
     "RispostaErrata1": "Meno di 10000",
     "RispostaErrata2": "Fra 1000 e 5000",
@@ -5452,7 +5452,7 @@ window.QUIZ_DATA = [
   {
     "ID": 606,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Chi può denunciare la notizia di una SCOmparsa?",
+    "Domanda": "Chi può denunciare la notizia di una Scomparsa?",
     "RispostaCorretta": "Chiunque",
     "RispostaErrata1": "Un familiare",
     "RispostaErrata2": "Familiari e parenti",
@@ -5461,7 +5461,7 @@ window.QUIZ_DATA = [
   {
     "ID": 607,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "La denuncia di SCOmparsa va inserita al c.e.d.?",
+    "Domanda": "La denuncia di Scomparsa va inserita al c.e.d.?",
     "RispostaCorretta": "Si",
     "RispostaErrata1": "Dipende dal caso",
     "RispostaErrata2": "Si, se disposto dalla magistratura",
@@ -5479,7 +5479,7 @@ window.QUIZ_DATA = [
   {
     "ID": 609,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Il commissario di governo per le persone SCOmparse si occupa anche di cadaveri non identificati?",
+    "Domanda": "Il commissario di governo per le persone Scomparse si occupa anche di cadaveri non identificati?",
     "RispostaCorretta": "Si",
     "RispostaErrata1": "No",
     "RispostaErrata2": "Dipende dai casi",
@@ -5488,7 +5488,7 @@ window.QUIZ_DATA = [
   {
     "ID": 610,
     "Materia": "L’UFFICIO DEL COMMISSARIO STRAORDINARIO PER LE PERSONE SCOMPARSE",
-    "Domanda": "Le associazioni possono concorrere alle ricerche delle persone SCOmparse?",
+    "Domanda": "Le associazioni possono concorrere alle ricerche delle persone Scomparse?",
     "RispostaCorretta": "Si",
     "RispostaErrata1": "No",
     "RispostaErrata2": "Solo se autorizzati dal prefetto",
@@ -6748,8 +6748,8 @@ window.QUIZ_DATA = [
   {
     "ID": 750,
     "Materia": "USO LEGITTIMO DELLE ARMI",
-    "Domanda": "Sparare in aria a SCOpo intimidatorio:",
-    "RispostaCorretta": "Non è vietato dalla legge, ma è comunque SCOnsigliabile, specie in condizioni di tiro “disagevoli”, per l’elevato rischio di colpire terzi innocenti",
+    "Domanda": "Sparare in aria a Scopo intimidatorio:",
+    "RispostaCorretta": "Non è vietato dalla legge, ma è comunque Sconsigliabile, specie in condizioni di tiro “disagevoli”, per l’elevato rischio di colpire terzi innocenti",
     "RispostaErrata1": "È una pratica vietata dalla legge",
     "RispostaErrata2": "È una pratica che, seppur pericolosa, è sempre consigliabile per risolvere tutte le situazioni “difficili”",
     "RispostaErrata3": ""

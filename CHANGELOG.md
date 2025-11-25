@@ -4,6 +4,74 @@ Tutte le modifiche importanti al progetto sono documentate in questo file.
 
 ---
 
+## [v1.8.0] - 2025-11-25
+
+### ✨ Feature - Sospensione e Ripresa Quiz
+
+#### ⏸️ Aggiunto - Quiz Suspend & Resume
+
+**Nuova funzionalità che permette di sospendere un quiz in corso e riprenderlo in seguito.**
+
+**Caratteristiche principali:**
+
+1. **Sospensione Quiz**
+   - Pulsante "Sospendi" visibile durante il quiz
+   - Salva automaticamente lo stato completo del quiz
+   - Torna al menu principale mantenendo i dati
+   - Conferma prima di sospendere
+
+2. **Ripresa Quiz**
+   - Card "Quiz Sospeso" nel menu principale quando presente
+   - Mostra informazioni: modalità, progresso, data sospensione
+   - Pulsante "Riprendi" per continuare dal punto esatto
+   - Pulsante "Elimina" per cancellare il quiz sospeso
+
+3. **Stato Salvato**
+   - Domanda corrente e indice
+   - Risposte date finora
+   - Punteggio parziale
+   - Configurazione quiz (modalità, timer, opzioni)
+   - Tempo rimanente (se timer attivo)
+   - Data e ora sospensione
+
+**Dettagli tecnici:**
+
+- `suspendQuiz()`: salva stato in localStorage e torna al menu
+- `resumeQuiz()`: ripristina stato completo e continua
+- `deleteSuspendedQuiz()`: elimina quiz sospeso
+- `checkSuspendedQuiz()`: verifica presenza quiz sospeso all'avvio
+- `displaySuspendedQuizCard()`: mostra card nel menu principale
+- Chiave localStorage: `suspendedQuiz`
+
+**UI/UX:**
+
+- Card dedicata con badge "⏸️ In Pausa"
+- Informazioni chiare su progresso e modalità
+- Bottoni azione ben visibili
+- Dark mode support completo
+- Animazione smooth per la card
+
+**Casi d'uso:**
+
+- Interrompere quiz per rispondere al telefono
+- Continuare studio in un secondo momento
+- Riprendere dopo chiusura accidentale app
+- Gestire interruzioni durante Exam Mode
+
+**Limitazioni:**
+
+- Solo un quiz sospeso alla volta
+- Avviare nuovo quiz sovrascrive quello sospeso (con conferma)
+- Quiz sospeso persiste fino a completamento o eliminazione
+
+**Files modificati:**
+
+- `js/app.js`: +120 righe (funzioni suspend/resume)
+- `index.html`: +25 righe (UI card sospeso + pulsante sospendi)
+- `css/style.css`: +35 righe (styling card sospeso)
+
+---
+
 ## [v1.7.3] - 2025-11-24
 
 ### 🔧 Fixed - Correzioni materie e sigle maiuscole
@@ -1071,6 +1139,5 @@ e il progetto aderisce a [Semantic Versioning](https://semver.org/).
 
 ---
 
-**Versione corrente**: v1.1.0
-**Service Worker**: v5
-**Ultimo aggiornamento**: 2025-11-24
+**Versione corrente**: v1.8.0
+**Ultimo aggiornamento**: 2025-11-25
